@@ -1,0 +1,84 @@
+<!-- @dsCard group="Week 1 · Feed posts" -->
+<!--
+  DAY 7 · Weekly recap / download — feed post 1080×1080 (Instagram + Facebook)
+  Bookend of day 1: same hero-grad + glass kicker. Screen: profile.png (stats hero
+  + weekly chart visible; canvas edge crops the bar bottoms).
+-->
+<meta charset="utf-8">
+<title>Day 7 — Weekly recap (feed 1080×1080)</title>
+<link rel="stylesheet" href="../brand/brand.css">
+<style>
+  body { width: 1080px; height: 1080px; overflow: hidden; }
+  .canvas {
+    width: 1080px; height: 1080px;
+    background: var(--hero-grad);
+    color: var(--white);
+  }
+  .glow.g1 { width: 620px; height: 620px; right: -160px; top: -220px; background: rgba(255, 255, 255, 0.22); }
+  .glow.g2 { width: 560px; height: 560px; left: -200px; bottom: -220px; background: rgba(178, 60, 0, 0.45); }
+
+  .lockup { position: absolute; top: 64px; left: 72px; }
+  .lockup img { width: 84px; height: 84px; }
+  .lockup .word { font-size: 46px; color: var(--white); }
+
+  .copy { position: absolute; left: 72px; top: 268px; width: 565px; }
+  .kicker {
+    background: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    padding: 16px 28px;
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .headline {
+    margin-top: 44px;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+  }
+  .headline em { font-style: normal; color: #ffe3c9; }
+  .sub {
+    margin-top: 36px;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .cta { position: absolute; left: 72px; bottom: 96px; display: flex; align-items: center; gap: 26px; }
+  .cta .primary { background: var(--white); color: var(--primary); padding: 26px 44px; font-size: 29px; box-shadow: 0 16px 40px rgba(120, 45, 0, 0.35); }
+  .cta .stores { font-size: 24px; font-weight: 700; color: rgba(255, 255, 255, 0.9); }
+
+  .phone { position: absolute; right: -26px; top: 205px; width: 430px; transform: rotate(-5deg); }
+  .phone .screen { height: 880px; }
+
+  .chip { left: 540px; top: 148px; padding: 22px 30px; font-size: 25px; transform: rotate(3deg); }
+  .chip .em { font-size: 32px; }
+</style>
+
+<div class="canvas">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="lockup">
+    <img src="../assets/app-icon.png" alt="">
+    <div class="word">Buzzend</div>
+  </div>
+
+  <div class="copy">
+    <span class="pill kicker">⚡ DAY 7 · WEEKLY RECAP</span>
+    <div class="headline">Your week, <em>counted.</em></div>
+    <div class="sub">Every rep, step and streak in one place. Start Monday with your crew on Buzzend.</div>
+  </div>
+
+  <div class="cta">
+    <span class="pill primary">Download free</span>
+    <span class="stores">App Store · Google Play</span>
+  </div>
+
+  <div class="phone">
+    <div class="screen"><img src="../assets/screens-clean/profile.png" alt="Buzzend weekly recap profile screen"></div>
+  </div>
+
+  <div class="chip"><span class="em">📈</span> 47 days · 14 challenges</div>
+</div>

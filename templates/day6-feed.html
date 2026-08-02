@@ -1,0 +1,82 @@
+<!-- @dsCard group="Week 1 · Feed posts" -->
+<!--
+  DAY 6 · Community — feed post 1080×1080 (Instagram + Facebook)
+  Reuse: swap .kicker / .headline / .sub / .cta text and the screenshot.
+-->
+<meta charset="utf-8">
+<title>Day 6 — Community (feed 1080×1080)</title>
+<link rel="stylesheet" href="../brand/brand.css">
+<style>
+  body { width: 1080px; height: 1080px; overflow: hidden; }
+  .canvas {
+    width: 1080px; height: 1080px;
+    background: linear-gradient(165deg, #ffffff 0%, var(--canvas) 50%, #ffeede 100%);
+    color: var(--ink);
+  }
+  .glow.g1 { width: 620px; height: 620px; right: -180px; top: -220px; background: rgba(255, 107, 0, 0.20); }
+  .glow.g2 { width: 560px; height: 560px; left: -220px; bottom: -240px; background: rgba(255, 159, 67, 0.32); }
+
+  .lockup { position: absolute; top: 64px; left: 72px; }
+  .lockup img { width: 84px; height: 84px; }
+  .lockup .word { font-size: 46px; color: var(--ink); }
+
+  .copy { position: absolute; left: 72px; top: 292px; width: 560px; }
+  .kicker {
+    background: var(--primary);
+    color: var(--white);
+    padding: 16px 28px;
+    font-size: 25px;
+    letter-spacing: 3px;
+    box-shadow: 0 12px 30px rgba(255, 107, 0, 0.30);
+  }
+  .headline {
+    margin-top: 44px;
+    font-size: 104px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    color: var(--ink);
+  }
+  .headline em { font-style: normal; color: var(--primary); }
+  .sub {
+    margin-top: 36px;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .cta { position: absolute; left: 72px; bottom: 96px; }
+  .cta .primary { background: var(--primary); color: var(--white); padding: 26px 44px; font-size: 29px; box-shadow: 0 16px 40px rgba(255, 107, 0, 0.35); }
+
+  .phone { position: absolute; right: -34px; top: 150px; width: 440px; transform: rotate(-4deg); }
+  .phone .screen { height: 790px; }
+
+  .chip { left: 500px; top: 112px; padding: 22px 30px; font-size: 25px; transform: rotate(3deg); }
+  .chip .em { font-size: 32px; }
+</style>
+
+<div class="canvas">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="lockup">
+    <img src="../assets/app-icon.png" alt="">
+    <div class="word">Buzzend</div>
+  </div>
+
+  <div class="copy">
+    <span class="pill kicker">DAY 6 · COMMUNITY</span>
+    <div class="headline">Find your <em>people.</em></div>
+    <div class="sub">Trending challenges every week. Join with a code, follow friends, and cheer every rep.</div>
+  </div>
+
+  <div class="cta">
+    <span class="pill primary">Join a challenge</span>
+  </div>
+
+  <div class="phone">
+    <div class="screen"><img src="../assets/screens-clean/discover.png" alt="Buzzend discover screen"></div>
+  </div>
+
+  <div class="chip"><span class="em">🏃</span> Sunrise Squats · 88 joining</div>
+</div>

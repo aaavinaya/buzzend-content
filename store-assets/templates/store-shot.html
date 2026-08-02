@@ -1,0 +1,96 @@
+<!-- @dsCard group="Store · Screenshots" -->
+<!--
+  Parametric store screenshot (App Store / Google Play).
+  Sized by the render viewport; typography scales with vw so the same file
+  serves iOS 6.9" (1320×2868) and Play phone (1080×1920).
+  Query params: kicker, title (use * around the accent word), sub, screen,
+  theme (orange | cream | gold | dark). Defaults show the AI workout shot.
+-->
+<meta charset="utf-8">
+<title>Buzzend — store screenshot</title>
+<link rel="stylesheet" href="../../brand/brand.css">
+<style>
+  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  body { display: flex; flex-direction: column; position: relative; }
+
+  /* themes */
+  body.orange { background: var(--hero-grad); color: var(--white); }
+  body.dark   { background: linear-gradient(165deg, #111111 0%, #2b1200 78%, #5a2500 100%); color: var(--white); }
+  body.cream  { background: linear-gradient(160deg, #ffffff 0%, var(--canvas) 55%, #ffeede 100%); color: var(--ink); }
+  body.gold   { background: linear-gradient(160deg, #ffffff 0%, #fff7ea 55%, #ffefd6 100%); color: var(--ink); }
+
+  .glow.g1 { width: 55vw; height: 55vw; right: -16vw; top: -18vw; }
+  .glow.g2 { width: 48vw; height: 48vw; left: -18vw; bottom: -14vw; }
+  body.orange .glow.g1, body.dark .glow.g1 { background: rgba(255, 255, 255, 0.16); }
+  body.orange .glow.g2 { background: rgba(178, 60, 0, 0.45); }
+  body.dark .glow.g2   { background: rgba(255, 107, 0, 0.28); }
+  body.cream .glow.g1  { background: rgba(255, 107, 0, 0.15); }
+  body.cream .glow.g2  { background: rgba(255, 159, 67, 0.18); }
+  body.gold .glow.g1   { background: rgba(247, 183, 51, 0.25); }
+  body.gold .glow.g2   { background: rgba(226, 91, 64, 0.14); }
+
+  .top { padding: 8.5vw 8vw 0; text-align: center; position: relative; z-index: 2; }
+  .kicker {
+    padding: 1.5vw 2.8vw; font-size: 2.3vw; letter-spacing: 0.42vw;
+  }
+  body.orange .kicker, body.dark .kicker {
+    background: rgba(255, 255, 255, 0.15);
+    border: 0.2vw solid rgba(255, 255, 255, 0.4); color: var(--white);
+  }
+  body.cream .kicker { background: var(--primary); color: var(--white); }
+  body.gold .kicker  { background: var(--gold); color: var(--ink); }
+
+  h1 {
+    margin-top: 3.4vw; font-size: 8.6vw; font-weight: 900;
+    line-height: 1.06; letter-spacing: -0.24vw;
+  }
+  h1 em { font-style: normal; }
+  body.orange h1 em { color: #ffe3c9; }
+  body.dark h1 em   { color: var(--accent); }
+  body.cream h1 em, body.gold h1 em { color: var(--primary); }
+
+  .sub { margin-top: 2.6vw; font-size: 3.1vw; font-weight: 600; line-height: 1.45; }
+  body.orange .sub, body.dark .sub { color: rgba(255, 255, 255, 0.9); }
+  body.cream .sub, body.gold .sub  { color: var(--text-secondary); }
+
+  .phonewrap { flex: 1; position: relative; margin-top: 5vw; }
+  .phone {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 84vw; background: #101415; border-radius: 9.6vw; padding: 1.6vw;
+    box-shadow: 0 4vw 10vw rgba(0, 0, 0, 0.4);
+  }
+  .phone::after {
+    content: ""; position: absolute; top: 1.6vw; left: 50%; transform: translateX(-50%);
+    width: 22vw; height: 3vw; background: #101415; border-radius: 0 0 3vw 3vw; z-index: 3;
+  }
+  .phone .screen { border-radius: 8.2vw; overflow: hidden; background: var(--white); }
+  .phone .screen img { width: 100%; display: block; }
+</style>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="top">
+  <span class="pill kicker" id="kicker"></span>
+  <h1 id="title"></h1>
+  <div class="sub" id="sub"></div>
+</div>
+
+<div class="phonewrap">
+  <div class="phone"><div class="screen"><img id="shot" src="" alt=""></div></div>
+</div>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  const theme  = q.get('theme')  || 'dark';
+  const kicker = q.get('kicker') || 'AI POSE DETECTION';
+  const title  = q.get('title')  || 'It counts your *reps.*';
+  const sub    = q.get('sub')    || 'Hands-free camera rep counting';
+  const screen = q.get('screen') || 'ai-counter.png';
+  document.body.classList.add(theme);
+  document.getElementById('kicker').textContent = kicker;
+  document.getElementById('title').innerHTML =
+    title.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  document.getElementById('sub').textContent = sub;
+  document.getElementById('shot').src = '../../assets/screens-clean/' + screen;
+</script>
