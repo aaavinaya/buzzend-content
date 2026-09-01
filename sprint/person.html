@@ -23,7 +23,7 @@
 <header class="top">
   <img src="../assets/app-icon.png" alt="">
   <h1 id="title">Person</h1>
-  <div class="sub"><a href="index.html">← Dashboard</a> · <span id="role"></span></div>
+  <div class="sub"><a href="index.html">← Dashboard</a> · <span id="role"></span> · <span id="syncLine"></span></div>
 </header>
 
 <div class="people-nav" id="peopleNav"></div>
@@ -88,5 +88,8 @@ function render() {
   });
 }
 render();
+
+S.gh.onStatus(st => { document.getElementById('syncLine').textContent = st.text; });
+if (S.gh.enabled) S.gh.pull(changed => { if (changed) render(); });
 </script>
 </body></html>

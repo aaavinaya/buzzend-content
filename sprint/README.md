@@ -52,31 +52,40 @@ sprint/
 - Progress % = completed checkboxes ÷ total tasks (per person, per day,
   and overall). A day cell turns green at 100%.
 
-## Checkbox persistence — read this once, carefully
+## Checkbox persistence & team sync — read this once, carefully
 
-Ticks are saved in your browser's **localStorage** (key
-`buzzend-sprint-v1`) the moment you click. Refresh, close the tab, come
-back next week — still ticked. Notes boxes persist the same way.
+Ticks are saved in your browser's **localStorage** the moment you click —
+refresh-proof, offline-proof. Notes persist the same way. But localStorage
+alone is per browser, per device: your teammates wouldn't see your ticks.
 
-**The limitation:** localStorage is per browser, per device.
-Avinaya's ticks live in Avinaya's browser; Gaurab and Riya don't see
-them automatically. GitHub Pages is static hosting — there is no server
-to share state through, and no way around that without a backend.
+**Team sync (the recommended setup, still no backend):** the dashboard can
+use **GitHub itself as the shared store**. Ticks are merged into
+`sprint/progress.json` in this repo through the GitHub API, and every page
+pulls the team state on load. One-time setup per person (~2 min):
 
-**Our no-backend answer — Sync codes:** on the dashboard, hit
-**Export my progress** (copies a small code), paste it in the team chat;
-teammates hit **Import pasted code** and your completed tasks merge into
-their view (newest tick wins, nothing is deleted). Do it at the end of
-each day and everyone's dashboard shows the full team picture.
+1. GitHub → Settings → Developer settings → **Fine-grained tokens** →
+   Generate new token.
+2. Repository access: **Only select repositories** → `buzzend-content`.
+3. Permissions → Repository → **Contents: Read and write**. Generate, copy.
+4. Open the dashboard → *Team sync* card → paste → **Connect**.
 
-Also because it's browser storage:
-- **Clearing site data / private windows** erase ticks → export your code
-  to the chat regularly; importing it restores everything.
-- **New device/browser** starts at 0% → import your last exported code.
+The token lives only in that person's browser (never in the repo). After
+connecting: tick anywhere → saved locally instantly → pushed to the repo a
+couple of seconds later → teammates see it on their next page load or
+**Sync now**. Merging is per-task, newest change wins, so nobody's ticks
+ever get clobbered — and the repo's git history becomes an audit log of
+progress. These progress commits deliberately do **not** trigger a site
+redeploy.
 
-If one day you want true real-time shared state, that needs some backend
-(even a free one — e.g. a tiny Firebase/Supabase table or GitHub Issues
-as checklists). Not needed for a 3-person sprint with sync codes.
+Notes and honest limitations:
+- Sync needs each person's token once per browser/device. No token = the
+  system still works, just locally (plus the export/import fallback,
+  now tucked under "Offline fallback" on the dashboard).
+- It's "shared on refresh", not live-typing collaboration — plenty for a
+  3-person daily checklist.
+- Don't paste your token on a shared computer; revoke it on GitHub anytime.
+- Clearing browser data removes your token + local ticks, but the team
+  state survives in the repo — reconnect and it all comes back.
 
 ## Deploying / updating
 

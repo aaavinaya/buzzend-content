@@ -12,6 +12,8 @@ window.SPRINT_CONFIG = {
     youtube: 'PASTE-@HANDLE',
     facebook: 'PASTE-PAGE',
   },
+  // Team sync via GitHub API (no backend): progress.json lives in this repo.
+  sync: { repo: 'aaavinaya/buzzend-content', branch: 'main', path: 'sprint/progress.json' },
   people: [
     { id: 'avinaya', name: 'Avinaya', role: 'Lead · iOS · ASO · analytics · coordination' },
     { id: 'gaurab', name: 'Gaurab', role: 'Android · Play Store · recordings · community' },

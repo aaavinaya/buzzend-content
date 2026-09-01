@@ -3,6 +3,10 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+    # checkbox ticks commit sprint/progress.json via the API — the site
+    # reads it live from the API, so those commits don't need a redeploy
+    paths-ignore:
+      - 'sprint/progress.json'
   workflow_dispatch:
 
 permissions:

@@ -8,7 +8,7 @@
 <header class="top">
   <img src="../assets/app-icon.png" alt="">
   <h1 id="title">Buzzend — 15-Day Growth Sprint</h1>
-  <div class="sub"><a href="../index.html">← Buzzend docs</a> · tick tasks on each person's day page; progress shows here</div>
+  <div class="sub"><a href="../index.html">← Buzzend docs</a> · <span id="syncLine"></span></div>
 </header>
 
 <div class="card">
@@ -33,16 +33,38 @@
 </div>
 
 <div class="card syncbox">
-  <h2>Sync between teammates (no backend)</h2>
-  <p style="font-size:13.5px">Checkboxes live in <b>this browser only</b>. To combine progress:
-  each person taps <b>Export</b> and sends the code to the team chat; anyone can paste
-  teammates' codes below and <b>Import</b> — done tasks merge together.</p>
-  <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
-    <button id="exportBtn">Export my progress</button>
-    <button class="ghost" id="importBtn">Import pasted code</button>
+  <h2>Team sync — shared progress with no backend</h2>
+  <div id="syncSetup" hidden>
+    <p style="font-size:13.5px">Ticks sync for the whole team through a
+    <code>progress.json</code> file in our GitHub repo. One-time setup (2 min):</p>
+    <ol style="font-size:13px; padding-left:20px; margin:8px 0">
+      <li>GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token</li>
+      <li>Repository access: <b>Only select repositories</b> → <code>buzzend-content</code></li>
+      <li>Permissions → Repository → <b>Contents: Read and write</b> → Generate, copy the token</li>
+      <li>Paste it below (it stays in <i>your</i> browser only — never in the repo)</li>
+    </ol>
+    <div style="display:flex; gap:8px; flex-wrap:wrap">
+      <input id="tokenInput" type="password" placeholder="github_pat_…" style="flex:1; min-width:220px; border:1px solid var(--border); border-radius:999px; padding:10px 16px; font:inherit; font-size:13px">
+      <button id="tokenSave">Connect</button>
+    </div>
+    <div class="hint">Don't do this on a shared computer. You can revoke the token on GitHub anytime.</div>
   </div>
-  <textarea id="syncArea" placeholder="Export puts your code here (copied to clipboard too). To import, paste a teammate's code here first."></textarea>
-  <div class="hint" id="syncMsg"></div>
+  <div id="syncOn" hidden>
+    <p style="font-size:13.5px" id="syncStatus"></p>
+    <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+      <button id="syncNow">Sync now</button>
+      <button class="ghost" id="tokenClear">Disconnect this browser</button>
+    </div>
+  </div>
+  <details style="margin-top:12px">
+    <summary style="font-size:12.5px; color:var(--muted); cursor:pointer">Offline fallback: export / import a progress code</summary>
+    <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
+      <button class="ghost" id="exportBtn">Export my progress</button>
+      <button class="ghost" id="importBtn">Import pasted code</button>
+    </div>
+    <textarea id="syncArea" placeholder="Export puts your code here. To import, paste a teammate's code first."></textarea>
+    <div class="hint" id="syncMsg"></div>
+  </details>
 </div>
 
 <footer id="foot"></footer>
@@ -51,39 +73,63 @@
 <script src="data/tasks.js"></script>
 <script src="assets/sprint.js"></script>
 <script>
-const S = window.Sprint, cfg = S.cfg;
+const S = window.Sprint, cfg = S.cfg, GH = S.gh;
 document.getElementById('title').textContent = cfg.sprintName;
 
-const overall = S.progress();
-document.getElementById('overallPct').textContent = overall.pct + '%';
-document.getElementById('overallBar').style.width = overall.pct + '%';
-document.getElementById('overallCount').textContent =
-  overall.done + ' done · ' + (overall.total - overall.done) + ' remaining · ' + overall.total + ' total tasks';
+function renderAll() {
+  const overall = S.progress();
+  document.getElementById('overallPct').textContent = overall.pct + '%';
+  document.getElementById('overallBar').style.width = overall.pct + '%';
+  document.getElementById('overallCount').textContent =
+    overall.done + ' done · ' + (overall.total - overall.done) + ' remaining · ' + overall.total + ' total tasks';
 
-document.getElementById('personRows').innerHTML = cfg.people.map(p => {
-  const pr = S.progress(p.id);
-  return `<a class="row" style="text-decoration:none;color:inherit" href="person.html?p=${p.id}" title="Open ${p.name}'s full progress">
-    <span class="name">${p.name} ↗</span>
-    <div class="bar"><i style="width:${pr.pct}%"></i></div>
-    <span class="pct">${pr.pct}%</span></a>`;
-}).join('');
-
-const today = S.currentDay();
-if (today) {
-  const el = document.getElementById('todayPill');
-  el.hidden = false; el.textContent = 'Today: Day ' + today;
-}
-
-document.getElementById('dayRows').innerHTML = S.data.days.map(d => {
-  const cells = cfg.people.map(p => {
-    const pr = S.progress(p.id, d.n);
-    const cls = pr.total === 0 ? '' : pr.pct === 100 ? 'done' : pr.pct > 0 ? 'part' : '';
-    const label = pr.pct === 100 ? '✓ 100%' : pr.pct + '%';
-    return `<td><a class="cell ${cls}" href="day.html?d=${d.n}&p=${p.id}">${label}</a></td>`;
+  document.getElementById('personRows').innerHTML = cfg.people.map(p => {
+    const pr = S.progress(p.id);
+    return `<a class="row" style="text-decoration:none;color:inherit" href="person.html?p=${p.id}" title="Open ${p.name}'s full progress">
+      <span class="name">${p.name} ↗</span>
+      <div class="bar"><i style="width:${pr.pct}%"></i></div>
+      <span class="pct">${pr.pct}%</span></a>`;
   }).join('');
-  return `<tr class="${today === d.n ? 'today' : ''}"><td class="d">Day ${d.n}</td>${cells}</tr>`;
-}).join('');
 
+  const today = S.currentDay();
+  const pill = document.getElementById('todayPill');
+  if (today) { pill.hidden = false; pill.textContent = 'Today: Day ' + today; }
+
+  document.getElementById('dayRows').innerHTML = S.data.days.map(d => {
+    const cells = cfg.people.map(p => {
+      const pr = S.progress(p.id, d.n);
+      const cls = pr.total === 0 ? '' : pr.pct === 100 ? 'done' : pr.pct > 0 ? 'part' : '';
+      const label = pr.pct === 100 ? '✓ 100%' : pr.pct + '%';
+      return `<td><a class="cell ${cls}" href="day.html?d=${d.n}&p=${p.id}">${label}</a></td>`;
+    }).join('');
+    return `<tr class="${today === d.n ? 'today' : ''}"><td class="d">Day ${d.n}</td>${cells}</tr>`;
+  }).join('');
+}
+renderAll();
+
+// ── team sync UI ──
+function refreshSyncUI() {
+  document.getElementById('syncSetup').hidden = GH.enabled;
+  document.getElementById('syncOn').hidden = !GH.enabled;
+}
+GH.onStatus(st => {
+  document.getElementById('syncStatus').textContent = st.text;
+  document.getElementById('syncLine').textContent =
+    GH.enabled ? st.text : 'team sync off — connect it below';
+});
+refreshSyncUI();
+if (GH.enabled) GH.pull(changed => { if (changed) renderAll(); });
+
+document.getElementById('tokenSave').onclick = () => {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return;
+  GH.setToken(t); refreshSyncUI();
+  GH.pull(changed => { renderAll(); });
+};
+document.getElementById('tokenClear').onclick = () => { GH.setToken(''); refreshSyncUI(); GH.setStatus('off', 'Team sync off'); };
+document.getElementById('syncNow').onclick = () => GH.pull(changed => { renderAll(); GH.push(); });
+
+// offline fallback
 document.getElementById('exportBtn').onclick = () => {
   const code = S.exportState();
   document.getElementById('syncArea').value = code;
@@ -93,12 +139,12 @@ document.getElementById('exportBtn').onclick = () => {
 document.getElementById('importBtn').onclick = () => {
   const r = S.importState(document.getElementById('syncArea').value.trim());
   document.getElementById('syncMsg').textContent = r.msg;
-  if (r.ok) setTimeout(() => location.reload(), 900);
+  if (r.ok) renderAll();
 };
 
 const link = (u, t) => u && !u.startsWith('PASTE') ? `<a href="${u}">${t}</a>` : `${t} (set in config.js)`;
 document.getElementById('foot').innerHTML =
   link(cfg.appStoreUrl, 'App Store') + ' · ' + link(cfg.playStoreUrl, 'Google Play') +
-  '<br>Progress is saved in this browser (localStorage). Clearing site data erases it — export weekly.';
+  '<br>Ticks save instantly in this browser; with team sync connected they also merge into the repo for everyone.';
 </script>
 </body></html>
