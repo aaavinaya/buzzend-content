@@ -1,12 +1,12 @@
 // Records video/teaser.html to a 1080×1920 webm with Playwright,
 // then converts to H.264 MP4 via ffmpeg-static (see convert step).
-// Run from the playwright-equipped dir:  node record.mjs <teaser.html> <out-dir>
+// Run from the playwright-equipped dir:  node record.mjs <teaser.html> <out-dir> [duration-ms]
 import { chromium } from 'playwright';
 import { rename, readdir } from 'fs/promises';
 import { resolve } from 'path';
 
-const [, , htmlPath, outDir] = process.argv;
-const DURATION_MS = 14000;
+const [, , htmlPath, outDir, durationArg] = process.argv;
+const DURATION_MS = Number(durationArg) || 14000;
 
 const browser = await chromium.launch();
 const ctx = await browser.newContext({

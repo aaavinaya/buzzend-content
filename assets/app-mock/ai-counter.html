@@ -24,10 +24,16 @@
 
   /* soft floor glow behind the subject */
   .floor {
-    position: absolute; left: 50%; top: 520px; transform: translateX(-50%);
+    position: absolute; left: 50%; top: 585px; transform: translateX(-50%);
     width: 300px; height: 60px; border-radius: 50%;
     background: radial-gradient(50% 50% at 50% 50%, rgba(255, 107, 0, 0.35), transparent 70%);
     filter: blur(6px);
+  }
+
+  /* landmark pose figure (design-system asset) as the camera subject */
+  .figure {
+    position: absolute; left: 50%; top: 305px; transform: translateX(-50%);
+    height: 320px; opacity: 0.95;
   }
 
   /* status bar */
@@ -99,37 +105,8 @@
 
 <div class="floor"></div>
 
-<!-- squat-pose skeleton: orange limbs, white joints -->
-<svg class="pose" width="240" height="290" viewBox="0 0 240 290" fill="none">
-  <g stroke="#ff6b00" stroke-width="9" stroke-linecap="round">
-    <!-- torso -->
-    <line x1="120" y1="78" x2="112" y2="150"/>
-    <!-- shoulders -->
-    <line x1="82" y1="92" x2="158" y2="92"/>
-    <!-- arms raised forward -->
-    <line x1="82"  y1="92" x2="52"  y2="120"/><line x1="52"  y1="120" x2="30"  y2="96"/>
-    <line x1="158" y1="92" x2="188" y2="120"/><line x1="188" y1="120" x2="210" y2="96"/>
-    <!-- hips -->
-    <line x1="86" y1="152" x2="138" y2="152"/>
-    <!-- thighs (bent squat) -->
-    <line x1="86"  y1="152" x2="52"  y2="196"/>
-    <line x1="138" y1="152" x2="176" y2="196"/>
-    <!-- shins -->
-    <line x1="52"  y1="196" x2="62"  y2="258"/>
-    <line x1="176" y1="196" x2="166" y2="258"/>
-  </g>
-  <!-- head -->
-  <circle cx="122" cy="52" r="22" stroke="#ff6b00" stroke-width="9"/>
-  <!-- joints -->
-  <g fill="#ffffff">
-    <circle cx="82" cy="92" r="7"/><circle cx="158" cy="92" r="7"/>
-    <circle cx="52" cy="120" r="7"/><circle cx="188" cy="120" r="7"/>
-    <circle cx="30" cy="96" r="7"/><circle cx="210" cy="96" r="7"/>
-    <circle cx="86" cy="152" r="7"/><circle cx="138" cy="152" r="7"/>
-    <circle cx="52" cy="196" r="7"/><circle cx="176" cy="196" r="7"/>
-    <circle cx="62" cy="258" r="7"/><circle cx="166" cy="258" r="7"/>
-  </g>
-</svg>
+<!-- landmark pose figure — same asset the app's workout flow uses -->
+<img class="figure" src="landmark-squat.gif" alt="">
 
 <div class="counting">Squats · counting</div>
 <div class="actions">

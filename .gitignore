@@ -1,0 +1,8 @@
+# NEVER publish raw device screenshots (real names/photos) — use assets/screens-clean/ instead
+assets/screens/
+
+# local tooling & junk
+tools/node_modules/
+archive/
+.DS_Store
+nohup.out

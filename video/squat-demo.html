@@ -1,0 +1,121 @@
+<!--
+  Squat demo — 1080×1920 canvas animation, 10s, standalone (not Buzzend-branded).
+  Mirrors the timeline of squat.mp4: 4 air squats, bottoms ≈1.5 / 3.6 / 5.6 / 8.0s.
+  Recorded headlessly via tools/record.mjs; voice counts mixed in with ffmpeg.
+-->
+<meta charset="utf-8">
+<title>Squat demo</title>
+<style>
+  * { margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #101214; }
+  canvas { display: block; }
+</style>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+
+// squat cycle: [descend-start, bottom, hold-end, top]
+const REPS = [
+  [0.80, 1.50, 1.70, 2.35],
+  [2.90, 3.60, 3.80, 4.45],
+  [4.90, 5.60, 5.80, 6.45],
+  [7.30, 8.00, 8.20, 8.85],
+];
+
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const ss = (x) => { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
+
+function squatPhase(t) {
+  for (const [s, b, h, e] of REPS) {
+    if (t >= s && t < b) return ss((t - s) / (b - s));
+    if (t >= b && t < h) return 1;
+    if (t >= h && t < e) return 1 - ss((t - h) / (e - h));
+  }
+  return 0;
+}
+
+const SKIN = '#edc9a3', SHIRT = '#4a4f57', SHORTS = '#3a3f46', SHOE = '#2c3036';
+
+function limb(x1, y1, x2, y2, w, color) {
+  ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+}
+function dot(x, y, r, color) {
+  ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+}
+
+function draw(t) {
+  // studio backdrop
+  const bg = ctx.createRadialGradient(540, 760, 120, 540, 960, 1500);
+  bg.addColorStop(0, '#262a30'); bg.addColorStop(1, '#111316');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, 1080, 1920);
+  ctx.fillStyle = '#0e1012'; ctx.fillRect(0, 1672, 1080, 248);
+
+  const p = squatPhase(t);              // 0 standing → 1 deep squat
+  const arm = ss((t - 0.30) / 0.5);     // arms raise forward at the start
+
+  const groundY = 1660;
+  const shin = 300, thigh = 330;
+  const ankX = 150;                      // ankle offset from center
+  const splay = (4 + 30 * p) * Math.PI / 180;   // shin lean-out angle
+  const cx = 540;
+
+  const kneeX = ankX + shin * Math.sin(splay);
+  const kneeY = groundY - shin * Math.cos(splay);
+  const hipY = groundY - shin * Math.cos(splay) - thigh * Math.cos((6 + 55 * p) * Math.PI / 180);
+  const hipX = 96;
+
+  // shadow
+  ctx.fillStyle = 'rgba(0,0,0,.5)';
+  ctx.beginPath(); ctx.ellipse(cx, groundY + 42, 265 + 90 * p, 42, 0, 0, 7); ctx.fill();
+
+  for (const s of [-1, 1]) {
+    // feet
+    ctx.fillStyle = SHOE;
+    ctx.beginPath();
+    ctx.roundRect(cx + s * ankX - (s > 0 ? 40 : 135), groundY - 22, 175, 56, 28);
+    ctx.fill();
+    // shins (skin) and thighs (shorts)
+    limb(cx + s * ankX, groundY - 18, cx + s * kneeX, kneeY, 84, SKIN);
+    limb(cx + s * kneeX, kneeY, cx + s * hipX, hipY, 114, SHORTS);
+  }
+
+  // hips / shorts block
+  ctx.fillStyle = SHORTS;
+  ctx.beginPath(); ctx.roundRect(cx - 152, hipY - 115, 304, 175, 62); ctx.fill();
+
+  const neckY = hipY - 470;
+  // neck (bottom hidden behind torso)
+  limb(cx, neckY + 30, cx, neckY - 25, 72, SKIN);
+
+  // torso: rounded rect so shoulders don't balloon over the head
+  ctx.fillStyle = SHIRT;
+  ctx.beginPath();
+  ctx.roundRect(cx - 151, neckY + 8, 302, (hipY - 45) - (neckY + 8), 92);
+  ctx.fill();
+  // sleeves
+  for (const s of [-1, 1]) limb(cx + s * 124, neckY + 82, cx + s * 178, neckY + 178, 112, SHIRT);
+
+  // head
+  dot(cx, neckY - 95, 88, SKIN);
+
+  // arms: interpolate hanging → extended forward (hands drift toward center-front)
+  for (const s of [-1, 1]) {
+    const shX = cx + s * 165, shY = neckY + 105;
+    const hangX = cx + s * 196, hangY = hipY - 30;
+    const fwdX = cx + s * 138, fwdY = neckY + 290;
+    const hx = hangX + (fwdX - hangX) * arm;
+    const hy = hangY + (fwdY - hangY) * arm;
+    const ex = (shX + hx) / 2 + s * 30 * arm, ey = (shY + hy) / 2 + 18;
+    limb(shX, shY, ex, ey, 70, SKIN);
+    limb(ex, ey, hx, hy, 64, SKIN);
+    dot(hx, hy, 38 + 8 * arm, SKIN);   // hand grows slightly = toward camera
+  }
+}
+
+const t0 = performance.now();
+(function loop() {
+  draw((performance.now() - t0) / 1000);
+  requestAnimationFrame(loop);
+})();
+</script>

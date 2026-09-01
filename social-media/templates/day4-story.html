@@ -1,0 +1,82 @@
+<!-- @dsCard group="Week 1 · Stories" -->
+<!--
+  DAY 4 · Beat-It / leaderboards — story/Reels/TikTok 1080×1920
+  Reuse: swap .kicker / .headline / .sub / .cta text and the screenshot.
+-->
+<meta charset="utf-8">
+<title>Day 4 — Beat-It (story 1080×1920)</title>
+<link rel="stylesheet" href="../../brand/brand.css">
+<style>
+  body { width: 1080px; height: 1920px; overflow: hidden; }
+  .canvas {
+    width: 1080px; height: 1920px;
+    background: linear-gradient(170deg, var(--canvas) 0%, var(--surface-alt) 55%, #ffd9ba 100%);
+    color: var(--ink);
+    text-align: center;
+  }
+  .glow.g1 { width: 720px; height: 720px; right: -220px; top: -260px; background: rgba(255, 107, 0, 0.18); }
+  .glow.g2 { width: 640px; height: 640px; left: -240px; top: 900px; background: rgba(247, 183, 51, 0.35); }
+
+  .lockup { position: absolute; top: 110px; left: 0; right: 0; flex-direction: column; gap: 30px; }
+  .lockup img { width: 128px; height: 128px; }
+  .lockup .word { font-size: 56px; color: var(--ink); }
+
+  .kicker {
+    position: absolute; top: 425px; left: 50%; transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--white);
+    padding: 18px 34px;
+    font-size: 27px;
+    letter-spacing: 4px;
+  }
+  .headline {
+    position: absolute; top: 525px; left: 80px; right: 80px;
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1.06;
+    letter-spacing: -2.5px;
+    color: var(--ink);
+  }
+  .headline em { font-style: normal; color: var(--primary); }
+  .sub {
+    position: absolute; top: 855px; left: 130px; right: 130px;
+    font-size: 33px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .cta {
+    position: absolute; top: 1058px; left: 50%; transform: translateX(-50%);
+    background: var(--primary); color: var(--white);
+    padding: 28px 52px; font-size: 31px;
+    box-shadow: 0 16px 40px rgba(226, 90, 0, 0.35);
+  }
+
+  .phone { position: absolute; left: 50%; transform: translateX(-50%) rotate(4deg); top: 1215px; width: 520px; }
+  .phone .screen { height: 880px; }
+  .phone::after { width: 150px; height: 36px; }
+
+  .chip { left: 645px; top: 1232px; padding: 22px 30px; font-size: 27px; transform: rotate(-4deg); }
+  .chip .em { font-size: 34px; }
+</style>
+
+<div class="canvas">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="lockup">
+    <img src="../../assets/app-icon.png" alt="">
+    <div class="word">Buzzend</div>
+  </div>
+
+  <span class="pill kicker">🏆 DAY 4 · BEAT-IT</span>
+  <div class="headline">Think you can <em>beat&nbsp;it?</em></div>
+  <div class="sub">Post your best set. Your friends get one camera-verified shot to top it — the live leaderboard settles&nbsp;it.</div>
+  <span class="pill cta">Take the podium 🥇</span>
+
+  <div class="phone">
+    <div class="screen"><img src="../../assets/screens-clean/activity.png" alt="Buzzend live leaderboard screen"></div>
+  </div>
+
+  <div class="chip"><span class="em">👑</span> Adesh · 4k reps</div>
+</div>

@@ -1,0 +1,58 @@
+[
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=orange&kicker=SOCIAL+FITNESS&title=Fitness+is+better+*with+friends.*&sub=Challenges%2C+streaks+%26+live+leaderboards&screen=home.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/01-social-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=dark&kicker=AI+POSE+DETECTION&title=It+counts+your+*reps.*&sub=Hands-free+camera+rep+counting&screen=real-ai.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/02-ai-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=cream&kicker=CHALLENGES&title=Challenge+your+*crew.*&sub=30-day%2C+camera-verified+challenges&screen=real-challenge.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/03-challenge-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=cream&kicker=LEADERBOARDS&title=Climb+the+*podium.*&sub=Live+rankings+for+every+challenge&screen=leaderboard.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/04-leaderboard-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=gold&kicker=STREAKS&title=Don%27t+break+the+*chain.*&sub=One+quick+workout+keeps+it+alive&screen=real-streak.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/05-streak-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=cream&kicker=COMMUNITY&title=Find+your+*people.*&sub=Trending+challenges+every+week&screen=discover.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/06-community-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  },
+  {
+    "url": "file:///Users/avinayaacharya/Development/buzzend-content/store-assets/templates/store-shot.html?theme=orange&kicker=STATS&title=Every+rep%2C+*counted.*&sub=Reps%2C+steps+and+streaks+in+one+place&screen=real-stats.png",
+    "out": "/Users/avinayaacharya/Development/buzzend-content/store-assets/ios/07-stats-1284x2778.png",
+    "width": 1284,
+    "height": 2778,
+    "scale": 1,
+    "settle": 1500
+  }
+]

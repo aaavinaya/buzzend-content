@@ -10,6 +10,7 @@ for (const j of jobs) {
   const ctx = await browser.newContext({
     viewport: { width: j.width, height: j.height },
     deviceScaleFactor: j.scale ?? 1,
+    colorScheme: j.colorScheme ?? 'light',
   });
   if (j.localStorage) {
     await ctx.addInitScript((entries) => {

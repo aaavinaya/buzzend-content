@@ -1,0 +1,585 @@
+<title>Buzzend Execution HQ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+<style>
+:root{
+  --canvas:#fff8f2; --card:#ffffff; --card-alt:#fff1e4; --ink:#221a12;
+  --muted:#8a7a6a; --faint:#b5a795; --primary:#ff6b00; --primary-deep:#e25a00;
+  --primary-soft:#ffe8d6; --border:#f0e2d2; --border-strong:#e8d3ba;
+  --gold:#b57a00; --gold-bg:#fff3d6; --green:#0e9e40; --green-bg:#e3f7ea;
+  --crit:#c23a00; --crit-bg:#ffe4d6; --shadow:0 2px 10px rgba(140,80,20,.07);
+  --hero-grad:linear-gradient(150deg,#ff6b00 0%,#ff9f43 100%);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --canvas:#171006; --card:#211809; --card-alt:#2a1e0e; --ink:#f6ecdf;
+    --muted:#bda88f; --faint:#8a7a63; --primary:#ff7d1f; --primary-deep:#ffa15c;
+    --primary-soft:#3a2408; --border:#332613; --border-strong:#4a3a20;
+    --gold:#ffcf6b; --gold-bg:#332708; --green:#4ade80; --green-bg:#0e2b18;
+    --crit:#ff9268; --crit-bg:#3a1c0a; --shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --canvas:#171006; --card:#211809; --card-alt:#2a1e0e; --ink:#f6ecdf;
+  --muted:#bda88f; --faint:#8a7a63; --primary:#ff7d1f; --primary-deep:#ffa15c;
+  --primary-soft:#3a2408; --border:#332613; --border-strong:#4a3a20;
+  --gold:#ffcf6b; --gold-bg:#332708; --green:#4ade80; --green-bg:#0e2b18;
+  --crit:#ff9268; --crit-bg:#3a1c0a; --shadow:0 2px 10px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:15px}
+a{color:var(--primary-deep)}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+
+/* ── header ── */
+header{background:var(--hero-grad);color:#fff;padding:26px 22px 20px}
+.hwrap{max-width:1060px;margin:0 auto}
+.lockup{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.mark{width:38px;height:38px;border-radius:11px;background:#fff;color:#ff6b00;display:grid;place-items:center;font-size:21px;font-weight:900;box-shadow:0 6px 18px rgba(60,20,0,.25)}
+.word{font-weight:900;font-size:24px;letter-spacing:-.5px;line-height:1}
+.kicker{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:4px 13px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-left:auto}
+header h1{font-size:clamp(24px,4.4vw,38px);font-weight:900;letter-spacing:-.8px;line-height:1.08;text-wrap:balance;max-width:21ch}
+header p{margin-top:8px;max-width:62ch;font-size:14.5px;opacity:.94}
+.hstats{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.hstat b{font-size:21px;font-weight:900;display:block;line-height:1.1}
+.hstat span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+/* ── nav ── */
+nav{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+.tabs{max-width:1060px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 14px}
+.tab{padding:13px 14px 11px;font-size:13.5px;font-weight:700;color:var(--muted);border-bottom:2.5px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--primary-deep);border-bottom-color:var(--primary)}
+
+main{max-width:1060px;margin:0 auto;padding:26px 18px 90px}
+section{display:none}
+section.on{display:block}
+h2{font-size:22px;font-weight:900;letter-spacing:-.4px;margin:6px 0 4px;text-wrap:balance}
+.sub{color:var(--muted);font-size:14px;max-width:70ch;margin-bottom:20px}
+h3{font-size:15px;font-weight:800;letter-spacing:-.2px;margin-bottom:10px}
+.lbl{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--primary-deep)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+/* chips */
+.chip{display:inline-block;border-radius:999px;padding:2.5px 10px;font-size:11px;font-weight:800;letter-spacing:.02em}
+.chip.crit{background:var(--crit-bg);color:var(--crit)}
+.chip.high{background:var(--primary-soft);color:var(--primary-deep)}
+.chip.med{background:var(--gold-bg);color:var(--gold)}
+.chip.ok{background:var(--green-bg);color:var(--green)}
+.chip.ghost{background:var(--card-alt);color:var(--muted)}
+
+/* ── streak strip ── */
+.weekband{margin:18px 0 8px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.weekband h3{margin:0}
+.weekband .wg{color:var(--muted);font-size:12.5px;font-weight:500}
+.strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.dot{width:46px;height:52px;border-radius:13px;border:1.5px solid var(--border-strong);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:transform .12s, border-color .12s;position:relative}
+.dot:hover{transform:translateY(-2px);border-color:var(--primary)}
+.dot .n{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.dot .s{font-size:9px;font-weight:700;color:var(--faint);letter-spacing:.04em}
+.dot.partial{border-color:var(--primary);background:var(--primary-soft)}
+.dot.done{background:var(--primary);border-color:var(--primary)}
+.dot.done .n,.dot.done .s{color:#fff}
+.dot.sel::after{content:"";position:absolute;inset:-6px;border:2px solid var(--primary);border-radius:17px}
+
+/* day detail */
+.day{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);margin-top:16px;overflow:hidden}
+.dhead{padding:18px 20px 14px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.dhead h3{font-size:19px;font-weight:900;letter-spacing:-.3px;margin:0}
+.dmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+.dnav{margin-left:auto;display:flex;gap:6px}
+.dnav button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--border-strong);font-weight:800;color:var(--muted)}
+.dnav button:hover{border-color:var(--primary);color:var(--primary-deep)}
+.dbody{padding:16px 20px 20px;display:grid;gap:16px;grid-template-columns:1.4fr 1fr}
+@media (max-width:760px){.dbody{grid-template-columns:1fr}}
+.dobj{font-size:14.5px;color:var(--muted);width:100%;max-width:72ch}
+.tasks{display:flex;flex-direction:column;gap:2px}
+.task{display:flex;gap:11px;align-items:flex-start;padding:8px 10px;border-radius:11px;cursor:pointer}
+.task:hover{background:var(--card-alt)}
+.box{flex:none;width:21px;height:21px;border-radius:7px;border:2px solid var(--border-strong);margin-top:1px;display:grid;place-items:center;color:transparent;font-size:13px;font-weight:900;transition:background .12s}
+.task.ck .box{background:var(--primary);border-color:var(--primary);color:#fff}
+.task.ck .tx{color:var(--faint);text-decoration:line-through;text-decoration-color:var(--faint)}
+.tx{font-size:14px}
+.side{display:flex;flex-direction:column;gap:12px}
+.facet{background:var(--card-alt);border-radius:13px;padding:12px 14px}
+.facet .lbl{display:block;margin-bottom:3px}
+.facet p{font-size:13.5px}
+.dprog{height:6px;background:var(--primary-soft);border-radius:99px;overflow:hidden;margin-top:12px;width:100%}
+.dprog i{display:block;height:100%;background:var(--primary);border-radius:99px;transition:width .25s}
+
+/* tables */
+.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:640px}
+th{background:var(--card-alt);text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:9px 12px;font-weight:800}
+td{padding:9px 12px;border-top:1px solid var(--border);vertical-align:top}
+td b{font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+
+/* misc blocks */
+.quote{border-left:3px solid var(--primary);padding:4px 0 4px 14px;font-weight:700;font-size:15px;margin:10px 0}
+.hookbank{display:flex;flex-wrap:wrap;gap:7px}
+.hook{background:var(--card);border:1px solid var(--border-strong);border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:600}
+.mix{display:flex;flex-direction:column;gap:9px}
+.mixrow{display:grid;grid-template-columns:150px 1fr 42px;gap:10px;align-items:center;font-size:13px}
+.mixbar{height:10px;border-radius:99px;background:var(--primary-soft);overflow:hidden}
+.mixbar i{display:block;height:100%;background:var(--hero-grad);border-radius:99px}
+.ban{background:var(--crit-bg);color:var(--crit);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;display:inline-block;margin:3px 3px 0 0}
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:7px;font-size:13.5px}
+ul.clean li::before{content:"→ ";color:var(--primary);font-weight:800}
+.foot{margin-top:34px;color:var(--faint);font-size:12px;text-align:center}
+.reset{color:var(--muted);text-decoration:underline;font-size:12px}
+</style>
+
+<header>
+  <div class="hwrap">
+    <div class="lockup"><div class="mark">⚡</div><div class="word">Buzzend</div><span class="kicker">30-Day Execution HQ</span></div>
+    <h1>Your phone counts. Your form gets coached. You just move.</h1>
+    <p>The operating console for Month 1: learn which audience, hook, message and exercise demo produces <b>real completed workouts</b>. Budget $0–100 · no paid ads · no influencers · no new features.</p>
+    <div class="hstats">
+      <div class="hstat"><b id="hDone">0/30</b><span>days complete</span></div>
+      <div class="hstat"><b>20</b><span>videos to publish</span></div>
+      <div class="hstat"><b>5</b><span>hook tests</span></div>
+      <div class="hstat"><b>11+</b><span>user interviews</span></div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="tabs" id="tabs">
+  <button class="tab on" data-s="overview">Overview</button>
+  <button class="tab" data-s="days">30 Days</button>
+  <button class="tab" data-s="content">Content</button>
+  <button class="tab" data-s="social">Social</button>
+  <button class="tab" data-s="kpis">KPIs</button>
+  <button class="tab" data-s="reviews">Reviews</button>
+  <button class="tab" data-s="reference">Reference</button>
+</div></nav>
+
+<main>
+
+<!-- ═══ OVERVIEW ═══ -->
+<section id="overview" class="on">
+  <h2>How the month works</h2>
+  <p class="sub">Four weeks, each with one job. Tick tasks in the <b>30 Days</b> tab — the streak fills as you go, exactly like the app. Progress is saved in this browser.</p>
+  <div class="grid g4" id="weekCards"></div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <span class="lbl">The 5 metrics that matter (§29)</span>
+      <h3 style="margin-top:6px">When time is short, track only these</h3>
+      <ul class="clean">
+        <li>Store visits</li><li>Installs</li><li>First-workout (activation) rate</li>
+        <li>D7 retention</li><li>Referrals / shares</li>
+      </ul>
+      <div class="quote">Activation = a user completes ≥1 successful AI workout. Nothing less counts. (§19)</div>
+    </div>
+    <div class="card">
+      <span class="lbl">Guardrails — never this month (§47)</span>
+      <h3 style="margin-top:6px">The plan fails if any of these happen</h3>
+      <ul class="clean">
+        <li>No kids/school pivot, no “for kids” wording</li>
+        <li>No paid ads, no influencer spend</li>
+        <li>Never fake or edit a rep count in a video (§40)</li>
+        <li>No new features — only analytics events + friction fixes</li>
+        <li>No Discord; Reddit = genuine participation only</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <span class="lbl">Daily standing block · Days 7–30 · ~30 min</span>
+    <div class="grid g4" style="margin-top:10px">
+      <div><b>1 · Log numbers</b><p style="font-size:13px;color:var(--muted)">Yesterday's row into the metrics sheet — before anything else.</p></div>
+      <div><b>2 · Reply to everyone</b><p style="font-size:13px;color:var(--muted)">Every comment/DM. Verbatim phrases → hooks-inbox.</p></div>
+      <div><b>3 · Post per schedule</b><p style="font-size:13px;color:var(--muted)">Native upload, fixed time, tracked link. See Social tab.</p></div>
+      <div><b>Winner rule (§33)</b><p style="font-size:13px;color:var(--muted)">Judge content by store visits → installs → workouts. Never likes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DAYS ═══ -->
+<section id="days">
+  <h2>Day by day</h2>
+  <p class="sub">Tap a day. Tick what's done — the day fills when every task is checked. Full instructions per day live in <b>BUZZEND_30_DAY_EXECUTION_MASTER.md</b>.</p>
+  <div id="strips"></div>
+  <div class="day" id="dayPanel"></div>
+  <p style="margin-top:14px"><button class="reset" id="resetBtn">Reset all progress</button></p>
+</section>
+
+<!-- ═══ CONTENT ═══ -->
+<section id="content">
+  <h2>Content production</h2>
+  <p class="sub">Six pillars, one formula, one asset register. Every video: hook 0–2s → proof 2–6s → explanation 6–15s → benefit 15–25s → CTA. Vertical 9:16 · 15–30s · burned-in captions · real counts only.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <span class="lbl">Month mix (§22)</span>
+      <div class="mix" style="margin-top:12px">
+        <div class="mixrow"><span>AI in Action</span><div class="mixbar"><i style="width:40%"></i></div><b class="num">40%</b></div>
+        <div class="mixrow"><span>Education + Beginner</span><div class="mixbar"><i style="width:25%"></i></div><b class="num">25%</b></div>
+        <div class="mixrow"><span>Challenges + Relatable</span><div class="mixbar"><i style="width:20%"></i></div><b class="num">20%</b></div>
+        <div class="mixrow"><span>Build in Public</span><div class="mixbar"><i style="width:15%"></i></div><b class="num">15%</b></div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:12px">Minimum 5 short videos/week from Day 7 + 2–3 Stories/week + 1 community activity/week.</p>
+    </div>
+    <div class="card">
+      <span class="lbl">CTA strategy</span>
+      <div class="quote">Try your first AI workout.</div>
+      <p style="font-size:13.5px;color:var(--muted)">Default CTA on everything — it aims at activation, not installs.</p>
+      <div class="quote" style="border-color:var(--gold)">Challenge a friend.</div>
+      <p style="font-size:13.5px;color:var(--muted)">Challenge content only (tested Day 13). Formal CTA A/B runs in Month 2.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:22px 0 10px">Asset register</h3>
+  <div class="twrap"><table>
+    <tr><th>ID</th><th>Asset</th><th>Pillar</th><th>Hook</th><th>CTA</th><th>Day</th><th>Status</th></tr>
+    <tr><td><b>V01</b></td><td>Squat proof — launch</td><td>AI in Action</td><td>“My phone just counted my squats.”</td><td>First AI workout</td><td class="num">7</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>V01-B</b></td><td>Squat re-cut — hook test 1</td><td>AI in Action</td><td>same, first-person surprise</td><td>First AI workout</td><td class="num">9</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>V02</b></td><td>Push-up — hook test 2</td><td>AI in Action</td><td>“Stop counting your reps.”</td><td>First AI workout</td><td class="num">10</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>V03</b></td><td>Question hook — test 3</td><td>AI in Action</td><td>“Can AI count my jumping jacks?”</td><td>First AI workout</td><td class="num">11</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>V04</b></td><td>Beginner — test 4</td><td>Beginner Confidence</td><td>“Start with 10.”</td><td>First AI workout</td><td class="num">12</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>V05</b></td><td>Challenge — test 5</td><td>Challenges</td><td>“50 squats with Buzzend.”</td><td><b>Challenge a friend</b></td><td class="num">13</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>WH-1…5</b></td><td>Winning-hook variations (one variable each: control · exercise · setting · educational spin · wording)</td><td>AI in Action / Education</td><td>⟨winner from Day 14⟩</td><td>First AI workout</td><td class="num">15–19</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>R-1…5</b></td><td>Retention week: new exercise · relatable “I lost count at 18.” · build-in-public · 7-day streak · month's best angle</td><td>mixed</td><td>per register</td><td>mixed</td><td class="num">22–29</td><td><span class="chip ghost">IDEA</span></td></tr>
+    <tr><td><b>ST-1…5</b></td><td>Stories from the week-1 static kit (launch · AI · challenge · streak · community)</td><td>support</td><td>—</td><td>link sticker</td><td class="num">7–27</td><td><span class="chip ok">READY</span></td></tr>
+    <tr><td><b>TZ-1</b></td><td>13s animated launch teaser (video/teaser-1080x1920.mp4)</td><td>support</td><td>—</td><td>—</td><td class="num">7–9</td><td><span class="chip ok">READY</span></td></tr>
+    <tr><td><b>SS/PV</b></td><td>Store conversion set: §25 screenshots (iOS + 3 Play slots) + 15–30s preview, no logo intro</td><td>conversion</td><td>“Your phone counts. You just move.”</td><td>store install</td><td class="num">16–18</td><td><span class="chip med">DRAFT</span></td></tr>
+  </table></div>
+
+  <h3 style="margin:22px 0 10px">Hook bank (Appendix B) — pull before inventing</h3>
+  <div class="hookbank" id="hooks"></div>
+  <p style="font-size:13px;color:var(--muted);margin-top:10px">Verbatim phrases from comments (<b>hooks-inbox</b>) outrank all of these.</p>
+</section>
+
+<!-- ═══ SOCIAL ═══ -->
+<section id="social">
+  <h2>Social execution</h2>
+  <p class="sub">Priority-1 channels (§20): Instagram Reels · TikTok · YouTube Shorts + ASO. Facebook is a zero-effort mirror. Reddit is research only. No Discord.</p>
+
+  <div class="grid g2">
+    <div class="card"><span class="lbl">Instagram</span><h3 style="margin-top:6px">Community surface</h3><p style="font-size:13.5px;color:var(--muted)">5 Reels + 2–3 Stories/week · polls, reposts, milestones · reply to 100% of comments · “link in bio” only, tracked <b>ig</b> link.</p></div>
+    <div class="card"><span class="lbl">TikTok</span><h3 style="margin-top:6px">Discovery engine</h3><p style="font-size:13.5px;color:var(--muted)">5/week, evening slot · first-frame text = hook · save recurring questions → reply-videos (Month 2) · tracked <b>tt</b> link.</p></div>
+    <div class="card"><span class="lbl">YouTube Shorts</span><h3 style="margin-top:6px">Search-adjacent longevity</h3><p style="font-size:13.5px;color:var(--muted)">5/week · searchable titles (“AI counts my squats in real time”), not POV hooks · tracked <b>yt</b> link in description + pinned comment.</p></div>
+    <div class="card"><span class="lbl">Facebook / Reddit</span><h3 style="margin-top:6px">Mirror / research</h3><p style="font-size:13.5px;color:var(--muted)">FB: mirror the day's asset if it costs &lt;10 min — drop first when busy. Reddit: participate genuinely, harvest language, never promo.</p></div>
+  </div>
+
+  <h3 style="margin:22px 0 10px">Publishing schedule — ×3 = IG Reels + TikTok + Shorts, native, fixed time</h3>
+  <div class="twrap"><table>
+    <tr><th>Day</th><th>Video slot</th><th>Stories / community</th><th>Note</th></tr>
+    <tr><td class="num">1–6</td><td>—</td><td>—</td><td>Foundation: profiles Day 4 · footage Day 5 · edits Day 6</td></tr>
+    <tr><td class="num">7</td><td><b>V01</b> ×3</td><td>ST-1 + teaser Story</td><td>Baseline recorded — Week 2 is invalid without it</td></tr>
+    <tr><td class="num">8</td><td>—</td><td>—</td><td>Analysis · posting time fixed for the month</td></tr>
+    <tr><td class="num">9–13</td><td><b>V01-B → V05</b> ×3, one/day</td><td>ST-2 (D10) · ST-3 (D13)</td><td>Hook-test week: same time, same CTA, one variable</td></tr>
+    <tr><td class="num">14</td><td>—</td><td>—</td><td>Comparison day — winners picked by the winner rule</td></tr>
+    <tr><td class="num">15–19</td><td><b>WH-1 → WH-5</b> ×3, one/day</td><td>—</td><td>Winning-hook week · store pages reworked D16–18</td></tr>
+    <tr><td class="num">20–21</td><td>—</td><td>CM-1 poll Story (D20)</td><td>Activation measured · 5 user interviews</td></tr>
+    <tr><td class="num">22–24</td><td><b>R-1 → R-3</b> ×3</td><td>—</td><td>Retention analysis runs alongside</td></tr>
+    <tr><td class="num">25–27</td><td><b>R-4</b> ×3 (D26)</td><td>ST-4 (D25) · CM-2 duet ask + ST-5 (D27)</td><td>Streak / challenge / share flows tested</td></tr>
+    <tr><td class="num">28–30</td><td><b>R-5</b> ×3 (D29)</td><td>optional best-of Story</td><td>Interviews · Month 1 report (D30)</td></tr>
+  </table></div>
+</section>
+
+<!-- ═══ KPIS ═══ -->
+<section id="kpis">
+  <h2>KPI system</h2>
+  <p class="sub">⚠ numbers are calibration thresholds, not strategy quotas — Month 1 sets no vanity targets. Re-set them against your own Day-7 baseline. Revenue metrics: N/A until monetization is active.</p>
+
+  <div class="twrap"><table>
+    <tr><th>Stage</th><th>KPI</th><th>Target</th><th>Warning</th><th>If below → action</th></tr>
+    <tr><td rowspan="3"><b>Awareness</b></td><td>Reach</td><td>⚠ growing WoW from baseline</td><td>2 flat/down weeks</td><td>Widen hook angles, not volume</td></tr>
+    <tr><td>Watch retention</td><td>⚠ ≥50% avg watched</td><td>&lt;30%</td><td>Exit &lt;2s → new hook · &lt;10s → faster proof · late → cut to ≤20s</td></tr>
+    <tr><td>Profile visits</td><td>⚠ rising with views</td><td>views up, visits flat</td><td>Restate CTA on end card</td></tr>
+    <tr><td rowspan="2"><b>Engagement</b></td><td>Comments</td><td>100% replied</td><td>unanswered &gt;24h</td><td>The 15-min block is non-negotiable</td></tr>
+    <tr><td>Shares + saves</td><td>⚠ ≥1% of views</td><td>≈0 on proof videos</td><td>Tighten to the counter close-up — proof not surprising enough</td></tr>
+    <tr><td rowspan="3"><b>Acquisition</b></td><td>Link taps (ig/tt/yt)</td><td>⚠ ≥0.5% of views</td><td>≈0 with good views</td><td>CTA weak/missing in final seconds; retest bio links</td></tr>
+    <tr><td>Store visits</td><td>⚠ ≥1 hook at ≥2× baseline by D14</td><td>none by D14</td><td>Angle problem — test new pillars before more volume</td></tr>
+    <tr><td>Install conversion</td><td>watch trend after page updates</td><td>falls after a change</td><td>Roll back — one store variable at a time</td></tr>
+    <tr><td rowspan="3"><b>Activation</b></td><td><b>Activation rate</b></td><td>⚠ ≥30% aspiration; know the real %</td><td>&lt;15%</td><td>Attack the biggest funnel-step drop (Day 20) before new content</td></tr>
+    <tr><td>Camera-ready rate</td><td>baseline</td><td>big drop at permission</td><td>Show value before asking permission (ticket)</td></tr>
+    <tr><td>First successful count</td><td>baseline</td><td>starts ≫ counted</td><td>Product reliability — §40 blocks demos of broken exercises</td></tr>
+    <tr><td rowspan="3"><b>Retention</b></td><td>D1 / D7</td><td>⚠ activated ≫ non-activated</td><td>activation doesn't predict D1</td><td>Question the activation definition with data (Day 23)</td></tr>
+    <tr><td>Second workout ≤3 days</td><td>⚠ ≥40% of activated</td><td>&lt;20%</td><td>Post-workout next-step prompt = top Month-2 hypothesis</td></tr>
+    <tr><td>Streak starts</td><td>baseline</td><td>≈0</td><td>Streak invisible post-workout? Ticket it</td></tr>
+    <tr><td rowspan="2"><b>Referral</b></td><td>Share rate</td><td>baseline (D27)</td><td>≈0</td><td>Share card not worth showing — improvement ticket</td></tr>
+    <tr><td>Invite chain</td><td>sent → install → activation tracked</td><td>breaks mid-chain</td><td>Fix tracking first — can't improve the invisible</td></tr>
+  </table></div>
+
+  <div class="card" style="margin-top:16px">
+    <span class="lbl">Metrics sheet columns (create Day 7, log daily)</span>
+    <p style="font-size:13px;margin-top:8px;font-variant-numeric:tabular-nums">date · platform · video/hook · views · avg watch time · retention % · likes · comments · shares · saves · profile visits · link taps · store visits · installs · first workouts · notes</p>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section id="reviews">
+  <h2>Weekly reviews</h2>
+  <p class="sub">45–60 min, same evening, numbers first — adjectives banned. Every review answers §50: Who responded? What message worked? <b>Did they actually use Buzzend?</b> File as <b>reviews/week-N.md</b>.</p>
+  <div class="grid g2">
+    <div class="card"><span class="lbl">Week 1 · Day 7</span><h3 style="margin-top:6px">Was the foundation finished?</h3>
+      <ul class="clean"><li>POSITIONING / ICP / COMPETITORS all READY?</li><li>Tracked links attribute per platform — prove with a test tap</li><li>Baseline row complete? No baseline = Week 2 invalid</li><li>All 5 exercises have a §40-clean take</li><li>V01 24h read: drop before 2s / 10s / later?</li></ul></div>
+    <div class="card"><span class="lbl">Week 2 · Day 14</span><h3 style="margin-top:6px">Which hook wins — by the winner rule</h3>
+      <ul class="clean"><li>6-video comparison table with attribution confidence</li><li>Protocol respected? Contamination = learning, not result</li><li>Top 2 hooks kept · 1 killed · one sentence each</li><li>Challenge CTA vs default CTA read</li><li>“What do I believe now?” paragraph</li></ul></div>
+    <div class="card"><span class="lbl">Week 3 · Day 21</span><h3 style="margin-top:6px">Did conversion improve?</h3>
+      <ul class="clean"><li>Both store pages updated + preview staged</li><li>Install ÷ store-visit before vs after (note ship date)</li><li>Onboarding: taps + time-to-first-rep, top-3 tickets</li><li>The Day-20 activation sentence, with numbers</li><li>1 stay-reason + 1 leave-reason, verbatim</li></ul></div>
+    <div class="card"><span class="lbl">Week 4 · Day 30</span><h3 style="margin-top:6px">Retention truth + Month 2 plan</h3>
+      <ul class="clean"><li>D1 · D7 · first D30 · 2nd-workout rate · streaks · shares</li><li>§36 loop end-to-end: share → link → install → challenge</li><li>Churn categories vs funnel data — do they corroborate?</li><li>§51 template: worked / didn't / product behavior</li><li>Decisions: Continue · Stop · Test → MONTH_1_REPORT.md</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══ REFERENCE ═══ -->
+<section id="reference">
+  <h2>Reference</h2>
+  <p class="sub">The fixed vocabulary. Every bio, caption, store line and script copies from here — wording is never re-invented.</p>
+  <div class="grid g2">
+    <div class="card">
+      <span class="lbl">Message ladder</span>
+      <div class="quote">Buzzend uses your phone camera to count your workout reps and coach you while you exercise.</div>
+      <ul class="clean">
+        <li><b>5s:</b> “My phone just counted my squats.”</li>
+        <li><b>10s:</b> “Put your phone down, start moving, and Buzzend counts your reps while you work out.”</li>
+        <li><b>Caption:</b> “Stop counting. Start moving.”</li>
+        <li><b>Campaign:</b> Put Your Phone Down Challenge</li>
+        <li><b>CTA:</b> Try your first AI workout.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="lbl">Audience</span>
+      <h3 style="margin-top:6px">The At-Home Starter · 18–35</h3>
+      <p style="font-size:13.5px;color:var(--muted)">Beginner–intermediate · home/small space · no equipment · smartphone-heavy · wants consistency and visible progress. Loses count, hates complicated programs, doesn't want a trainer.</p>
+      <p style="font-size:13.5px;margin-top:8px"><b>Secondary:</b> Challenge Friend · Busy Professional · Returning Exerciser.<br><b>Not now (§10):</b> athletes, gym lifters, nutrition, medical/rehab, trainers, schools, children.</p>
+    </div>
+    <div class="card">
+      <span class="lbl">Banned claims (§7)</span>
+      <div style="margin-top:8px">
+        <span class="ban">perfect form</span><span class="ban">guaranteed</span><span class="ban">injury-proof</span><span class="ban">replaces your trainer</span><span class="ban">medical-grade</span><span class="ban">most accurate</span><span class="ban">world's first</span><span class="ban">scientifically proven</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:10px">Also never lead with: MediaPipe, pose landmarks, computer vision, algorithms. Benefit language only.</p>
+    </div>
+    <div class="card">
+      <span class="lbl">§40 pre-publish checklist</span>
+      <ul class="clean" style="margin-top:8px">
+        <li>Exact exercise tested on the exact device + camera position</li>
+        <li>Displayed count confirmed against reality</li>
+        <li>Coaching behavior confirmed</li>
+        <li>No edit implies functionality that doesn't exist</li>
+        <li>Only assets/screens-clean imagery; demo identities only</li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot">Sources: BUZZEND_GROWTH_PRODUCT_STRATEGY_2026_FINAL.md (v2.0) + BUZZEND_30_DAY_EXECUTION_PLAN.md · full system in buzzend-execution-plan/</p>
+</section>
+</main>
+
+<script>
+'use strict';
+/* ── data ── */
+var WEEKS=[
+ {n:1,t:'Foundation',g:'Lock words + audience, build the machine, first post, baseline.',d:[1,7]},
+ {n:2,t:'Find the Hook',g:'Five controlled hook tests. Winner = workouts, not likes.',d:[8,14]},
+ {n:3,t:'Improve Conversion',g:'Winning language → store pages + first-workout funnel.',d:[15,21]},
+ {n:4,t:'Retention',g:'Do they come back? Why? Month 2 gets decided by evidence.',d:[22,30]}
+];
+var DAYS=[
+ {d:1,t:'Lock the positioning',p:'crit',h:'2–3h',dep:'—',o:'End the day with one sentence everyone uses, everywhere.',
+  k:['Read strategy §5–§7 once','Adopt the one-sentence positioning','Write the message ladder into POSITIONING.md','Banned-claims pass on every line','No tech words leading any line'],
+  c:'None — foundation day.',x:'—',dl:'POSITIONING.md (READY)',dn:'You answer “What is Buzzend?” in one sentence without hesitating.'},
+ {d:2,t:'Lock the ICP',p:'crit',h:'~2h',dep:'Day 1',o:'A one-pager that makes every content decision take 5 seconds.',
+  k:['At-Home Starter profile written','Frustrations + install triggers verbatim','3 secondary audiences, one line each','“Not now” list added (§10)','Primary message + CTA at top'],
+  c:'None.',x:'—',dl:'ICP.md (READY)',dn:'Any idea gets a 5-second yes/no: “is this for the At-Home Starter?”'},
+ {d:3,t:'Audit five competitors',p:'high',h:'3–4h',dep:'Days 1–2',o:'Know what everyone says, so Buzzend says what only it can prove.',
+  k:['5 apps picked from store searches','Listings + 3+3 reviews captured each','Top 3 social videos + hooks each','§16 differentiation scoring done','3 conclusions written (avoid / lead-with / complaint-we-solve)'],
+  c:'None.',x:'—',dl:'COMPETITORS.md (READY)',dn:'Per competitor: one thing you won’t copy + one gap Buzzend exploits.'},
+ {d:4,t:'Profiles + tracked links',p:'crit',h:'2–3h',dep:'Day 1',o:'Any profile explains Buzzend in 5 s and reaches the store in one measurable tap.',
+  k:['Same handle/avatar/name on IG, TikTok, YouTube','One bio from POSITIONING.md everywhere','Tracked links created: ig / tt / yt','Every link tested on a real device','Off-positioning old posts archived','Footage folder convention set'],
+  c:'None.',x:'—',dl:'3 consistent profiles + working links',dn:'Store taps are visible per platform in the link tool.'},
+ {d:5,t:'Record five AI demos',p:'crit',h:'3–4h',dep:'—',o:'Raw proof footage for squat, push-up, lunge, sit-up, jumping jack.',
+  k:['§40 pre-flight per exercise/device/position','Two-angle setup (screen rec + scene cam, 9:16)','All 5 exercises filmed, 10–20 real reps','B-roll: phone down / walk-in / rep tick / result','Counts verified on keeper takes','Footage backed up + labeled'],
+  c:'Production day.',x:'—',dl:'5 demo sets + B-roll library',dn:'Every exercise has ≥1 take with a correct count end to end.'},
+ {d:6,t:'Edit V01–V03',p:'crit',h:'3–4h',dep:'Day 5',o:'Three finished 15–30s verticals on the §23 formula.',
+  k:['V01 squat — “My phone just counted my squats.”','V02 push-up — “Stop counting your reps.”','V03 jumping jack — “Can AI count my jumping jacks?”','Captions burned on all three','Clean 9:16 masters + cover frames'],
+  c:'Production day.',x:'—',dl:'V01–V03 (READY)',dn:'A stranger, 3 seconds, muted → understands the phone counts reps.'},
+ {d:7,t:'Publish + baseline',p:'crit',h:'~2h',dep:'Days 4 + 6',o:'First post live; the “before” numbers written down.',
+  k:['V01 posted natively ×3 platforms','Caption from ladder + link in bio','Metrics sheet created (full columns)','Baseline recorded: followers / store views / installs / first-workout / D1','15–30 min replies; phrases harvested'],
+  c:'V01 (Pillar 1) + ST-1 launch Story + teaser Story.',x:'IG Reels · TikTok · YT Shorts (FB mirror optional)',dl:'Live post + baseline row',dn:'Pre-experiment numbers exist. No baseline = Week 2 invalid.'},
+ {d:8,t:'Analyze + prep test week',p:'crit',h:'2–3h',dep:'Day 7 +24h',o:'Read V01 honestly; make the test week un-skippable.',
+  k:['V01 results pulled per platform','Drop-off diagnosed (hook &lt;2s / proof &lt;10s / length)','Posting time fixed for the month','5 test videos ready (V04 + V05 edited tonight)','Hypothesis written: which hook wins and why'],
+  c:'None (analysis).',x:'—',dl:'5 READY test videos + hypothesis',dn:'The whole test week could run with zero spare time.'},
+ {d:9,t:'Hook test 1 — product proof',p:'crit',h:'1–2h',dep:'Day 8',o:'“My phone just counted my squats.” — first-person surprise.',
+  k:['Standing block (log · reply · post)','V01-B posted ×3 at the fixed time','CTA: Try your first AI workout.'],
+  c:'V01-B squat.',x:'×3 at fixed time',dl:'Posted + Day 8 logged',dn:'Same-time, same-CTA protocol respected.'},
+ {d:10,t:'Hook test 2 — command',p:'crit',h:'1–2h',dep:'Day 9',o:'“Stop counting your reps.” — problem language vs product language.',
+  k:['Standing block','V02 posted ×3 at fixed time'],
+  c:'V02 push-up + ST-2 Story.',x:'×3',dl:'Posted + logged',dn:'Protocol respected.'},
+ {d:11,t:'Hook test 3 — curiosity',p:'crit',h:'1–2h',dep:'Day 10',o:'Question hook — the counter answers on camera by ~3s.',
+  k:['Standing block','V03 posted ×3','Noted: did the question pull more comments?'],
+  c:'V03 question hook.',x:'×3',dl:'Posted + logged',dn:'Question visibly answered by the counter.'},
+ {d:12,t:'Hook test 4 — beginner',p:'crit',h:'1–2h',dep:'Day 11',o:'“Start with 10.” — encouragement vs tech proof (Pillar 6).',
+  k:['Standing block','V04 posted ×3 — softer tone, same CTA'],
+  c:'V04 beginner.',x:'×3',dl:'Posted + logged',dn:'Protocol respected.'},
+ {d:13,t:'Hook test 5 — challenge',p:'crit',h:'1–2h',dep:'Day 12',o:'“50 squats with Buzzend.” — challenge energy + the challenge CTA.',
+  k:['Standing block','V05 posted ×3','CTA switched: Challenge a friend.'],
+  c:'V05 challenge + ST-3 Story.',x:'×3',dl:'Posted + logged',dn:'CTA test noted in the sheet.'},
+ {d:14,t:'Compare the week',p:'crit',h:'2–3h',dep:'Days 9–13',o:'A ranked table and a decision — by the winner rule only.',
+  k:['Sheet complete through Day 13 (partial-flagged)','6-video comparison table built','Winner rule applied: store visits → installs → workouts','§50 three questions answered in writing','Top 2 hooks kept · 1 killed · belief paragraph written'],
+  c:'None (analysis).',x:'—',dl:'Comparison table + written decision',dn:'Next week defaults to the winning hooks. Week 2 review filed.'},
+ {d:15,t:'Winning-hook recipe',p:'crit',h:'2–3h',dep:'Day 14',o:'Turn the winner into a repeatable production recipe.',
+  k:['5 variations written (one variable each)','WH-1 + WH-2 recorded/edited','Week scheduled: WH-1…WH-5','“Why it won” written → drives store copy'],
+  c:'WH-1 posted.',x:'×3',dl:'Recipe: hook pattern + exercise + structure',dn:'Someone else could produce the next 10 videos from your notes.'},
+ {d:16,t:'App Store screenshots',p:'high',h:'3–4h',dep:'Day 14 language',o:'§25 conversion sequence replaces campaign captions.',
+  k:['6-caption §25 sequence rendered (jobs-ios JSON + shoot.mjs)','Winning language on screenshot 1 if stronger','Subtitle unchanged: “AI Workout &amp; Rep Counter”','Uploaded/staged in App Store Connect','Standing block + WH-2 posted'],
+  c:'WH-2 posted.',x:'×3',dl:'6 iOS screenshots staged',dn:'New set is in App Store Connect.'},
+ {d:17,t:'Google Play listing',p:'high',h:'2–3h',dep:'Day 16 captions',o:'Play page explains the product without scrolling.',
+  k:['Phone + tablet sets re-rendered if captions changed','Short description (80 chars) from positioning','First 3 lines: what / why different / does it work','All 3 slots uploaded (phone · 7&quot; · 10&quot;)','Standing block + WH-3 posted'],
+  c:'WH-3 posted.',x:'×3',dl:'Play listing updated',dn:'Feature graphic verified Energy Orange (re-render if teal).'},
+ {d:18,t:'Store preview video',p:'high',h:'3–4h',dep:'best Week-2 footage',o:'15–30s preview: phone down → move → counter → coaching → result.',
+  k:['Preview cut — no logo intro','Counter moving within first 3 seconds','Exported + staged on both stores','Standing block + WH-4 posted'],
+  c:'WH-4 educational (“Why didn’t this rep count?”).',x:'×3',dl:'Preview staged both stores',dn:'First 3s show the counter moving.'},
+ {d:19,t:'Onboarding friction audit',p:'crit',h:'2–3h',dep:'—',o:'Seconds + taps between install and first counted rep, on both platforms.',
+  k:['Fresh install iOS — recorded + timed','Fresh install Android — recorded + timed','Every screen/tap/permission mapped','Top 3 friction points ranked + ticketed','Standing block + WH-5 posted'],
+  c:'WH-5 posted.',x:'×3',dl:'Audit: tap count · time-to-first-rep · 3 tickets',dn:'An engineer could pick up ticket #1 without questions.'},
+ {d:20,t:'Measure activation',p:'crit',h:'2–3h',dep:'analytics access',o:'A real activation number and the biggest funnel leak.',
+  k:['All 7 §31 funnel events test-fired + verified','Activation rate computed (14-day window)','Biggest step-to-step drop identified','Tracking fixed NOW if events broken','CM-1 poll Story posted'],
+  c:'CM-1 community poll (weekend slot).',x:'IG/TikTok Stories',dl:'“X% activate; biggest leak A→B” — written with real numbers',dn:'That sentence exists in the sheet.'},
+ {d:21,t:'Interview five users',p:'high',h:'3–4h',dep:'real users exist',o:'Why people stay and why they leave — in their own words.',
+  k:['5 recent users recruited','15–20 min interviews run on the script','Exact words captured','1 insight/user + 1 common thread written','Week 3 review filed'],
+  c:'None.',x:'—',dl:'5 interview notes + summary',dn:'≥1 stay-reason and ≥1 leave-reason, verbatim.'},
+ {d:22,t:'Measure the second workout',p:'crit',h:'~2h',dep:'Day 20 events',o:'% of activated users with a 2nd workout within 3 days.',
+  k:['Rate pulled for recent cohorts','Returners vs non-returners compared (goal? streak? reps?)','1 Month-2 hypothesis written — not built','Standing block + R-1 posted'],
+  c:'R-1 winning hook, new exercise.',x:'×3',dl:'2nd-workout rate + returner profile',dn:'The single most likely lever is written down.'},
+ {d:23,t:'Review D1 retention',p:'high',h:'~2h',dep:'Day 22',o:'Does activation predict retention? Prove it.',
+  k:['D1 by install-day cohort','Split: platform/hook + activated vs not','Activation-predicts-D1 check done','Dashboard updated','Standing block + R-2 posted'],
+  c:'R-2 relatable — “I lost count at 18.”',x:'×3',dl:'D1 cohort table',dn:'If activation doesn’t predict D1, the definition gets questioned with data.'},
+ {d:24,t:'Review D7 retention',p:'high',h:'~2h',dep:'Day 23',o:'Who stays a week, and how streak users differ.',
+  k:['D7 cohort table built','Streak/goal vs no-streak comparison','Curve shape noted (D1→D3 vs D3→D7)','One-sentence conclusion written','Standing block + R-3 posted'],
+  c:'R-3 build-in-public (real test, real result).',x:'×3',dl:'“Our D7 is X%, stayers differ by ___.”',dn:'Sentence written with numbers.'},
+ {d:25,t:'Test streak behavior',p:'high',h:'2–3h',dep:'—',o:'Walk the retention feature yourself; pull its real adoption.',
+  k:['Streak flow walked (start · display · missed day)','% starting a streak + length distribution pulled','Friction ticketed (not built)','R-4 “7-day streak” clip filmed','ST-4 streak Story posted'],
+  c:'ST-4 Story · R-4 filmed for tomorrow.',x:'Stories',dl:'Streak funnel numbers + tickets + R-4 in the can',dn:'You know exactly what a user sees on day 3 of a streak.'},
+ {d:26,t:'Test challenge behavior',p:'crit',h:'2–3h',dep:'2nd account/friend',o:'The referral loop lives or dies on this path — test it end to end.',
+  k:['Create + join walked on iOS and Android','challenge_created / challenge_joined verified','Invite deep link: non-user → store → lands in challenge','Breakage filed high-priority','Standing block + R-4 posted'],
+  c:'R-4 “7-day streak”.',x:'×3',dl:'Challenge funnel verified or breakage filed',dn:'You watched a fresh install land inside the challenge.'},
+ {d:27,t:'Test sharing',p:'high',h:'2–3h',dep:'—',o:'What does a shared result actually look like where friends see it?',
+  k:['Result shared → inspected in IG Story / WhatsApp / iMessage','invite_sent → invite_install tracking verified','Share rate computed (shares ÷ workouts)','Best share-card improvement ticketed for Month 2','CM-2 duet ask + ST-5 posted'],
+  c:'CM-2 community ask + ST-5 Story (weekend slot).',x:'Stories',dl:'Share findings + rate + 1 ticket',dn:'You’ve seen the card exactly as a friend would.'},
+ {d:28,t:'Interview active users',p:'high',h:'2–3h',dep:'—',o:'What keeps people coming back — their words become retention marketing.',
+  k:['3–5 multi-workout users interviewed','Retention language captured verbatim','(Optional) 1–2 parent interviews per §44 — research only'],
+  c:'None.',x:'—',dl:'3–5 interview notes',dn:'Verbatim quotes exist for §38 retention features.'},
+ {d:29,t:'Interview inactive users',p:'high',h:'2–3h',dep:'—',o:'Why installed-but-gone users left — categorized, not guessed.',
+  k:['3–5 churned/never-activated users interviewed','Churn categorized: bug / expectation / no hook / wrong audience','Cross-checked vs Day 19–20 funnel findings','Standing block + R-5 posted'],
+  c:'R-5 month’s best angle, new footage.',x:'×3',dl:'Categorized churn reasons',dn:'Interview categories corroborate (or correct) the funnel data.'},
+ {d:30,t:'Month 1 report + Month 2 plan',p:'crit',h:'3–4h',dep:'everything',o:'Evidence decides Month 2 — not opinion.',
+  k:['§51 template filled: worked / didn’t / product behavior','Decisions: Continue · Stop · Test','Month 2 experiments picked (hook variants · 5 creators · 2 store variants · 2 CTAs)','Month 2 KPI targets set','MONTH_1_REPORT.md saved · Week 4 review filed'],
+  c:'Optional best-of Story.',x:'—',dl:'MONTH_1_REPORT.md + numbered experiment list',dn:'Month 2 has a written, evidence-based plan.'}
+];
+var HOOKS=['My phone just counted my squats.','Stop counting your reps.','Can AI count my push-ups?','Your phone can coach you.','I lost count at 18.','Can Buzzend count this?','Why wasn’t this rep counted?','What AI sees during a squat.','Try 20 squats with me.','No gym. No equipment. Just move.','What happens when Buzzend can’t see you?','Put your phone down.','Five exercises. One phone.','Would you trust AI to count your reps?','Your phone can be more than a screen.','Beginner workout in your living room.','Challenge your friend.','Start with 10.'];
+
+/* ── state ── */
+var KEY='bz-exec-v1';
+var state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function dayState(d){return state[d]||(state[d]=[])}
+function doneCount(day){var s=dayState(day.d),n=0;for(var i=0;i<day.k.length;i++)if(s.indexOf(i)>-1)n++;return n}
+var sel=1;
+for(var i=0;i<DAYS.length;i++){if(doneCount(DAYS[i])<DAYS[i].k.length){sel=DAYS[i].d;break}if(i===DAYS.length-1)sel=30}
+
+/* ── render helpers ── */
+function esc(s){return s} /* data is trusted local content, already entity-safe */
+var PRI={crit:['crit','Critical'],high:['high','High'],med:['med','Medium']};
+
+function renderWeeks(){
+  var el=document.getElementById('weekCards'),h='';
+  for(var w=0;w<WEEKS.length;w++){var W=WEEKS[w],tot=0,don=0;
+    for(var i=0;i<DAYS.length;i++){var D=DAYS[i];if(D.d>=W.d[0]&&D.d<=W.d[1]){tot+=D.k.length;don+=doneCount(D)}}
+    var pct=tot?Math.round(don/tot*100):0;
+    h+='<div class="card"><span class="lbl">Week '+W.n+' · Days '+W.d[0]+'–'+W.d[1]+'</span>'+
+       '<h3 style="margin-top:6px">'+W.t+'</h3><p style="font-size:13px;color:var(--muted)">'+W.g+'</p>'+
+       '<div class="dprog"><i style="width:'+pct+'%"></i></div>'+
+       '<p style="font-size:12px;color:var(--faint);margin-top:6px" class="num">'+pct+'% · '+don+'/'+tot+' tasks</p></div>';
+  }
+  el.innerHTML=h;
+}
+function renderStrips(){
+  var el=document.getElementById('strips'),h='';
+  for(var w=0;w<WEEKS.length;w++){var W=WEEKS[w];
+    h+='<div class="weekband"><h3>Week '+W.n+' — '+W.t+'</h3><span class="wg">'+W.g+'</span></div><div class="strip">';
+    for(var i=0;i<DAYS.length;i++){var D=DAYS[i];if(D.d<W.d[0]||D.d>W.d[1])continue;
+      var dc=doneCount(D),cls='dot';
+      if(dc===D.k.length)cls+=' done';else if(dc>0)cls+=' partial';
+      if(D.d===sel)cls+=' sel';
+      h+='<button class="'+cls+'" data-d="'+D.d+'" aria-label="Day '+D.d+': '+D.t+'"><span class="n">'+(dc===D.k.length?'✓':D.d)+'</span><span class="s">'+(dc===D.k.length?'D'+D.d:dc+'/'+D.k.length)+'</span></button>';
+    }
+    h+='</div>';
+  }
+  el.innerHTML=h;
+}
+function renderDay(){
+  var D=null;for(var i=0;i<DAYS.length;i++)if(DAYS[i].d===sel)D=DAYS[i];
+  var s=dayState(D.d),pri=PRI[D.p],dc=doneCount(D),pct=Math.round(dc/D.k.length*100);
+  var h='<div class="dhead"><div><h3>Day '+D.d+' — '+D.t+'</h3>'+
+    '<div class="dmeta"><span class="chip '+pri[0]+'">'+pri[1]+'</span><span class="chip ghost">'+D.h+'</span><span class="chip ghost">Depends: '+D.dep+'</span></div></div>'+
+    '<div class="dnav"><button id="pv" aria-label="Previous day">‹</button><button id="nx" aria-label="Next day">›</button></div>'+
+    '<p class="dobj">'+D.o+'</p><div class="dprog"><i style="width:'+pct+'%"></i></div></div>'+
+    '<div class="dbody"><div><span class="lbl">Tasks</span><div class="tasks" style="margin-top:8px">';
+  for(var t=0;t<D.k.length;t++){var ck=s.indexOf(t)>-1;
+    h+='<div class="task'+(ck?' ck':'')+'" data-t="'+t+'" role="checkbox" tabindex="0" aria-checked="'+ck+'"><span class="box">✓</span><span class="tx">'+D.k[t]+'</span></div>';
+  }
+  h+='</div></div><div class="side">'+
+    '<div class="facet"><span class="lbl">Content today</span><p>'+D.c+'</p></div>'+
+    '<div class="facet"><span class="lbl">Distribution</span><p>'+D.x+'</p></div>'+
+    '<div class="facet"><span class="lbl">Deliverable</span><p>'+D.dl+'</p></div>'+
+    '<div class="facet" style="border-left:3px solid var(--primary)"><span class="lbl">Done when</span><p>'+D.dn+'</p></div>'+
+    '</div></div>';
+  document.getElementById('dayPanel').innerHTML=h;
+  document.getElementById('pv').onclick=function(){if(sel>1){sel--;refresh()}};
+  document.getElementById('nx').onclick=function(){if(sel<30){sel++;refresh()}};
+  var tasks=document.querySelectorAll('#dayPanel .task');
+  for(var j=0;j<tasks.length;j++){
+    tasks[j].onclick=function(){toggle(this)};
+    tasks[j].onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(this)}};
+  }
+}
+function toggle(el){
+  var t=parseInt(el.getAttribute('data-t'),10),s=dayState(sel),ix=s.indexOf(t);
+  if(ix>-1)s.splice(ix,1);else s.push(t);
+  save();refresh();
+}
+function renderHead(){
+  var full=0;for(var i=0;i<DAYS.length;i++)if(doneCount(DAYS[i])===DAYS[i].k.length)full++;
+  document.getElementById('hDone').textContent=full+'/30';
+}
+function refresh(){renderWeeks();renderStrips();renderDay();renderHead();
+  var dots=document.querySelectorAll('.dot');
+  for(var i=0;i<dots.length;i++)dots[i].onclick=function(){sel=parseInt(this.getAttribute('data-d'),10);refresh();};
+}
+
+/* hooks */
+(function(){var h='';for(var i=0;i<HOOKS.length;i++)h+='<span class="hook">'+HOOKS[i]+'</span>';document.getElementById('hooks').innerHTML=h})();
+
+/* tabs */
+(function(){
+  var tabs=document.querySelectorAll('.tab'),secs=document.querySelectorAll('section');
+  function go(id){
+    for(var i=0;i<tabs.length;i++)tabs[i].classList.toggle('on',tabs[i].getAttribute('data-s')===id);
+    for(var i=0;i<secs.length;i++)secs[i].classList.toggle('on',secs[i].id===id);
+    if(history.replaceState)history.replaceState(null,'','#'+id);
+    window.scrollTo(0,0);
+  }
+  for(var i=0;i<tabs.length;i++)tabs[i].onclick=function(){go(this.getAttribute('data-s'))};
+  var h=location.hash.replace('#','');
+  if(h&&document.getElementById(h))go(h);
+})();
+
+document.getElementById('resetBtn').onclick=function(){
+  if(confirm('Reset all checked tasks? This clears saved progress in this browser.')){state={};save();sel=1;refresh();}
+};
+refresh();
+</script>

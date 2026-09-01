@@ -1,0 +1,83 @@
+<!-- @dsCard group="Week 1 · Feed posts" -->
+<!--
+  DAY 2 · Challenges — feed post 1080×1080 (Instagram + Facebook)
+  Reuse: swap .kicker / .headline / .sub / .cta text and the screenshot.
+-->
+<meta charset="utf-8">
+<title>Day 2 — Challenges (feed 1080×1080)</title>
+<link rel="stylesheet" href="../../brand/brand.css">
+<style>
+  body { width: 1080px; height: 1080px; overflow: hidden; }
+  .canvas {
+    width: 1080px; height: 1080px;
+    background: linear-gradient(160deg, #ffffff 0%, var(--canvas) 52%, #ffeede 100%);
+    color: var(--ink);
+  }
+  .glow.g1 { width: 620px; height: 620px; right: -180px; top: -200px; background: rgba(255, 107, 0, 0.16); }
+  .glow.g2 { width: 560px; height: 560px; left: -220px; bottom: -240px; background: rgba(255, 159, 67, 0.30); }
+
+  .lockup { position: absolute; top: 64px; left: 72px; }
+  .lockup img { width: 84px; height: 84px; }
+  .lockup .word { font-size: 46px; color: var(--ink); }
+
+  .copy { position: absolute; left: 72px; top: 268px; width: 560px; }
+  .kicker {
+    background: var(--primary);
+    color: var(--white);
+    padding: 16px 28px;
+    font-size: 25px;
+    letter-spacing: 3px;
+    box-shadow: 0 12px 30px rgba(255, 107, 0, 0.30);
+  }
+  .headline {
+    margin-top: 44px;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -3px;
+  }
+  .headline em { font-style: normal; color: var(--primary); }
+  .sub {
+    margin-top: 36px;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .cta { position: absolute; left: 72px; bottom: 96px; display: flex; align-items: center; gap: 26px; }
+  .cta .primary { background: var(--primary); color: var(--white); padding: 26px 44px; font-size: 29px; box-shadow: 0 16px 40px rgba(255, 107, 0, 0.38); }
+  .cta .stores { font-size: 24px; font-weight: 700; line-height: 1.35; color: var(--text-secondary); }
+
+  .phone { position: absolute; right: -35px; top: 200px; width: 445px; transform: rotate(-4deg); }
+  .phone .screen { height: 880px; }
+
+  .chip { left: 505px; top: 740px; padding: 20px 28px; font-size: 24px; transform: rotate(-2deg); }
+  .chip .em { font-size: 30px; }
+</style>
+
+<div class="canvas">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="lockup">
+    <img src="../../assets/app-icon.png" alt="">
+    <div class="word">Buzzend</div>
+  </div>
+
+  <div class="copy">
+    <span class="pill kicker">DAY 2 · CHALLENGES</span>
+    <div class="headline">Challenge your <em>crew.</em></div>
+    <div class="sub">Create a 30-day challenge and invite your friends. The camera counts every rep automatically — no honor system.</div>
+  </div>
+
+  <div class="cta">
+    <span class="pill primary">Start a challenge ⚡</span>
+    <span class="stores">App Store<br>Google Play</span>
+  </div>
+
+  <div class="phone">
+    <div class="screen"><img src="../../assets/screens-clean/challenge.png" alt="Buzzend challenge screen"></div>
+  </div>
+
+  <div class="chip"><span class="em">🏆</span> 245 members · ranked by reps</div>
+</div>

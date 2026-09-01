@@ -1,0 +1,18 @@
+/* Shared bits for real-screenshot edit wrappers (828×1792 canvases).
+   Patches cover real names/avatars with demo identities before store use. */
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-latin.woff2") format("woff2");
+  font-weight: 100 900;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 828px; height: 1792px; overflow: hidden; }
+body { position: relative; font-family: "Inter", -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+img.base { position: absolute; inset: 0; width: 828px; height: 1792px; }
+.patch { position: absolute; display: flex; align-items: center; }
+.avatar {
+  position: absolute; border-radius: 50%;
+  display: grid; place-items: center;
+  background: linear-gradient(150deg, #ff9f43, #e25a00);
+  color: #fff; font-weight: 800;
+}
