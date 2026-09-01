@@ -56,7 +56,7 @@ function render() {
   document.getElementById('prog').textContent = `${pr.done}/${pr.total} done today (${pr.pct}%)`;
   document.getElementById('tasks').innerHTML = dayData.tasks.map(t => {
     const done = S.isDone(t.id);
-    return `<div class="task ${done ? 'done' : ''}">
+    return `<div class="task ${done ? 'done' : ''}" id="${t.id}">
       <label><input type="checkbox" data-id="${t.id}" ${done ? 'checked' : ''}>
         <span><span class="t">${t.pri} ${t.title}</span>
         <div class="meta">${t.time}${t.dep ? ` · <span class="dep">depends on: ${t.dep}</span>` : ''}</div></span>
@@ -71,6 +71,16 @@ function render() {
   });
 }
 render();
+
+// deep link to one task: day.html?d=3&p=riya#d03-riya-t1
+if (location.hash) {
+  const el = document.getElementById(location.hash.slice(1));
+  if (el) {
+    el.scrollIntoView({ block: 'start' });
+    el.style.outline = '3px solid var(--primary)';
+    setTimeout(() => { el.style.outline = ''; }, 2500);
+  }
+}
 
 const noteKey = `d${dayN}-${person}`;
 const notesEl = document.getElementById('notes');
