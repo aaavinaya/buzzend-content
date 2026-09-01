@@ -12,6 +12,7 @@ marked.setOptions({ gfm: true, breaks: false });
 // ── manifest: [group, repo-relative path] in reading order ──────────────
 const MANIFEST = [
   ['Project', 'README.md'],
+  ['Project', 'sprint/README.md'],
   ['Project', 'BUZZEND_GROWTH_PRODUCT_STRATEGY_2026_FINAL.md'],
   ['Project', 'BUZZEND_30_DAY_EXECUTION_PLAN.md'],
   ['Project', 'brand/design-guide.md'],

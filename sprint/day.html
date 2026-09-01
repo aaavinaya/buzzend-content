@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint day</title>
+<link rel="stylesheet" href="assets/sprint.css">
+</head><body>
+
+<header class="top">
+  <img src="../assets/app-icon.png" alt="">
+  <h1 id="title">Day</h1>
+  <div class="sub"><a href="index.html">← Dashboard</a> · <span id="prog"></span></div>
+</header>
+
+<div class="people-nav" id="peopleNav"></div>
+
+<div class="card">
+  <div style="font-size:14px"><b>Objective:</b> <span id="objective"></span></div>
+  <div class="hint" style="margin-top:4px"><b>Estimated time:</b> <span id="time"></span></div>
+</div>
+
+<div id="tasks"></div>
+
+<div class="card">
+  <h2>Notes for this day</h2>
+  <textarea class="notes" id="notes" placeholder="Links to deliverables, numbers you recorded, blockers…"></textarea>
+  <div class="hint">Saved automatically in this browser.</div>
+</div>
+
+<div class="daynav">
+  <a id="prevLink" href="#">‹ Previous day</a>
+  <a id="nextLink" href="#">Next day ›</a>
+</div>
+
+<script src="config.js"></script>
+<script src="data/tasks.js"></script>
+<script src="assets/sprint.js"></script>
+<script>
+const S = window.Sprint, cfg = S.cfg;
+const q = new URLSearchParams(location.search);
+const dayN = Math.max(1, Math.min(S.data.days.length, parseInt(q.get('d') || '1', 10)));
+const person = cfg.people.some(p => p.id === q.get('p')) ? q.get('p') : cfg.people[0].id;
+const pInfo = cfg.people.find(p => p.id === person);
+const dayData = S.data.days.find(d => d.n === dayN).people[person];
+
+document.title = `Day ${dayN} — ${pInfo.name}`;
+document.getElementById('title').textContent = `Day ${dayN} — ${pInfo.name}`;
+document.getElementById('objective').textContent = dayData.objective;
+document.getElementById('time').textContent = dayData.time;
+
+document.getElementById('peopleNav').innerHTML = cfg.people.map(p =>
+  `<a href="day.html?d=${dayN}&p=${p.id}" class="${p.id === person ? 'active' : ''}">${p.name}</a>`
+).join('');
+
+function render() {
+  const pr = S.progress(person, dayN);
+  document.getElementById('prog').textContent = `${pr.done}/${pr.total} done today (${pr.pct}%)`;
+  document.getElementById('tasks').innerHTML = dayData.tasks.map(t => {
+    const done = S.isDone(t.id);
+    return `<div class="task ${done ? 'done' : ''}">
+      <label><input type="checkbox" data-id="${t.id}" ${done ? 'checked' : ''}>
+        <span><span class="t">${t.pri} ${t.title}</span>
+        <div class="meta">${t.time}${t.dep ? ` · <span class="dep">depends on: ${t.dep}</span>` : ''}</div></span>
+      </label>
+      <details ${done ? '' : 'open'}><summary>Step-by-step instructions</summary>
+        <div class="body">${t.html}</div>
+      </details>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.onchange = () => { S.toggle(cb.dataset.id); render(); };
+  });
+}
+render();
+
+const noteKey = `d${dayN}-${person}`;
+const notesEl = document.getElementById('notes');
+notesEl.value = S.getNote(noteKey);
+notesEl.oninput = () => S.setNote(noteKey, notesEl.value);
+
+const prev = document.getElementById('prevLink'), next = document.getElementById('nextLink');
+if (dayN > 1) prev.href = `day.html?d=${dayN - 1}&p=${person}`; else prev.style.visibility = 'hidden';
+if (dayN < S.data.days.length) next.href = `day.html?d=${dayN + 1}&p=${person}`; else next.style.visibility = 'hidden';
+</script>
+</body></html>

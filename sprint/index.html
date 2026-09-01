@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzend — 15-Day Growth Sprint</title>
+<link rel="stylesheet" href="assets/sprint.css">
+</head><body>
+
+<header class="top">
+  <img src="../assets/app-icon.png" alt="">
+  <h1 id="title">Buzzend — 15-Day Growth Sprint</h1>
+  <div class="sub"><a href="../index.html">← Buzzend docs</a> · tick tasks on each person's day page; progress shows here</div>
+</header>
+
+<div class="card">
+  <h2>Overall progress</h2>
+  <div class="row" style="gap:16px">
+    <span class="bigpct" id="overallPct">0%</span>
+    <div class="bar" style="flex:1"><i id="overallBar"></i></div>
+  </div>
+  <div class="hint" id="overallCount"></div>
+  <div id="personRows" style="margin-top:14px"></div>
+</div>
+
+<div class="card">
+  <h2>Days <span class="pill" id="todayPill" hidden></span></h2>
+  <table class="days">
+    <thead><tr><th>Day</th><th>Avinaya</th><th>Gaurab</th><th>Riya</th></tr></thead>
+    <tbody id="dayRows"></tbody>
+  </table>
+</div>
+
+<div class="card syncbox">
+  <h2>Sync between teammates (no backend)</h2>
+  <p style="font-size:13.5px">Checkboxes live in <b>this browser only</b>. To combine progress:
+  each person taps <b>Export</b> and sends the code to the team chat; anyone can paste
+  teammates' codes below and <b>Import</b> — done tasks merge together.</p>
+  <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
+    <button id="exportBtn">Export my progress</button>
+    <button class="ghost" id="importBtn">Import pasted code</button>
+  </div>
+  <textarea id="syncArea" placeholder="Export puts your code here (copied to clipboard too). To import, paste a teammate's code here first."></textarea>
+  <div class="hint" id="syncMsg"></div>
+</div>
+
+<footer id="foot"></footer>
+
+<script src="config.js"></script>
+<script src="data/tasks.js"></script>
+<script src="assets/sprint.js"></script>
+<script>
+const S = window.Sprint, cfg = S.cfg;
+document.getElementById('title').textContent = cfg.sprintName;
+
+const overall = S.progress();
+document.getElementById('overallPct').textContent = overall.pct + '%';
+document.getElementById('overallBar').style.width = overall.pct + '%';
+document.getElementById('overallCount').textContent =
+  overall.done + ' done · ' + (overall.total - overall.done) + ' remaining · ' + overall.total + ' total tasks';
+
+document.getElementById('personRows').innerHTML = cfg.people.map(p => {
+  const pr = S.progress(p.id);
+  return `<div class="row"><span class="name">${p.name}</span>
+    <div class="bar"><i style="width:${pr.pct}%"></i></div>
+    <span class="pct">${pr.pct}%</span></div>`;
+}).join('');
+
+const today = S.currentDay();
+if (today) {
+  const el = document.getElementById('todayPill');
+  el.hidden = false; el.textContent = 'Today: Day ' + today;
+}
+
+document.getElementById('dayRows').innerHTML = S.data.days.map(d => {
+  const cells = cfg.people.map(p => {
+    const pr = S.progress(p.id, d.n);
+    const cls = pr.total === 0 ? '' : pr.pct === 100 ? 'done' : pr.pct > 0 ? 'part' : '';
+    const label = pr.pct === 100 ? '✓ 100%' : pr.pct + '%';
+    return `<td><a class="cell ${cls}" href="day.html?d=${d.n}&p=${p.id}">${label}</a></td>`;
+  }).join('');
+  return `<tr class="${today === d.n ? 'today' : ''}"><td class="d">Day ${d.n}</td>${cells}</tr>`;
+}).join('');
+
+document.getElementById('exportBtn').onclick = () => {
+  const code = S.exportState();
+  document.getElementById('syncArea').value = code;
+  navigator.clipboard && navigator.clipboard.writeText(code).catch(() => {});
+  document.getElementById('syncMsg').textContent = 'Copied. Paste it in the team chat.';
+};
+document.getElementById('importBtn').onclick = () => {
+  const r = S.importState(document.getElementById('syncArea').value.trim());
+  document.getElementById('syncMsg').textContent = r.msg;
+  if (r.ok) setTimeout(() => location.reload(), 900);
+};
+
+const link = (u, t) => u && !u.startsWith('PASTE') ? `<a href="${u}">${t}</a>` : `${t} (set in config.js)`;
+document.getElementById('foot').innerHTML =
+  link(cfg.appStoreUrl, 'App Store') + ' · ' + link(cfg.playStoreUrl, 'Google Play') +
+  '<br>Progress is saved in this browser (localStorage). Clearing site data erases it — export weekly.';
+</script>
+</body></html>
