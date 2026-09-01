@@ -12,8 +12,11 @@ window.SPRINT_CONFIG = {
     youtube: 'PASTE-@HANDLE',
     facebook: 'PASTE-PAGE',
   },
-  // Team sync via GitHub API (no backend): progress.json lives in this repo.
-  sync: { repo: 'aaavinaya/buzzend-content', branch: 'main', path: 'sprint/progress.json' },
+  // One common shared store for the whole team — every page reads/writes
+  // this URL automatically. Zero per-person setup. Lives in the team's own
+  // Firebase Realtime Database (project winjee-dev, instance "winjee-dev"),
+  // rules allow ONLY the /sprint branch. Managed in the Firebase console.
+  sharedStore: { url: 'https://winjee-dev.firebaseio.com/sprint.json' },
   people: [
     { id: 'avinaya', name: 'Avinaya', role: 'Lead · iOS · ASO · analytics · coordination' },
     { id: 'gaurab', name: 'Gaurab', role: 'Android · Play Store · recordings · community' },

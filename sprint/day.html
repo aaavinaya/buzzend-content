@@ -72,8 +72,8 @@ function render() {
 }
 render();
 
-S.gh.onStatus(st => { document.getElementById('syncLine').textContent = st.text; });
-if (S.gh.enabled) S.gh.pull(changed => { if (changed) render(); });
+S.store.onStatus(st => { document.getElementById('syncLine').textContent = st.text; });
+S.store.start(changed => { if (changed) render(); });
 
 // deep link to one task: day.html?d=3&p=riya#d03-riya-t1
 if (location.hash) {

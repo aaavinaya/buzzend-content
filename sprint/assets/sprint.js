@@ -1,14 +1,17 @@
 /* Shared state + helpers for the sprint dashboard and day/person pages.
-   Local persistence: localStorage (instant, per browser).
-   Team sync (no backend): sprint/progress.json in the GitHub repo,
-   read/written via the GitHub Contents API with a personal token that
-   each teammate pastes once (stored only in their own browser).
-   State shape: { "<taskId>": { done: true|false, ts: 1712345678901 } }
-   (done:false entries are "tombstones" so un-ticking also syncs).      */
+
+   Two layers, zero setup:
+   1. localStorage — every tick saves instantly in this browser (works offline).
+   2. Shared store — ONE common JSON file on a free public JSON-storage
+      service (URL in config.js → sharedStore.url). Every page pulls it on
+      load and every ~45s, and pushes a merged copy ~2s after you tick.
+      Open any link on any device: same progress. No accounts, no tokens.
+
+   Merge rule: per task, the newest change wins ({done, ts} — done:false
+   entries are kept as tombstones so un-ticking syncs too).               */
 (function () {
   const KEY = 'buzzend-sprint-v1';
   const NOTES_KEY = 'buzzend-sprint-notes-v1';
-  const TOKEN_KEY = 'buzzend-sprint-gh-token';
 
   function load(k) {
     try { return JSON.parse(localStorage.getItem(k)) || {}; } catch { return {}; }
@@ -16,7 +19,6 @@
   function save(k, obj) {
     try { localStorage.setItem(k, JSON.stringify(obj)); } catch {}
   }
-  // newest timestamp wins, per task — safe for concurrent teammates
   function mergeInto(target, incoming) {
     let changed = 0;
     for (const [id, val] of Object.entries(incoming || {})) {
@@ -36,7 +38,7 @@
     toggle(id) {
       this.state[id] = { done: !this.isDone(id), ts: Date.now() };
       save(KEY, this.state);
-      GH.schedulePush();
+      Store.schedulePush();
     },
     getNote(k) { return this.notes[k] || ''; },
     setNote(k, v) { this.notes[k] = v; save(NOTES_KEY, this.notes); },
@@ -59,7 +61,7 @@
       return diff >= 1 && diff <= this.data.days.length ? diff : null;
     },
 
-    // manual fallback (kept for offline use)
+    // manual fallback (offline / store outage)
     exportState() {
       return JSON.stringify({ v: 1, exported: new Date().toISOString(), state: this.state });
     },
@@ -67,22 +69,21 @@
       let obj; try { obj = JSON.parse(text); } catch { return { ok: false, msg: 'Not valid JSON.' }; }
       const n = mergeInto(this.state, obj.state || obj);
       save(KEY, this.state);
-      return { ok: true, msg: `Merged ${n} update(s). Refresh to see them.` };
+      Store.schedulePush();
+      return { ok: true, msg: `Merged ${n} update(s).` };
     },
   };
 
-  // ── GitHub team sync ────────────────────────────────────────────────
-  const GH = {
+  // ── shared store sync (no accounts, no tokens) ─────────────────────
+  const Store = {
     timer: null,
+    poll: null,
     pushing: false,
     listeners: [],
-    lastStatus: { level: 'off', text: 'Team sync off — set a GitHub token on the dashboard' },
+    lastStatus: { level: 'off', text: 'shared store not configured' },
 
-    get token() { try { return localStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; } },
-    setToken(t) {
-      try { t ? localStorage.setItem(TOKEN_KEY, t.trim()) : localStorage.removeItem(TOKEN_KEY); } catch {}
-    },
-    get enabled() { return !!this.token && !!(S.cfg.sync && S.cfg.sync.repo); },
+    get url() { return (S.cfg.sharedStore && S.cfg.sharedStore.url) || ''; },
+    get enabled() { return !!this.url; },
 
     onStatus(fn) { this.listeners.push(fn); fn(this.lastStatus); },
     setStatus(level, text) {
@@ -90,71 +91,67 @@
       this.listeners.forEach(fn => fn(this.lastStatus));
     },
 
-    url() { return `https://api.github.com/repos/${S.cfg.sync.repo}/contents/${S.cfg.sync.path}`; },
-    headers() {
-      return { Authorization: 'Bearer ' + this.token, Accept: 'application/vnd.github+json',
-               'X-GitHub-Api-Version': '2022-11-28' };
+    async fetchRemote() {
+      const r = await fetch(this.url, { cache: 'no-store' });
+      if (r.status === 404) return {};   // key not written yet
+      if (!r.ok) throw new Error('store read failed (' + r.status + ')');
+      try {
+        const j = JSON.parse(await r.text());
+        return (j && typeof j === 'object' && !Array.isArray(j)) ? j : {};
+      } catch { return {}; }
     },
 
-    async fetchRemote() {  // -> {state, sha} | {state:null, sha:null} on 404
-      const r = await fetch(this.url() + '?ref=' + S.cfg.sync.branch + '&t=' + Date.now(),
-                            { headers: this.headers() });
-      if (r.status === 404) return { state: null, sha: null };
-      if (!r.ok) throw new Error('GitHub read failed (' + r.status + ')');
-      const j = await r.json();
-      let state = {};
-      try { state = JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g, ''))))); } catch {}
-      return { state, sha: j.sha };
-    },
-
-    // pull remote → merge into local → cb(changed)
+    // pull remote → merge → cb(changed); if we hold newer/extra ticks, push them up
     async pull(cb) {
       if (!this.enabled) return;
       try {
-        this.setStatus('busy', 'Syncing…');
-        const { state } = await this.fetchRemote();
-        const changed = state ? mergeInto(S.state, state) : 0;
+        this.setStatus('busy', 'syncing…');
+        const remote = await this.fetchRemote();
+        const changed = mergeInto(S.state, remote);
         if (changed) save(KEY, S.state);
-        this.setStatus('ok', 'Synced ✓ (team progress up to date)');
+        const weAreAhead = Object.entries(S.state).some(
+          ([id, v]) => !remote[id] || (v.ts || 0) > (remote[id].ts || 0));
+        if (weAreAhead) this.schedulePush();
+        else this.setStatus('ok', 'shared ✓ everyone sees this progress');
         if (cb) cb(changed);
       } catch (e) {
-        this.setStatus('err', 'Sync failed: ' + e.message + ' — working locally');
+        this.setStatus('err', 'store unreachable — ticks saved locally, will re-sync');
       }
     },
 
     schedulePush() {
       if (!this.enabled) return;
       clearTimeout(this.timer);
-      this.setStatus('busy', 'Saving to team…');
+      this.setStatus('busy', 'saving to shared store…');
       this.timer = setTimeout(() => this.push(), 2000);
     },
 
-    async push(retry = true) {
+    async push() {
       if (!this.enabled || this.pushing) return;
       this.pushing = true;
       try {
-        const remote = await this.fetchRemote();
-        // merge remote in first so we never clobber teammates
-        if (remote.state) { if (mergeInto(S.state, remote.state)) save(KEY, S.state); }
-        const body = {
-          message: 'sprint: progress update',
-          content: btoa(unescape(encodeURIComponent(JSON.stringify(S.state, null, 1)))),
-          branch: S.cfg.sync.branch,
-        };
-        if (remote.sha) body.sha = remote.sha;
-        const r = await fetch(this.url(), { method: 'PUT', headers: this.headers(),
-                                            body: JSON.stringify(body) });
-        if ((r.status === 409 || r.status === 422) && retry) {  // raced a teammate
-          this.pushing = false; return this.push(false);
-        }
-        if (!r.ok) throw new Error('GitHub write failed (' + r.status + ')');
-        this.setStatus('ok', 'Synced ✓ ' + new Date().toLocaleTimeString());
+        // merge remote first so parallel teammates never get clobbered
+        let remote = {};
+        try { remote = await this.fetchRemote(); } catch {}
+        if (mergeInto(S.state, remote)) save(KEY, S.state);
+        // Firebase REST: PUT replaces the /sprint branch with our merged state
+        const r = await fetch(this.url, { method: 'PUT', body: JSON.stringify(S.state) });
+        if (!r.ok) throw new Error('store write failed (' + r.status + ')');
+        this.setStatus('ok', 'shared ✓ ' + new Date().toLocaleTimeString());
       } catch (e) {
-        this.setStatus('err', 'Sync failed: ' + e.message + ' — ticks are safe locally; will retry on next change');
+        this.setStatus('err', 'store unreachable — ticks saved locally, will re-sync');
       } finally { this.pushing = false; }
+    },
+
+    // pages call this once: initial pull + background refresh every 45s
+    start(onChange) {
+      if (!this.enabled) { this.setStatus('off', 'shared store not configured'); return; }
+      this.pull(onChange);
+      clearInterval(this.poll);
+      this.poll = setInterval(() => { if (!document.hidden) this.pull(onChange); }, 45000);
     },
   };
 
-  S.gh = GH;
+  S.store = Store;
   window.Sprint = S;
 })();

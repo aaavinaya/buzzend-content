@@ -52,40 +52,35 @@ sprint/
 - Progress % = completed checkboxes ÷ total tasks (per person, per day,
   and overall). A day cell turns green at 100%.
 
-## Checkbox persistence & team sync — read this once, carefully
+## Checkbox persistence & shared progress — read this once
 
-Ticks are saved in your browser's **localStorage** the moment you click —
-refresh-proof, offline-proof. Notes persist the same way. But localStorage
-alone is per browser, per device: your teammates wouldn't see your ticks.
+Two layers, **zero setup for anyone**:
 
-**Team sync (the recommended setup, still no backend):** the dashboard can
-use **GitHub itself as the shared store**. Ticks are merged into
-`sprint/progress.json` in this repo through the GitHub API, and every page
-pulls the team state on load. One-time setup per person (~2 min):
+1. **Your browser (instant):** every tick saves to localStorage the moment
+   you click — refresh-proof, works offline. Notes persist the same way.
+2. **The shared store (team-wide):** all pages automatically read and write
+   **one common JSON file** hosted on a free public JSON-storage service
+   (URL in `sprint/config.js` → `sharedStore.url`). Tick anywhere → it's
+   in the shared file ~2 seconds later → every other link, browser, device
+   or teammate sees it on their next page load (pages also self-refresh
+   every ~45 s). Merging is per-task, newest change wins, so simultaneous
+   ticks never clobber each other; un-ticking syncs too.
 
-1. GitHub → Settings → Developer settings → **Fine-grained tokens** →
-   Generate new token.
-2. Repository access: **Only select repositories** → `buzzend-content`.
-3. Permissions → Repository → **Contents: Read and write**. Generate, copy.
-4. Open the dashboard → *Team sync* card → paste → **Connect**.
+So: open the dashboard in any browser on any device — same progress. No
+accounts, no tokens, nothing to connect.
 
-The token lives only in that person's browser (never in the repo). After
-connecting: tick anywhere → saved locally instantly → pushed to the repo a
-couple of seconds later → teammates see it on their next page load or
-**Sync now**. Merging is per-task, newest change wins, so nobody's ticks
-ever get clobbered — and the repo's git history becomes an audit log of
-progress. These progress commits deliberately do **not** trigger a site
-redeploy.
-
-Notes and honest limitations:
-- Sync needs each person's token once per browser/device. No token = the
-  system still works, just locally (plus the export/import fallback,
-  now tucked under "Offline fallback" on the dashboard).
-- It's "shared on refresh", not live-typing collaboration — plenty for a
-  3-person daily checklist.
-- Don't paste your token on a shared computer; revoke it on GitHub anytime.
-- Clearing browser data removes your token + local ticks, but the team
-  state survives in the repo — reconnect and it all comes back.
+Honest trade-offs of the free shared store:
+- The store URL is unguessable but not private — anyone who has our page
+  link could in principle change ticks. The data is only task-ids and
+  true/false, no personal info; acceptable for a team checklist.
+- It's a free third-party service. If it's ever unreachable, the status
+  line says so, your ticks keep saving locally, and everything re-syncs
+  on the next change. If it ever disappears for good: create a new bin
+  (`POST {}` to `https://extendsclass.com/api/json-storage/bin`), put the
+  new URL in `config.js`, push — then use "Export my progress" from the
+  person with the most complete browser state to refill it.
+- Clearing browser data only loses local state — the team's shared file
+  still has everything, and the page pulls it right back.
 
 ## Deploying / updating
 

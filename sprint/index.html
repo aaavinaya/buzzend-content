@@ -33,29 +33,16 @@
 </div>
 
 <div class="card syncbox">
-  <h2>Team sync — shared progress with no backend</h2>
-  <div id="syncSetup" hidden>
-    <p style="font-size:13.5px">Ticks sync for the whole team through a
-    <code>progress.json</code> file in our GitHub repo. One-time setup (2 min):</p>
-    <ol style="font-size:13px; padding-left:20px; margin:8px 0">
-      <li>GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token</li>
-      <li>Repository access: <b>Only select repositories</b> → <code>buzzend-content</code></li>
-      <li>Permissions → Repository → <b>Contents: Read and write</b> → Generate, copy the token</li>
-      <li>Paste it below (it stays in <i>your</i> browser only — never in the repo)</li>
-    </ol>
-    <div style="display:flex; gap:8px; flex-wrap:wrap">
-      <input id="tokenInput" type="password" placeholder="github_pat_…" style="flex:1; min-width:220px; border:1px solid var(--border); border-radius:999px; padding:10px 16px; font:inherit; font-size:13px">
-      <button id="tokenSave">Connect</button>
-    </div>
-    <div class="hint">Don't do this on a shared computer. You can revoke the token on GitHub anytime.</div>
+  <h2>Shared progress — one store for every link, every device</h2>
+  <p style="font-size:13.5px">All pages read and write <b>one common shared file</b>
+  automatically — no accounts, no setup. Tick anywhere; everyone sees it on their
+  next load (pages also refresh themselves every ~45s).</p>
+  <p style="font-size:13.5px; margin-top:6px" id="syncStatus"></p>
+  <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+    <button id="syncNow">Refresh from shared store</button>
   </div>
-  <div id="syncOn" hidden>
-    <p style="font-size:13.5px" id="syncStatus"></p>
-    <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
-      <button id="syncNow">Sync now</button>
-      <button class="ghost" id="tokenClear">Disconnect this browser</button>
-    </div>
-  </div>
+  <div class="hint" style="margin-top:8px">Ticks always save in your browser first,
+  so nothing is lost if the store is briefly unreachable — it re-syncs on the next change.</div>
   <details style="margin-top:12px">
     <summary style="font-size:12.5px; color:var(--muted); cursor:pointer">Offline fallback: export / import a progress code</summary>
     <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
@@ -73,7 +60,7 @@
 <script src="data/tasks.js"></script>
 <script src="assets/sprint.js"></script>
 <script>
-const S = window.Sprint, cfg = S.cfg, GH = S.gh;
+const S = window.Sprint, cfg = S.cfg, GH = S.store;
 document.getElementById('title').textContent = cfg.sprintName;
 
 function renderAll() {
@@ -107,27 +94,13 @@ function renderAll() {
 }
 renderAll();
 
-// ── team sync UI ──
-function refreshSyncUI() {
-  document.getElementById('syncSetup').hidden = GH.enabled;
-  document.getElementById('syncOn').hidden = !GH.enabled;
-}
+// ── shared store ──
 GH.onStatus(st => {
   document.getElementById('syncStatus').textContent = st.text;
-  document.getElementById('syncLine').textContent =
-    GH.enabled ? st.text : 'team sync off — connect it below';
+  document.getElementById('syncLine').textContent = st.text;
 });
-refreshSyncUI();
-if (GH.enabled) GH.pull(changed => { if (changed) renderAll(); });
-
-document.getElementById('tokenSave').onclick = () => {
-  const t = document.getElementById('tokenInput').value.trim();
-  if (!t) return;
-  GH.setToken(t); refreshSyncUI();
-  GH.pull(changed => { renderAll(); });
-};
-document.getElementById('tokenClear').onclick = () => { GH.setToken(''); refreshSyncUI(); GH.setStatus('off', 'Team sync off'); };
-document.getElementById('syncNow').onclick = () => GH.pull(changed => { renderAll(); GH.push(); });
+GH.start(changed => { if (changed) renderAll(); });
+document.getElementById('syncNow').onclick = () => GH.pull(changed => renderAll());
 
 // offline fallback
 document.getElementById('exportBtn').onclick = () => {
@@ -145,6 +118,6 @@ document.getElementById('importBtn').onclick = () => {
 const link = (u, t) => u && !u.startsWith('PASTE') ? `<a href="${u}">${t}</a>` : `${t} (set in config.js)`;
 document.getElementById('foot').innerHTML =
   link(cfg.appStoreUrl, 'App Store') + ' · ' + link(cfg.playStoreUrl, 'Google Play') +
-  '<br>Ticks save instantly in this browser; with team sync connected they also merge into the repo for everyone.';
+  '<br>Ticks save in this browser instantly and merge into the shared store for everyone — same progress on every link and device.';
 </script>
 </body></html>

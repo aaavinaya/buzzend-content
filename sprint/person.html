@@ -89,7 +89,7 @@ function render() {
 }
 render();
 
-S.gh.onStatus(st => { document.getElementById('syncLine').textContent = st.text; });
-if (S.gh.enabled) S.gh.pull(changed => { if (changed) render(); });
+S.store.onStatus(st => { document.getElementById('syncLine').textContent = st.text; });
+S.store.start(changed => { if (changed) render(); });
 </script>
 </body></html>
