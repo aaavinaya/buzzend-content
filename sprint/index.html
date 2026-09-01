@@ -24,7 +24,10 @@
 <div class="card">
   <h2>Days <span class="pill" id="todayPill" hidden></span></h2>
   <table class="days">
-    <thead><tr><th>Day</th><th>Avinaya</th><th>Gaurab</th><th>Riya</th></tr></thead>
+    <thead><tr><th>Day</th>
+      <th><a href="person.html?p=avinaya">Avinaya</a></th>
+      <th><a href="person.html?p=gaurab">Gaurab</a></th>
+      <th><a href="person.html?p=riya">Riya</a></th></tr></thead>
     <tbody id="dayRows"></tbody>
   </table>
 </div>
@@ -59,9 +62,10 @@ document.getElementById('overallCount').textContent =
 
 document.getElementById('personRows').innerHTML = cfg.people.map(p => {
   const pr = S.progress(p.id);
-  return `<div class="row"><span class="name">${p.name}</span>
+  return `<a class="row" style="text-decoration:none;color:inherit" href="person.html?p=${p.id}" title="Open ${p.name}'s full progress">
+    <span class="name">${p.name} ↗</span>
     <div class="bar"><i style="width:${pr.pct}%"></i></div>
-    <span class="pct">${pr.pct}%</span></div>`;
+    <span class="pct">${pr.pct}%</span></a>`;
 }).join('');
 
 const today = S.currentDay();

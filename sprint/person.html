@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint — person</title>
+<link rel="stylesheet" href="assets/sprint.css">
+<style>
+  .dayblock { margin-bottom: 14px; }
+  .dayblock .dhead { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .dayblock .dhead a { font-weight: 800; font-size: 15px; }
+  .dayblock .dhead .obj { font-size: 12.5px; color: var(--muted); flex: 1; }
+  .trow { display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+    border: 1px solid var(--border); border-radius: 12px; background: var(--surface);
+    margin-bottom: 6px; font-size: 14px; }
+  .trow input { width: 20px; height: 20px; accent-color: var(--primary); flex: none; cursor: pointer; }
+  .trow.done { opacity: .55; }
+  .trow.done .tt { text-decoration: line-through; }
+  .trow .tt { flex: 1; font-weight: 700; }
+  .trow .tm { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .trow a.steps { font-size: 12.5px; white-space: nowrap; }
+</style>
+</head><body>
+
+<header class="top">
+  <img src="../assets/app-icon.png" alt="">
+  <h1 id="title">Person</h1>
+  <div class="sub"><a href="index.html">← Dashboard</a> · <span id="role"></span></div>
+</header>
+
+<div class="people-nav" id="peopleNav"></div>
+
+<div class="card">
+  <div class="row" style="gap:16px">
+    <span class="bigpct" id="pct">0%</span>
+    <div class="bar" style="flex:1"><i id="bar"></i></div>
+  </div>
+  <div class="hint" id="count"></div>
+</div>
+
+<div id="days"></div>
+
+<script src="config.js"></script>
+<script src="data/tasks.js"></script>
+<script src="assets/sprint.js"></script>
+<script>
+const S = window.Sprint, cfg = S.cfg;
+const q = new URLSearchParams(location.search);
+const person = cfg.people.some(p => p.id === q.get('p')) ? q.get('p') : cfg.people[0].id;
+const pInfo = cfg.people.find(p => p.id === person);
+
+document.title = `${pInfo.name} — sprint progress`;
+document.getElementById('title').textContent = `${pInfo.name} — all 15 days`;
+document.getElementById('role').textContent = pInfo.role;
+document.getElementById('peopleNav').innerHTML = cfg.people.map(p =>
+  `<a href="person.html?p=${p.id}" class="${p.id === person ? 'active' : ''}">${p.name}</a>`
+).join('');
+
+function render() {
+  const pr = S.progress(person);
+  document.getElementById('pct').textContent = pr.pct + '%';
+  document.getElementById('bar').style.width = pr.pct + '%';
+  document.getElementById('count').textContent =
+    `${pr.done} done · ${pr.total - pr.done} remaining · ${pr.total} tasks total`;
+
+  const today = S.currentDay();
+  document.getElementById('days').innerHTML = S.data.days.map(d => {
+    const pd = d.people[person]; if (!pd) return '';
+    const dp = S.progress(person, d.n);
+    const rows = pd.tasks.map(t => {
+      const done = S.isDone(t.id);
+      return `<div class="trow ${done ? 'done' : ''}">
+        <input type="checkbox" data-id="${t.id}" ${done ? 'checked' : ''}>
+        <span class="tt">${t.pri} ${t.title}</span>
+        <span class="tm">${t.time}</span>
+        <a class="steps" href="day.html?d=${d.n}&p=${person}#${t.id}">steps ↗</a>
+      </div>`;
+    }).join('');
+    return `<div class="dayblock">
+      <div class="dhead">
+        <a href="day.html?d=${d.n}&p=${person}">Day ${d.n}</a>
+        ${today === d.n ? '<span class="pill">today</span>' : ''}
+        <span class="obj">${pd.objective}</span>
+        <span class="cell ${dp.pct === 100 ? 'done' : dp.pct > 0 ? 'part' : ''}">${dp.pct}%</span>
+      </div>${rows}</div>`;
+  }).join('');
+
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.onchange = () => { S.toggle(cb.dataset.id); render(); };
+  });
+}
+render();
+</script>
+</body></html>
