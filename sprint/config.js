@@ -8,7 +8,7 @@ window.SPRINT_CONFIG = {
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.inventechgroup.buzzend',
   handles: {
     instagram: '@buzzend.official',
-    tiktok: ''  // no account found — confirm,
+    tiktok: '', // no account found — confirm
     youtube: '@buzzendofficial',
     facebook: 'Buzzend',
   },
