@@ -8,9 +8,9 @@ window.SPRINT_CONFIG = {
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.inventechgroup.buzzend',
   handles: {
     instagram: '@buzzend.official',
-    tiktok: '', // no account found — confirm
-    youtube: '@buzzendofficial',
-    facebook: 'Buzzend',
+    tiktok: 'https://www.tiktok.com/@buzzend.official',
+    youtube: 'https://www.youtube.com/@buzzend.official',
+    facebook: 'https://www.facebook.com/profile.php?id=100085812681441',
   },
   // One common shared store for the whole team — every page reads/writes
   // this URL automatically. Zero per-person setup. Lives in the team's own
