@@ -1,9 +1,15 @@
 # Buzzend — 15-Day Growth Sprint
 
-A day-by-day execution system for growing Buzzend: **15 days × 3 people
-(Avinaya, Gaurab, Riya) = 45 task files**, plus an interactive dashboard
-with progress bars and persistent checkboxes. No backend. Hosted on
-GitHub Pages next to the rest of this repo.
+A day-by-day execution system for growing Buzzend: **15 days × 4 people
+(Avinaya, Gaurab, Riya, Aditya) = 60 task files**, plus an interactive
+dashboard with progress bars and persistent checkboxes. No backend.
+Hosted on GitHub Pages next to the rest of this repo.
+
+Ownership note (since 2026-09-03): **Aditya owns all content creation**
+(filming, editing, Canva). Avinaya reviews/publishes Reels + ASO +
+analytics; Gaurab runs Android/Play + community; Riya runs publishing
+support, outreach and engagement. Aditya joined after Days 1–2 were
+done — his day-01/day-02 files are a same-day onboarding catch-up.
 
 **Open the dashboard:** `sprint/index.html`
 (live: `https://aaavinaya.github.io/buzzend-content/sprint/`)

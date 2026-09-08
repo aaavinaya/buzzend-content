@@ -8,7 +8,7 @@ import { marked } from 'marked';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DAYS_DIR = path.join(ROOT, 'sprint', 'days');
-const PEOPLE = ['avinaya', 'gaurab', 'riya'];
+const PEOPLE = ['avinaya', 'gaurab', 'riya', 'aditya'];
 marked.setOptions({ gfm: true });
 
 const errors = [];

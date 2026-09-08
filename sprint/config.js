@@ -20,6 +20,7 @@ window.SPRINT_CONFIG = {
   people: [
     { id: 'avinaya', name: 'Avinaya', role: 'Lead · iOS · ASO · analytics · coordination' },
     { id: 'gaurab', name: 'Gaurab', role: 'Android · Play Store · recordings · community' },
-    { id: 'riya', name: 'Riya', role: 'QA · content · Canva · research · engagement' },
+    { id: 'riya', name: 'Riya', role: 'QA · research · publishing · community engagement' },
+    { id: 'aditya', name: 'Aditya', role: 'Content creator · scripts · filming · editing · Canva' },
   ],
 };

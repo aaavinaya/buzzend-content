@@ -3,24 +3,21 @@
 **Objective:** Film and edit Reel #1 — a real squat set the counter genuinely counts — and approve Riya's captions so tomorrow is pure publishing.
 **Total time:** ~2.5h
 
-## Task 1 · 🔥 Film Reel #1 — the iOS squat-counter demo (90–120 min)
+## Task 1 · 🔥 Direct and approve Reel #1 (30–40 min)
 
-**Why:** This is the sprint's proof asset: a person moving and the number going up by itself. Everything tomorrow publishes hangs on this file existing tonight, edited and clean.
-**Where:** Your living room (or anywhere with space + daylight), your iPhone, Riya's script doc.
-**Tools:** iPhone, something to prop it against, CapCut (free) for editing, `buzzend-marketing/07-scripts/how-to-write-a-script.md` for the beat timings.
+**Why:** Filming and editing now belong to Aditya — your job is the two things only you can do: guarantee the counter footage is genuine, and give the final sign-off before anything ships.
+**Where:** Shared drive + a 10-minute review with Aditya.
+**Tools:** Phone, shared drive.
 
 **Steps:**
-1. Read Riya's script twice. Every shot you film today maps to one of its beats — no improvising on camera.
-2. **§40 pre-flight (rule 1: never fake a rep count):** prop the phone exactly where you'll film, do a full squat set in Buzzend, and check the counter matches your real reps. If it miscounts, change distance/angle/light and retest until it's right — and if it stays wrong, we don't film today, we report it to the product team.
-3. Film vertical (9:16): the HOOK close-up of the counter ticking, then the wide PROOF shot — full body + phone in frame, real squats, counter genuinely climbing. 2–3 takes of each; keep the take where the count is clearly visible.
-4. Edit in CapCut: trim to 15–30s following the script beats, add the on-screen hook text (≤10 words, big, high contrast) on the first frame, run auto-captions and fix their typos, end card with "Try your first AI workout." + app name.
-5. Export 1080×1920, no watermark (a watermarked file is publishing sin #1 for the other platforms). Upload the master to the shared drive and put the path in the tracker.
-6. Fill in the §40 line at the bottom of Riya's script: phone model, camera position, verified count.
-7. Send it to Gaurab or Riya for the muted-stranger test (checklist #7 in `buzzend-marketing/16-templates/workflow-templates.md`): watched muted, is "the phone counts reps" obvious?
+1. Hand Aditya Riya's Day-2 script and brief him on rule 1: never fake a rep count — the exercise is tested on the exact phone before filming.
+2. Be available during his shoot for a quick take-check (is the count readable? full body in frame?).
+3. Review the edited 15–30s master: hook in the first 2 seconds, captions on, CTA "Try your first AI workout", every number real.
+4. Approve or send back with ONE specific fix; record the master's path in the tracker.
 
-**Deliverable:** Edited 15–30s vertical master in the shared drive, path in the tracker, §40 line filled.
-**Done when:** One teammate passes it muted and the file is where Riya can stage it tonight.
-**Depends on:** Riya · Day 2 · Task 1 (the script).
+**Deliverable:** Approved Reel #1 master in the shared drive, path in the tracker.
+**Done when:** You'd publish it to 10,000 people without hesitation.
+**Depends on:** Aditya · Day 3 · Task 2 (the edited master), Riya · Day 2 · Task 1 (the script).
 
 ## Task 2 · 🟡 Review and approve Riya's captions batch (20–30 min)
 
