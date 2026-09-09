@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzend</title><meta name="robots" content="noindex"></head>
+<body style="font-family:-apple-system,sans-serif;background:#fff8f2;display:grid;place-items:center;height:100vh;margin:0">
+<p style="color:#6b7280">Opening the App Store…</p>
+<script>
+(function () {
+  var dest = 'https://apps.apple.com/app/buzzend/id1658683882';
+  try {
+    fetch('https://winjee-dev.firebaseio.com/sprint/links/ios.json', {
+      method: 'POST',
+      body: JSON.stringify({ t: Date.now(), r: document.referrer || '' }),
+      keepalive: true
+    }).catch(function(){});
+  } catch (e) {}
+  setTimeout(function () { location.replace(dest); }, 120);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=https://apps.apple.com/app/buzzend/id1658683882"></noscript>
+</body></html>

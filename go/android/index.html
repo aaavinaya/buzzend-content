@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzend</title><meta name="robots" content="noindex"></head>
+<body style="font-family:-apple-system,sans-serif;background:#fff8f2;display:grid;place-items:center;height:100vh;margin:0">
+<p style="color:#6b7280">Opening the Play Store…</p>
+<script>
+(function () {
+  var dest = 'https://play.google.com/store/apps/details?id=com.inventechgroup.buzzend';
+  try {
+    fetch('https://winjee-dev.firebaseio.com/sprint/links/android.json', {
+      method: 'POST',
+      body: JSON.stringify({ t: Date.now(), r: document.referrer || '' }),
+      keepalive: true
+    }).catch(function(){});
+  } catch (e) {}
+  setTimeout(function () { location.replace(dest); }, 120);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=https://play.google.com/store/apps/details?id=com.inventechgroup.buzzend"></noscript>
+</body></html>
