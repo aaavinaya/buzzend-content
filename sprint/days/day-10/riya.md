@@ -14,14 +14,14 @@
 2. **Slide 1 — hook:** pick from the hook bank, e.g. "Can AI count my push-ups?" or "Why wasn't this rep counted?" — big text over one clean screen (`ai-counter.png` or `real-ai.png`).
 3. **Slide 2 — "Point your camera":** `capture.png`, one line on propping the phone so it can see you.
 4. **Slide 3 — "Do your reps — it counts out loud":** `real-ai.png`; name the five exercises it counts: squats, push-ups, sit-ups, jumping jacks, lunges.
-5. **Slide 4 — "Your camera-verified score posts to the challenge":** use a still from Gaurab's leaderboard capture if it has arrived; otherwise `assets/screens-clean/leaderboard.png`. Don't block on him.
+5. **Slide 4 — "Your camera-verified score posts to the challenge":** use a still from the newest leaderboard capture in the shared drive **READY/** folder if one is there; otherwise `assets/screens-clean/leaderboard.png`. Never wait for footage.
 6. **Slide 5 — CTA:** "Try your first AI workout." — one CTA, store links stay in bio (from `sprint/config.js`).
 7. Proofread against the banned-words list in `buzzend-marketing/00-strategy/what-is-buzzend.md`; only `screens-clean/` or permission-cleared imagery on any slide.
 8. Export and publish to IG + Facebook; caption per templates 4 (Carousel) and 5 (Caption); log both URLs in the tracker `Social` tab; reply to everything in the first hour.
 
 **Deliverable:** 5-slide carousel live on IG + FB, URLs in the tracker, Canva link in team chat.
 **Done when:** Both post URLs are logged and every slide passes the imagery + wording check.
-**Depends on:** Gaurab · Day 10 · Task 2 (slide-4 footage — use it if it arrives, never block on it).
+**Depends on:** —
 
 ## Task 2 · 🟡 Story version with a "try it" link sticker (30 min)
 

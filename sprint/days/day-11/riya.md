@@ -10,13 +10,13 @@
 **Tools:** Both store consoles (or the public store pages), every social inbox, `buzzend-marketing/05-hooks/hook-bank.md`, `buzzend-marketing/06-content-ideas/idea-backlog.md`, `buzzend-marketing/16-templates/content-templates.md` (template 1).
 
 **Steps:**
-1. Collect EVERY piece of feedback since Day 1 into a raw list in the new file: App Store + Play reviews (all of them, good and bad), every comment on every post (IG/TikTok/YouTube/FB), every DM question, the hooks-inbox rows already gathered, Gaurab's Reddit/Discord reaction logs, and what challenge friends said in the group chat.
+1. Collect EVERY piece of feedback since Day 1 into a raw list in the new file: App Store + Play reviews (all of them, good and bad), every comment on every post (IG/TikTok/YouTube/FB), every DM question, the hooks-inbox rows already gathered, any Reddit/Discord reaction logs already in the tracker or the shared drive **READY/** folder (skip them if none are there — your own inboxes are the bulk of the material), and what challenge friends said in the group chat.
 2. Paste each item **verbatim** with source + date — exact words, no paraphrasing. (Names of private individuals: initials only.)
 3. Cluster into 4–7 themes — likely candidates: "does the counter really work", camera/setup confusion, privacy questions, challenges & friends, feature requests, plain love. Title each theme with a user's own phrase, in quotes.
 4. Write the **top-5 insights**: one line each — the theme, roughly how many voices behind it, and what it means for our content or store copy.
 5. Write **3 content ideas that answer real questions**, using template 1 in `content-templates.md` — the hook is the user's exact wording (someone asking "does it work in a small room?" IS the hook). Add all 3 to `buzzend-marketing/06-content-ideas/idea-backlog.md` tagged `sprint-15`.
 6. Add every strong verbatim phrase to the hooks-inbox table in `buzzend-marketing/05-hooks/hook-bank.md` with date + source.
-7. Commit, push, link the doc in the tracker and team chat — Avinaya's next weekly report and the Day-12+ experiments build on it.
+7. Commit, push, link the doc in the tracker and team chat — the next weekly report and the Day-12+ experiments build on it.
 
 **Deliverable:** `sprint-feedback.md` with the raw verbatim list, themes, top-5 insights; 3 ideas in the backlog; new hooks-inbox rows.
 **Done when:** Every known review/comment/DM/question appears word-for-word in the doc, and the 3 ideas are in the backlog tagged `sprint-15`.

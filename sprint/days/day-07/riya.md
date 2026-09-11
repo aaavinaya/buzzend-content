@@ -1,25 +1,25 @@
 # Day 7 — Riya
 
-**Objective:** Turn Avinaya's week-1 verdict into a concrete, approved 5-post plan for week 2, and refresh the hook bank with what real people actually said this week.
+**Objective:** Turn week 1's real per-post numbers into a concrete 5-post plan for week 2, and refresh the hook bank with what real people actually said this week.
 **Total time:** ~2h
 
 ## Task 1 · 🔥 Build the week-2 content plan — 5 posts from what won (75–90 min)
 
 **Why:** Week 2 must double down on the format that moved installs, not restart from guesses. We also still have finished assets on the shelf — the plan spends those before making anything new.
 **Where:** Tracker (`Social` tab or your `Content` tab) + team chat.
-**Tools:** Laptop, `buzzend-marketing/14-weekly-reports/week-1.md` (Avinaya posts it before lunch), `social-media/rendered/` (the unused day3–day7 feed + story files), `video/teaser-10s-1080x1920.mp4` if still unused, the sprint-15 hooks in `buzzend-marketing/06-content-ideas/idea-backlog.md`.
+**Tools:** Laptop, each platform's own analytics (IG Insights, TikTok Analytics, YouTube Studio, FB — per-post reach you read yourself), `social-media/rendered/` (the unused day3–day7 feed + story files), `video/teaser-10s-1080x1920.mp4` if still unused, the sprint-15 hooks in `buzzend-marketing/06-content-ideas/idea-backlog.md`.
 
 **Steps:**
-1. Read Avinaya's 5-line summary and the three decisions — note the ONE winning format and the CHANGE/STOP bullets. Nothing in your plan may contradict them.
+1. Read the week's per-post reach and saves yourself, directly in each app's analytics — note the ONE winning format (best reach + saves for the effort) and write your own CHANGE/STOP bullets in the tracker. If a week-1 report is already in the shared drive **READY/** folder, cross-check against it — never wait for it.
 2. Inventory what's left: which `social-media/rendered/` files (day3–day7 feed + story) and video assets are still unposted — reuse your Day-1 audit list rather than re-auditing.
 3. Draft 5 posts, one row each: **hook** (from the sprint-15 backlog or this week's hooks-inbox — audience wording first) · **asset** (exact file path, or "new 15s reel in winning format" where the winner demands video) · **platform(s)** · **publish day** (Mon–Fri, fixed times from `buzzend-marketing/11-publishing/publishing-playbook.md`).
 4. Bias the mix: at least 2 of the 5 repeat the winning format with one variation each (one variable changed per the learning loop); at least 1 supports the ongoing 7-Day Squat Starter (day-6/day-7 leaderboard moment, framed in brand style — never a raw capture).
-5. Write the 5 rows into the tracker, then send the plan to Avinaya in team chat and get an explicit approval or edits TODAY — Monday must start with a settled plan.
-6. Apply his edits immediately and mark the plan APPROVED in the tracker.
+5. Write the 5 rows into the tracker and drop a copy of the plan in the shared drive **READY/** folder — Avinaya verifies async the same day; fixes go out as follow-up edits to later rows, nothing ever waits.
+6. Mark the plan SET in the tracker — Monday starts from row 1 regardless.
 
-**Deliverable:** 5-post week-2 plan (hook · asset path · platform · day) in the tracker, marked APPROVED.
-**Done when:** Avinaya has approved in chat and anyone could publish Monday's post from row 1 alone.
-**Depends on:** Avinaya · Day 7 · Task 1 (do step 2 while you wait for the report).
+**Deliverable:** 5-post week-2 plan (hook · asset path · platform · day) in the tracker, marked SET, copy in READY/.
+**Done when:** The 5 rows are in the tracker, a copy sits in READY/, and anyone could publish Monday's post from row 1 alone.
+**Depends on:** —
 
 ## Task 2 · 🟡 Hook-bank refresh — 5 real phrases from this week's audience (30 min)
 

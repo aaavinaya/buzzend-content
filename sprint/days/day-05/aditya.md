@@ -1,25 +1,25 @@
 # Day 5 — Aditya
 
-**Objective:** Deliver the complete "7-Day Squat Starter" content kit Riya publishes today, then top up the b-roll gaps the week-1 queue still has.
+**Objective:** Deliver the complete "7-Day Squat Starter" content kit to READY/ for today's publish, then top up the b-roll gaps the week-1 queue still has.
 **Total time:** ~2.5h
 
 ## Task 1 · 🔥 Build the challenge content kit — join-flow recording, your day-1 entry, 3 stories + 1 feed visual (90–110 min)
 
-**Why:** Avinaya puts the flagship challenge live this morning and Riya announces it everywhere today (her Day-5 Task 1). Per your Day-2 handover, the creation pass is yours: real footage of joining and doing day 1, framed into on-brand assets — a live challenge with real proof beats any mockup.
-**Where:** Buzzend app + your filming spot, then Canva. Riya posts the feed visual in the lunch slot and the stories right after — deliver by late morning (evening stories are her fallback, don't force it).
-**Tools:** Phone (screen recorder + camera), Canva, `social-media/rendered/day2-feed.png` + `day2-story.png` (the style to adapt), `brand/design-guide.md`, shared assets folder.
+**Why:** The flagship challenge is this week's centerpiece and the announcement assets publish today. Per your Day-2 handover, the creation pass is yours: real footage of joining and doing day 1, framed into on-brand assets — a live challenge with real proof beats any mockup.
+**Where:** Buzzend app + your filming spot, then Canva. The feed visual goes in the lunch slot and the stories right after — have the kit in READY/ by late morning.
+**Tools:** Phone (screen recorder + camera), Canva, `social-media/rendered/day2-feed.png` + `day2-story.png` (the style to adapt), `brand/design-guide.md`, `buzzend-marketing/12-community/how-to-join-squat-starter.md`, shared assets folder.
 
 **Steps:**
-1. Wait for Avinaya's ping that the challenge is live and `buzzend-marketing/12-community/how-to-join-squat-starter.md` is posted (his Day-5 Task 1). If you didn't join during onboarding, join now using ONLY the doc's 5 steps — flag any step that doesn't match your screen.
-2. Screen-record the join flow exactly as the doc describes: open app → Discover → find **7-Day Squat Starter** → join → the first counted squat. Do Not Disturb on, notifications cleared, clean profile name — raw device recordings are raw material, never published as-is.
+1. Open Discover in the app yourself and look for **7-Day Squat Starter** — don't wait for a ping. If it's live, join it using ONLY the 5 steps in `buzzend-marketing/12-community/how-to-join-squat-starter.md` and flag in the tracker any step that doesn't match your screen. If it isn't live yet, join (or start) the nearest real challenge you can see and film that flow instead — real screens only, never a mockup — note the swap in the tracker and re-record the Squat Starter flow as a follow-up the moment it appears.
+2. Screen-record the join flow exactly as it happens on your device: open app → Discover → find the challenge → join → the first counted squat. Do Not Disturb on, notifications cleared, clean profile name — raw device recordings are raw material, never published as-is.
 3. Film your own day-1 challenge entry on camera: 10 real squats, vertical, counter counting out loud. This is your genuine leaderboard entry, not a prop.
-4. Sync with Gaurab in team chat: he's capturing the real Android leaderboard this morning (his Day-5 Task 1) — agree the split so nothing is made twice. Plan: his leaderboard capture feeds story (b); your join recording feeds story (c); your counted-squat clip feeds story (a); you own the design pass.
+4. Leaderboard footage for story (b): if a leaderboard capture is already in **READY/**, use it; otherwise screen-record the real leaderboard yourself on your own device — you just joined, your entry is on the board. Never wait, never mock it up. Your join recording feeds story (c); your counted-squat clip feeds story (a); you own the design pass.
 5. In Canva, adapt the `day2-feed.png` / `day2-story.png` look with the REAL challenge name — headline **7-Day Squat Starter — 10 squats a day, camera-counted** — and build: 3 vertical stories (1080×1920): (a) your counted-squat moment + "10 squats a day. The camera counts them.", (b) the live leaderboard framed in brand style + "Live leaderboard — day 1", (c) the join steps condensed to 3 short lines; plus 1 feed visual (1080×1080) announcing the challenge. One CTA on the kit: join the 7-Day Squat Starter.
-6. Banned-words pass against `buzzend-marketing/00-strategy/what-is-buzzend.md`, export everything to the shared assets folder, log paths in the tracker, and ping Riya — she publishes from these today.
+6. Self-check against the review card (checklist #7 in `buzzend-marketing/16-templates/workflow-templates.md`): real counts on the exact phone, one CTA, no banned words (`buzzend-marketing/00-strategy/what-is-buzzend.md`). Export everything to **READY/** named `day5-challenge-kit-*`, log paths in the tracker — whoever publishes works from READY/; Avinaya verifies async same day, fixes ship as follow-ups. Nothing waits.
 
-**Deliverable:** Join-flow recording + your day-1 entry clip in `buzzend-footage/`, and 3 story assets + 1 feed visual in the shared assets folder, paths logged.
-**Done when:** Riya confirms in team chat she can publish the kit as-is, before her story slot.
-**Depends on:** Avinaya · Day 5 · Task 1 (the live challenge + join doc).
+**Deliverable:** Join-flow recording + your day-1 entry clip in `buzzend-footage/`, and 3 story assets + 1 feed visual in **READY/**, paths logged.
+**Done when:** The full kit is in READY/ with paths logged before the lunch slot, and every asset passes your review-card self-check.
+**Depends on:** —
 
 ## Task 2 · 🟡 B-roll top-up — film what the week-1 queue still lacks (40–50 min)
 

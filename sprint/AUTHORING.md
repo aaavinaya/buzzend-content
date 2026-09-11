@@ -35,6 +35,11 @@ Parser rules (violating these breaks the dashboard build):
 - Every task heading must match: `## Task N · <🔥|🟡|🟢> <title> (<time>)`.
   🔥 = must happen today · 🟡 = important · 🟢 = optional (say why in **Why:**).
 - Body sections are plain markdown; `**Depends on:**` is `—` when none.
+- **Cross-person dependencies are banned** (team decision 2026-09-11):
+  a task may only depend on the same person's earlier tasks. Inputs from
+  teammates come from the shared drive `READY/` folder with an inline
+  fallback ("if READY/ is empty, do X yourself and continue"). All
+  verification belongs to Avinaya's daily sweep and never gates anyone.
 - 2–4 tasks per person per day; total time 2–4 hours, realistic.
 
 Content rules:

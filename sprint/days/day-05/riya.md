@@ -10,16 +10,16 @@
 **Tools:** Laptop + phone, Canva, `social-media/rendered/day2-feed.png` + `day2-story.png`, `social-media/week1-content-calendar.md`, template #8 in `buzzend-marketing/16-templates/workflow-templates.md`.
 
 **Steps:**
-1. First, join the challenge yourself with the 5 steps in `buzzend-marketing/12-community/how-to-join-squat-starter.md` (3 minutes — it verifies the doc works, and you'll need your own streak for tomorrow's QA task).
+1. First, join the challenge yourself with the 5 steps in `buzzend-marketing/12-community/how-to-join-squat-starter.md` (3 minutes — it verifies the doc works, and you'll need your own streak for tomorrow's QA task). If the challenge name in the app differs from the doc, use the real in-app name in everything you publish today.
 2. Open `day2-feed.png` and `day2-story.png` (already challenge-themed). If the text works as the announcement, use them as-is; otherwise make a 10-minute Canva variant swapping the headline to **7-Day Squat Starter — 10 squats a day, camera-counted**. No other redesign.
 3. Adapt the Day-2 captions from `social-media/week1-content-calendar.md` per platform: keep the voice, add the real challenge name. FB carries all 5 join steps in the post body + both store links from `sprint/config.js`; IG says "join steps in our story — link in bio"; TikTok gets one line + link in bio. One CTA everywhere: join the 7-Day Squat Starter. No second CTA.
-4. Publish per `buzzend-marketing/11-publishing/publishing-playbook.md`: IG feed + FB in the lunch slot, Gaurab's 3 story assets to IG Story right after, TikTok in the evening slot.
+4. Publish per `buzzend-marketing/11-publishing/publishing-playbook.md`: IG feed + FB in the lunch slot, the 3-story set to IG Story right after — take the newest matching story assets from the shared drive **READY/** folder; if nothing is there, make a minimal 10-minute Canva variant of `social-media/rendered/day2-story.png` in brand colors (`#ff6b00` on `#fff8f2`) and continue — the story slot never skips. TikTok in the evening slot.
 5. Run the template #8 checklist before each post — tap the bio link on your phone first, cover frame chosen, exactly one CTA.
 6. Stay online 30–60 min after each post and reply to every early comment; log every post URL in the `Social` tab.
 
 **Deliverable:** Post #2 live on IG + FB + TikTok, 3-story set on IG Story, all URLs in `Social`.
 **Done when:** All URLs are logged and the bio links open the correct store pages when tapped on a phone.
-**Depends on:** Avinaya · Day 5 · Task 1 (challenge + join doc; if Gaurab · Day 5 · Task 1's story assets aren't ready by story time, post the feed first and the stories in the evening).
+**Depends on:** —
 
 ## Task 2 · 🟡 Story extras — countdown + poll, reply to everything (30–45 min)
 

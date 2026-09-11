@@ -26,16 +26,16 @@
 
 **Why:** This is the sprint's public ending: the honest numbers post builds the audience that watches sprint two, and personally thanking the people who joined makes them the community every future challenge starts from.
 **Where:** Instagram (+ Facebook cross-post), TikTok if the carousel translates, Stories.
-**Tools:** Phone, your Day-14 approved draft, final numbers from `buzzend-marketing/14-weekly-reports/sprint-readout.md`, `buzzend-marketing/16-templates/workflow-templates.md` (checklist #8), permissions log from the tracker.
+**Tools:** Phone, your Day-14 draft, the numbers you can read in the tracker and each platform's analytics, `buzzend-marketing/16-templates/workflow-templates.md` (checklist #8), permissions log from the tracker.
 
 **Steps:**
-1. Open your Day-14 draft and replace every `[X]` placeholder with the final corrected numbers from the readout. Double-check each against the doc — a wrong public number costs more trust than a bad post.
+1. Open your Day-14 draft and publish it as-is, replacing any remaining `[X]` placeholder with the numbers you can read yourself in the tracker and each platform's analytics. If a sprint readout is already in the shared drive **READY/** folder (or committed at `buzzend-marketing/14-weekly-reports/sprint-readout.md`), cross-check against it — never wait for it. Double-check every number — a wrong public number costs more trust than a bad post.
 2. Run publishing checklist #8: native file, caption first line restates the hook, ONE CTA, link in bio tapped and tested on a phone, cover frame set.
 3. Publish at the fixed slot. Stay 30–60 minutes replying to every comment — honest-numbers posts attract questions; answer them all warmly.
-4. Then the thank-you stories: one story thanking early users, one celebrating challenge finishers — first names ONLY for people whose permission is logged in the tracker (Day-12/13 threads). Anyone not cleared gets a collective thank-you, not a name. Use the framed leaderboard visuals from Gaurab's Day-13 recordings — never the raw recording.
+4. Then the thank-you stories: one story thanking early users, one celebrating challenge finishers — first names ONLY for people whose permission is logged in the tracker (Day-12/13 threads). Anyone not cleared gets a collective thank-you, not a name. Leaderboard visuals: the newest framed file from the shared drive **READY/** folder if one is there, otherwise frame your own in-app leaderboard screenshot in Canva — never a raw recording, never wait.
 5. Reshare the main post to Stories with a "we read every reply" sticker or question box; paste notable responses into the hooks-inbox in `buzzend-marketing/05-hooks/hook-bank.md`.
-6. Log everything in the tracker: live URLs, publish times, and mark the Day-14 draft PUBLISHED so Gaurab can archive it today.
+6. Log everything in the tracker: live URLs, publish times, and mark the Day-14 draft PUBLISHED — then drop a copy of the published carousel in the shared drive **READY/** folder; Avinaya verifies async the same day, and any number fix goes out as a follow-up story or comment, nothing ever waits.
 
-**Deliverable:** "First 15 days" post live with final numbers + thank-you stories up + URLs logged.
+**Deliverable:** "First 15 days" post live with the numbers you could read + thank-you stories up + URLs logged.
 **Done when:** Post and stories are live, every named person had logged permission, and the tracker row says PUBLISHED.
-**Depends on:** Riya · Day 14 · Task 2 (the approved draft) — and Avinaya · Day 14 · Task 1 for the final numbers.
+**Depends on:** Riya · Day 14 · Task 2 (the draft — publish it as-is with the numbers visible in the tracker).

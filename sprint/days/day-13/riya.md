@@ -10,7 +10,7 @@
 **Tools:** Phone, Growth Tracker, `buzzend-marketing/12-community/community-playbook.md`.
 
 **Steps:**
-1. Pick the 3 most active users of this sprint: cross-reference your Day-12 invite log, the challenge leaderboard regulars (Gaurab's list from today), and whoever comments on everything. Existing conversation threads only.
+1. Pick the 3 most active users of this sprint: cross-reference your Day-12 invite log, the challenge leaderboard regulars (read the leaderboard directly in the app — use a regulars list from the shared drive **READY/** folder only if one is already there), and whoever comments on everything. Existing conversation threads only.
 2. Message each one personally, by name: would they record a 15–30s honest clip of themselves working out with Buzzend — their real setup, the counter counting out loud? Be clear it's their honest take, unscripted, and we'd love to feature them on our profiles (that's the offer — visibility, not payment; there is no budget and no incentive).
 3. If someone says yes, send the simple filming tips as a short friendly list: prop the phone so the camera sees your whole body, decent light, counter volume up, one continuous take, film vertical (9:16) — and don't polish it, real beats pretty.
 4. Ask for permission explicitly in the same thread: "OK if we post this on our Instagram/TikTok with your first name?" Screenshot/save the yes.

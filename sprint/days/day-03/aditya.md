@@ -1,11 +1,11 @@
 # Day 3 — Aditya
 
-**Objective:** Build the reusable master clip set for all five exercises, then edit Reel #1 from Riya's script — your first production day as the team's Maker.
+**Objective:** Build the reusable master clip set for all five exercises, then script and edit Reel #1 yourself, end to end — your first production day as the team's Maker.
 **Total time:** ~2.75h
 
 ## Task 1 · 🔥 Film the master clip set — 5 exercises, counter genuinely counting (75–90 min)
 
-**Why:** Every future edit — Reels, stories, the collab pitch, the carousel — needs real footage of a person moving while the number climbs. Filming all five exercises once, labeled, means future videos are cut, not re-shot. Gaurab is building the Android screen-capture library today (his Day-3 Task 1); this is its camera-side twin.
+**Why:** Every future edit — Reels, stories, the collab pitch, the carousel — needs real footage of a person moving while the number climbs. Filming all five exercises once, labeled, means future videos are cut, not re-shot — and your whole lane runs from this library without waiting on anyone.
 **Where:** A room with floor space and daylight, using your Day-2 setup notes.
 **Tools:** Phone (Buzzend + camera), something to prop it against, shared drive, Growth Tracker.
 
@@ -18,23 +18,23 @@
 6. Index every clip in the tracker: filename · exercise · wide/close · length · verified count (e.g. "12 squats = 12 counted"). Write the "what it shows" column for someone who hasn't seen the clip.
 
 **Deliverable:** 10+ labeled clips (5 exercises × wide + close) in `buzzend-footage/master-set/` + a full index in the tracker.
-**Done when:** A teammate can find and download "the lunge close-up" from the tracker alone, and every clip's on-screen count matches real reps.
+**Done when:** Anyone could find and download "the lunge close-up" from the tracker alone, and every clip's on-screen count matches real reps.
 **Depends on:** Aditya · Day 2 · Task 3 (your proven filming setup and notes).
 
-## Task 2 · 🔥 Edit Reel #1 from Riya's script and deliver the master for approval (60–75 min)
+## Task 2 · 🔥 Script and edit Reel #1, drop the master in READY/ (60–75 min)
 
-**Why:** Reel #1 is the sprint's first public proof that the camera really counts, and it publishes tomorrow at fixed times. Avinaya's Day-3 review (his Task 1) is waiting on your edit — the earlier you deliver, the more time for his one-fix turnaround.
-**Where:** CapCut on your phone/laptop; source footage from Task 1; the script doc linked in the tracker.
-**Tools:** CapCut, Riya's Reel #1 script (her Day-2 Task 1), shared drive, `buzzend-marketing/07-scripts/how-to-write-a-script.md` (the beat structure — example script 1 is literally this squat demo).
+**Why:** Reel #1 is the sprint's first public proof that the camera really counts, and it publishes tomorrow at fixed times. You own it end to end — script, edit, self-check, READY/ drop — so nothing about tomorrow's publish waits on anyone today.
+**Where:** CapCut on your phone/laptop; source footage from Task 1.
+**Tools:** CapCut, `buzzend-marketing/05-hooks/hook-bank.md`, `buzzend-marketing/07-scripts/how-to-write-a-script.md` (the beat structure — example script 1 is literally this squat demo), shared drive, `buzzend-marketing/16-templates/workflow-templates.md` (checklist #7 — your review card).
 
 **Steps:**
-1. Open Riya's script and check the §40 line at the bottom — fill it with today's real test data from Task 1 (phone model, camera position, verified count). If the script's blanks were meant for the shoot, they close now.
-2. Assemble in CapCut to the script's beats: HOOK 0–2s (counter close-up already climbing + on-screen hook text ≤10 words), PROOF (the wide squat take, count audible), EXPLANATION (the approved one-liner), end card + spoken CTA **"Try your first AI workout."**
+1. Get the script: if a Reel #1 script is already in the shared drive **READY/** folder, use it — never wait. Otherwise write your own 5-line script in 10 minutes: a Proof-category hook from `buzzend-marketing/05-hooks/hook-bank.md`, the beats from `buzzend-marketing/07-scripts/how-to-write-a-script.md` (example script 1 is this exact squat demo). Fill the §40 line with today's real test data from Task 1 (phone model, camera position, verified count).
+2. Assemble in CapCut to the script's beats: HOOK 0–2s (counter close-up already climbing + on-screen hook text ≤10 words), PROOF (the wide squat take, count audible), EXPLANATION (the approved one-liner from `buzzend-marketing/00-strategy/what-is-buzzend.md`), end card + spoken CTA **"Try your first AI workout."**
 3. Turn on auto-captions and proof them word-by-word (most people watch muted — the sound-off test in `buzzend-marketing/05-hooks/hook-system.md`). On-screen text big, high contrast.
 4. Cut to 15–30 seconds total. Read the hook rule again: text readable in one glance on frame 1.
-5. Export a clean 1080×1920 master, no watermark, named `reel1-squat-master.mp4`; pick a cover frame (person + counter) and export it too.
-6. Drop both in the shared drive, note the path in the tracker, and ping Avinaya for his approval pass (his Day-3 Task 1). Stay reachable — if he sends back ONE fix, turn it around today, not tomorrow.
+5. Export a clean 1080×1920 master, no watermark, plus a cover frame (person + counter).
+6. Self-check against the review card (checklist #7): real counts on the exact phone, one CTA, no banned words. Drop master + cover in **READY/** named `day3-reel1-squat-master.mp4` / `day3-reel1-squat-cover.png`, log the paths in the tracker. Avinaya verifies async same day; fixes ship as follow-ups. Nothing waits.
 
-**Deliverable:** `reel1-squat-master.mp4` + cover frame in the shared drive, path logged, Avinaya pinged.
-**Done when:** Avinaya has the master in review today and any fix he lists is applied same-day.
-**Depends on:** Riya · Day 2 · Task 1 (the script), Aditya · Day 3 · Task 1 (the squat takes).
+**Deliverable:** `day3-reel1-squat-master.mp4` + cover frame in **READY/**, paths logged in the tracker.
+**Done when:** The master and cover sit in READY/ today, the self-check passes, and the paths are in the tracker.
+**Depends on:** Aditya · Day 3 · Task 1 (the squat takes).

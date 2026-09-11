@@ -10,13 +10,13 @@
 **Tools:** Posting logins, publishing playbook, Growth Tracker.
 
 **Steps:**
-1. Final check on Aditya's streak master: every number on screen is real (an actual streak, not a mockup).
+1. Take the newest streak master from READY/ and final-check it: every number on screen is real (an actual streak, not a mockup). If READY/ is empty by 17:00, screen-record your own streak screen and cut a simple version yourself — the slot never slips.
 2. Publish to IG + Shorts at playbook times; captions from the week-2 plan.
 3. Log URLs in the `Social` tab; reply to every comment and DM today.
 
 **Deliverable:** Reel #3 live on IG + Shorts, URLs in the tracker.
 **Done when:** Both URLs logged, replies sent, all on-screen numbers real.
-**Depends on:** Aditya · Day 9 · Task 1 (the edited streak master).
+**Depends on:** —
 
 ## Task 2 · 🟡 Same-day reply to every comment and DM (30–45 min)
 

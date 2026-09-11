@@ -15,10 +15,10 @@
 3. Repost the same video as a new post: same file, same caption, same hashtags, same cover frame, same pinned comment ("It's Buzzend — App Store & Google Play 🔗 in bio", links from `sprint/config.js` via the bio page). Time is the ONLY thing that changes.
 4. Stay 30–60 min after posting replying to comments, same as the original got.
 5. Log it in `Experiments` using template #13 from `buzzend-marketing/16-templates/planning-templates.md`: Hypothesis ("We believe posting at [new slot] will improve views + link taps because our followers are most active then"), the ONE variable (posting time), Control (original post + its first-72h numbers), Metric (views, link taps, store visits in 72h), Review date = Day 15.
-6. Check Avinaya's experiment row from this morning — confirm you two used different videos.
+6. In your `Experiments` row, name the exact video you reposted (file + original post URL) so any overlap with other experiments is visible at a glance — Avinaya dedupes the rows async; don't wait on or check anyone else's row.
 
 **Deliverable:** Repost live at the new slot + one complete `Experiments` row with a Day-15 review date.
-**Done when:** Both experiment rows sit in the tab, each with exactly one variable and a review date.
+**Done when:** Your experiment row sits in the tab with exactly one variable, the named video, and a review date.
 **Depends on:** —
 
 ## Task 2 · 🟡 Android polish pass on everything we've published (45–60 min)

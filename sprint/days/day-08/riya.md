@@ -10,8 +10,8 @@
 **Tools:** Phone (logged into the Buzzend account), Growth Tracker, `buzzend-marketing/16-templates/outreach-templates.md`.
 
 **Steps:**
-1. Read the DM template and its rules in `buzzend-marketing/16-templates/outreach-templates.md` (5 min).
-2. Take Avinaya's 5 starred creators from `Outreach`. For each: watch/read their 2–3 most recent posts properly — you need one genuine, specific thing to say.
+1. Read the DM template and its rules in `buzzend-marketing/16-templates/outreach-templates.md` (5 min). If the creator-DM template isn't in the file yet, write your own 3-line skeleton in 10 minutes (specific-post first line · one plain Buzzend sentence · one honest ask) and continue.
+2. Take the top 5 un-contacted creators from the `Outreach` tab as-is (starred rows first if any are starred). If the tab has none, spend the first 25 minutes researching 5 yourself — home-workout / beginner-fitness / challenge creators in the growwithjo/MadFit mold — and add them as rows. For each: watch/read their 2–3 most recent posts properly — you need one genuine, specific thing to say.
 3. Write each DM fresh from the template: first line references a **specific recent post** (name it — "your no-equipment leg day from Tuesday"), 60–90 words total, **one clear ask**. No two DMs may share a first line.
 4. Read each back once before sending: would you reply to this? Any hype word or second ask — cut it.
 5. Send all 5 from the Buzzend account, spaced through the afternoon (not five in five minutes — that reads as spam).
@@ -20,7 +20,7 @@
 
 **Deliverable:** 5 personalized DMs sent, 5 `Outreach` rows updated with date + status.
 **Done when:** All 5 rows show `Sent` with today's date, and each DM references a different specific post.
-**Depends on:** Avinaya · Day 8 · Task 1 (the starred list) + Avinaya · Day 8 · Task 2 (the template).
+**Depends on:** —
 
 ## Task 2 · 🟡 Publish week-2 post #1 (30–40 min)
 

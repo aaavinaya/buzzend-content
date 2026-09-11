@@ -19,7 +19,7 @@
 
 **Deliverable:** Every Day-8 non-responder bumped once; every responder answered; agreements in `Outreach` with name + date.
 **Done when:** No row from Days 8–9 has a stale status, and any `Agreed` row could be executed by someone else from the sheet alone.
-**Depends on:** Riya · Day 9 · Task 1 (statuses must be current before you bump anyone).
+**Depends on:** —
 
 ## Task 2 · 🟡 Run the 15-minute team sync (15–20 min)
 
@@ -37,3 +37,19 @@
 **Deliverable:** Decisions + owners in team chat and the tracker.
 **Done when:** Every open item from the three agenda points has a name and a day next to it.
 **Depends on:** Avinaya · Day 11 · Task 1 (bring current statuses to the call).
+
+## Task 3 · 🟡 Daily verification sweep — you own all QA now (15–20 min)
+
+**Why:** Nobody waits for approval anymore — everyone ships solo and you verify after the fact. This sweep keeps "no gates" from becoming "no standards".
+**Where:** Shared drive READY/ folder + every post that went live today.
+**Tools:** Approval card (checklist #7 in `buzzend-marketing/16-templates/workflow-templates.md`), tracker.
+
+**Steps:**
+1. Open READY/ and today's live post URLs (tracker `Social` tab).
+2. Check each item: every count real · exactly one CTA · no banned words · caption line 1 restates the hook · links point at the go/ pages.
+3. Anything off: write ONE exact fix in the tracker and ping the owner — fixes ship as follow-ups or edits; published posts stay up unless a rep count is fake (only then: take it down immediately).
+4. Mark each item ✅ verified / 🔁 follow-up in the tracker Notes.
+
+**Deliverable:** Everything shipped today marked verified or follow-up in the tracker.
+**Done when:** Nothing in READY/ or today's posts is unreviewed.
+**Depends on:** —

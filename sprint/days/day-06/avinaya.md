@@ -10,14 +10,14 @@
 **Tools:** Posting logins, `buzzend-marketing/11-publishing/publishing-playbook.md` (times), Growth Tracker.
 
 **Steps:**
-1. Receive Aditya's edited Beat-It master from the shared drive; one final check (real counts, captions, CTA).
+1. Take the newest Beat-It master from the shared drive READY/ folder; one final check (real counts, captions, CTA). If nothing is in READY/ by 17:00, cut a 15-second version yourself from the b-roll library in CapCut — the slot never slips.
 2. Publish to IG Reels and YouTube Shorts at the playbook's posting times, captions from the calendar.
 3. Log both URLs + posting times in the `Social` tab.
 4. Reply to every comment in the first hour.
 
 **Deliverable:** Reel #2 live on IG + Shorts, URLs in `Social`.
 **Done when:** Both URLs are logged and first-hour comments have replies.
-**Depends on:** Aditya · Day 6 · Task 1 (the edited Beat-It master).
+**Depends on:** —
 
 ## Task 2 · 🟡 Reply to every comment and DM across platforms (30–40 min)
 

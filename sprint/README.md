@@ -11,6 +11,16 @@ analytics; Gaurab runs Android/Play + community; Riya runs publishing
 support, outreach and engagement. Aditya joined after Days 1–2 were
 done — his day-01/day-02 files are a same-day onboarding catch-up.
 
+**Solo-lane rule (since 2026-09-11): no cross-person dependencies.**
+Every task is executable alone, the same day. Handoffs go through the
+shared drive **READY/** folder: finish → self-check → drop it in READY/
+→ move on. If an input you'd like isn't in READY/, use the stated
+fallback in your task (make a minimal version yourself, reuse the
+closest existing asset) — never wait for a teammate. **All verification
+is Avinaya's job**, done as a daily after-the-fact sweep; it never
+blocks anyone's publishing. The only hard stop: a fake rep count comes
+down immediately.
+
 **Open the dashboard:** `sprint/index.html`
 (live: `https://aaavinaya.github.io/buzzend-content/sprint/`)
 

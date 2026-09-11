@@ -14,7 +14,7 @@
 2. Two kinds of keeper: (a) home-workout/challenge creators posting Shorts, 1k–50k subscribers; (b) Android app reviewers who do "apps you need" videos and actually install what they show.
 3. Eyeball engagement the YouTube way: recent Shorts views versus subscriber count (recent Shorts pulling views near or above the sub count = alive), and comment sections with real replies. Dead channels with old uploads: skip.
 4. Add 10 rows to the same `Outreach` tab, same columns as Avinaya's: **Handle · Platform · Followers (subs) · Why they fit** (name a specific video) **· Best contact route** (YouTube "About" email, or the IG they link).
-5. Mark your top 3 — Riya folds them into her Day-9 batch.
+5. Mark your top 3 in the tracker — they feed the next contact batch, whoever runs it.
 
 **Deliverable:** 10 YouTube rows in `Outreach`, all columns filled, top 3 marked.
 **Done when:** Every row names a specific video under "why they fit" and has a working contact route.
@@ -22,17 +22,17 @@
 
 ## Task 2 · 🟡 List 5 local gyms/fitness communities + a 3-line collab pitch (45–60 min)
 
-**Why:** A friendly inter-gym challenge ("which crew logs more camera-verified squats this week?") is a real, cheap collab — and local communities say yes to a person, not a brand. Today is research only; nobody gets contacted until the team reviews this at the Day-11 sync.
+**Why:** A friendly inter-gym challenge ("which crew logs more camera-verified squats this week?") is a real, cheap collab — and local communities say yes to a person, not a brand. Today is research + the pitch; sending starts Day 11 — no meeting or sign-off needed first.
 **Where:** Google Maps + Instagram/Facebook for local gyms, running clubs, university fitness groups; `Outreach` tab.
 **Tools:** Phone, Growth Tracker, `buzzend-marketing/00-strategy/what-is-buzzend.md` (approved wording for the pitch).
 
 **Steps:**
 1. List 5 candidates: gyms, calisthenics/running groups, or campus fitness clubs near you that are active online (posted within the last month).
 2. For each, find a **named contact person** — owner, head coach, or the admin replying to comments — plus how to reach them (IG DM, FB page, email on site).
-3. Add rows to `Outreach` tagged `local`: Name · Contact person · Route · Why they fit · Status = "not contacted — pending team review".
+3. Add rows to `Outreach` tagged `local`: Name · Contact person · Route · Why they fit · Status = "not contacted — sending from Day 11".
 4. Draft ONE honest 3-line pitch to reuse for all: line 1 — who we are (local team, free app, camera counts reps); line 2 — the idea (a friendly inter-gym challenge on Buzzend, live leaderboard, their name on it); line 3 — the ask (15 minutes to show them how it works). No hype words, no invented numbers.
-5. Paste the pitch draft in the team chat for review at the Day-11 sync — do not send it to anyone today.
+5. Ship the pitch: paste it in team chat and drop a copy in the shared drive **READY/** folder — Avinaya verifies async the same day; fixes go out as follow-ups, nothing ever waits. You send it from Day 11 without waiting for a sync; today stays send-free because outreach is warm-up-first, not because anyone has to approve it.
 
-**Deliverable:** 5 `local` rows in `Outreach` + the 3-line pitch in team chat.
-**Done when:** Each row has a named human, and the pitch is posted for review — with zero messages actually sent.
+**Deliverable:** 5 `local` rows in `Outreach` + the 3-line pitch in team chat and READY/.
+**Done when:** Each row has a named human, and the pitch is in team chat + READY/ — with zero messages actually sent today.
 **Depends on:** —

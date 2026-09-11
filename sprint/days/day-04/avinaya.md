@@ -7,7 +7,7 @@
 
 **Why:** Everything since Day 1 was preparation; this is the first content that can actually produce store visits. Posting at the playbook times and logging URLs today is what makes Day-8 timing decisions and Day-15 proof possible.
 **Where:** Instagram + YouTube apps, steps per `buzzend-marketing/11-publishing/publishing-playbook.md` (Per-post publishing steps).
-**Tools:** Phone, the `day-4-launch` kit rows in the tracker, bitly.com (free), publishing checklist #8 in `buzzend-marketing/16-templates/workflow-templates.md`.
+**Tools:** Phone, the publish kit in `avinaya-workspace/day3-4-5-execution.md` (captions, times, tracked links — all final), publishing checklist #8 in `buzzend-marketing/16-templates/workflow-templates.md`.
 
 **Steps:**
 1. Before anything: create one free Bitly account and shorten the App Store link from `sprint/config.js`. This is our first trackable link — Bitly's free click count tells us which bio actually sends people.
@@ -20,7 +20,7 @@
 
 **Deliverable:** Reel #1 live on IG + Shorts, Bitly link live in both bios, URLs + times logged in the tracker.
 **Done when:** Both post URLs are in the tracker and tapping each bio link opens our store page.
-**Depends on:** Avinaya · Day 3 · Task 1 (the master) + Riya · Day 3 · Task 2 (the staged kit).
+**Depends on:** Avinaya · Day 3 · Task 1 (the master).
 
 ## Task 2 · 🔥 Personal-network outreach: list 20, message 5 (45–60 min)
 

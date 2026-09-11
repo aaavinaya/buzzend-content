@@ -10,17 +10,18 @@
 **Tools:** Phone, the day-4-launch tracker rows (for each post's live time), notifications ON for all four apps today.
 
 **Steps:**
-1. Set an alarm for each post's staged time (IG midday, FB early afternoon, TikTok + Shorts evening). Your window starts when each goes live.
-2. Reply to **every** comment on today's posts within 2 hours — short, warm, human; corporate tone banned. Pin the best comment on each post.
+1. Set an alarm for each staged time from your day-4-launch tracker rows (IG midday, FB early afternoon, TikTok + Shorts evening). At each alarm, check all four apps and engage with whatever IS live — never wait on a slot that hasn't been posted yet.
+2. Reply to **every** comment on the live posts within 2 hours — short, warm, human; corporate tone banned. Pin the best comment on each post.
 3. Use the playbook reply patterns: skeptics get leaned into, never argued with ("That's exactly what everyone says right before it counts their squats out loud 😏"); tag-chains get replies to both people; never delete criticism, only spam.
 4. Paste any question or great audience phrasing into the hooks-inbox in `buzzend-marketing/05-hooks/hook-bank.md` — audience words become future hooks.
 5. Follow 20 relevant accounts per platform: home-workout and fitness-challenge creators, beginner-fitness communities — the growwithjo/MadFit archetype from the community playbook, not celebrities and not shredded gym elites.
 6. Leave 10 genuine comments on other people's fitness posts across platforms — actually helpful or encouraging, zero app plugs, no links. We're being a good neighbor, not an ad.
-7. Log in the tracker `Social` tab: comments received/answered per post, and anything that flopped or popped.
+7. If nothing is live during a window, spend that time on steps 5–6 instead — double the counts (40 follows, 20 genuine comments) so the hour still plants us in the neighborhood; check back for live posts before end of day.
+8. Log in the tracker `Social` tab: comments received/answered per post (or the doubled engagement counts), and anything that flopped or popped.
 
-**Deliverable:** 100% of comments answered within 2 hours, 20 follows per platform, 10 genuine outbound comments, notes in the tracker.
-**Done when:** No unanswered comment older than 2 hours exists on any of today's posts by end of day.
-**Depends on:** Avinaya · Day 4 · Task 1 + Gaurab · Day 4 · Task 1 (the posts must be live).
+**Deliverable:** 100% of comments on live posts answered within 2 hours, 20 follows per platform, 10 genuine outbound comments (doubled if nothing was live), notes in the tracker.
+**Done when:** By end of day, no comment on any live post sat unanswered longer than 2 hours — or, if nothing went live, the doubled follow/comment counts are logged.
+**Depends on:** —
 
 ## Task 2 · 🔥 Personal-network outreach: list 20, message 5 (45–60 min)
 

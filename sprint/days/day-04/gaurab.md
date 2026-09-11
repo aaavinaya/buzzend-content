@@ -7,20 +7,20 @@
 
 **Why:** TikTok is where a zero-follower account can still reach strangers tonight, so it gets the real effort; Facebook is a passive mirror per strategy — it gets the cross-post, not extra work. The story adds the one thing feeds can't: a tappable link sticker.
 **Where:** TikTok app + Meta Business Suite + Instagram Stories, steps per `buzzend-marketing/11-publishing/publishing-playbook.md`.
-**Tools:** Phone, the `day-4-launch` kit rows in the tracker, publishing checklist #8 in `buzzend-marketing/16-templates/workflow-templates.md`.
+**Tools:** Phone, the newest `day-4-launch` files in the shared drive **READY/** folder, publishing checklist #8 in `buzzend-marketing/16-templates/workflow-templates.md`.
 
 **Steps:**
-1. At the staged TikTok time (18:00–21:00, after the day's IG/FB posts have landed): upload the clean Reel #1 master (never a watermarked re-upload — publishing sin #1).
-2. Caption exactly as staged: starts with the search phrase, 3–5 hashtags (#GymTok #beginnerfitness #homeworkout #squats per the playbook's quick reference), cover frame = person + counter.
-3. Immediately pin the comment: "It's Buzzend — App Store & Google Play 🔗 in bio", then tap the bio link yourself to confirm it works.
-4. Stay 30–60 minutes replying to every early comment — first-hour velocity matters most on TikTok.
-5. Facebook mirror at the staged early-afternoon slot (13:00–15:00): cross-post from Meta Business Suite with the staged FB caption. Don't build anything extra for FB — it's a mirror, per strategy.
-6. Post the launch story on IG Stories using the staged teaser (`video/teaser-1080x1920.mp4` from the kit) with a link sticker → the store link from `sprint/config.js`, sticker text "Try your first AI workout ⬇".
-7. Record every post URL + exact time in the tracker `Social` tab and today's `Daily Numbers` row; run checklist #8 on each.
+1. Get the kit yourself: take the newest `day-4-launch` files (Reel #1 clean master, captions, teaser) from the shared drive **READY/** folder. If nothing is there, make a minimal kit in 10 minutes and continue: caption adapted from the day-4 row of `social-media/week1-content-calendar.md`, story visual = the closest file in `social-media/rendered/`, video = the best clip from your own Day-3 b-roll.
+2. In the evening slot (18:00–21:00, after the day's IG/FB posts have landed): upload the clean Reel #1 master to TikTok (never a watermarked re-upload — publishing sin #1).
+3. Caption: starts with the search phrase, 3–5 hashtags (#GymTok #beginnerfitness #homeworkout #squats per the playbook's quick reference), cover frame = person + counter.
+4. Immediately pin the comment: "It's Buzzend — App Store & Google Play 🔗 in bio", then tap the bio link yourself to confirm it works. Stay 30–60 minutes replying to every early comment — first-hour velocity matters most on TikTok.
+5. Facebook mirror in the early-afternoon slot (13:00–15:00): cross-post from Meta Business Suite, caption = the same caption trimmed for FB. Don't build anything extra for FB — it's a mirror, per strategy.
+6. Post the launch story on IG Stories using the teaser (`video/teaser-1080x1920.mp4`) with a link sticker → the store link from `sprint/config.js`, sticker text "Try your first AI workout ⬇".
+7. Record every post URL + exact time in the tracker `Social` tab and today's `Daily Numbers` row; run checklist #8 on each. Drop a copy of everything you shipped (files + captions) in **READY/** — Avinaya verifies async the same day; fixes go out as follow-ups, nothing ever waits.
 
 **Deliverable:** TikTok post live + FB mirror + launch story with link sticker, all URLs and times in the tracker.
-**Done when:** All three are live at their staged times, the pinned TikTok comment is up, and the tracker rows are filled.
-**Depends on:** Riya · Day 3 · Task 2 (the staged kit with files, captions and times).
+**Done when:** All three are live in their slots, the pinned TikTok comment is up, and the tracker rows are filled.
+**Depends on:** —
 
 ## Task 2 · 🔥 Personal-network outreach: list 20, message 5 (45–60 min)
 

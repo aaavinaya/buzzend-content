@@ -39,17 +39,17 @@
 
 ## Task 3 · 🟡 Mirror Reel #2 to TikTok (20–30 min)
 
-**Why:** TikTok is our biggest cold-reach channel and Avinaya's hands are full — the clean master exists, mirroring it is 20 minutes.
+**Why:** TikTok is our biggest cold-reach channel — the mirror ships today with whatever master is available, and it's 20 minutes.
 **Where:** TikTok app.
-**Tools:** Android phone, the clean master from Avinaya, `buzzend-marketing/11-publishing/publishing-playbook.md`.
+**Tools:** Android phone, the newest Reel #2 clean master in the shared drive **READY/** folder, `buzzend-marketing/11-publishing/publishing-playbook.md`.
 
 **Steps:**
-1. Get the clean master from Avinaya (never a watermarked re-upload — publishing sin #1).
+1. Take the newest Reel #2 clean master from the shared drive **READY/** folder (never a watermarked re-upload — publishing sin #1). If nothing is there, make a minimal version yourself in 10 minutes and continue: your strongest Day-3 b-roll clip with a caption adapted from `social-media/week1-content-calendar.md`.
 2. Upload natively in the evening slot (18:00–21:00): caption starts with the search phrase, 3–5 hashtags, cover frame = person + counter visible.
 3. Immediately pin the comment: "It's Buzzend — App Store & Google Play 🔗 in bio" (links in bio come from `sprint/config.js`).
 4. While it processes, do today's 10 counted squats — your streak and the challenge leaderboard need to stay honest before tomorrow's review-asks.
-5. Stay 30–45 min replying to early comments, then log the URL in the `Social` tab.
+5. Stay 30–45 min replying to early comments, then log the URL in the `Social` tab and drop what you posted in **READY/** — Avinaya verifies async the same day; fixes go out as follow-ups, nothing ever waits.
 
 **Deliverable:** Reel #2 live on TikTok with pinned comment; URL in `Social`.
 **Done when:** URL logged and the bio link opens the Play Store page when tapped.
-**Depends on:** Avinaya · Day 6 · Task 1
+**Depends on:** —

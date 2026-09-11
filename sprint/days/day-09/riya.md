@@ -11,16 +11,16 @@
 
 **Steps:**
 1. First: update yesterday's 5 rows — anyone replied overnight? Set `Replied` / `Interested` and answer them within the hour; flag warm ones to Avinaya.
-2. Pick the next 10 un-contacted creators across both lists (Avinaya's IG/TikTok rows + Gaurab's 3 marked YouTube rows).
+2. Pick the next 10 un-contacted creators straight from the `Outreach` tab as-is — IG/TikTok and YouTube rows alike. If fewer than 10 un-contacted rows exist, research the difference yourself first (same growwithjo/MadFit archetype) and add them as rows before sending.
 3. For each: 2–3 recent posts watched, one specific first line naming a real post, 60–90 words, one ask — written fresh from the template every time.
 4. YouTube creators: use the contact route in their row (About-page email or linked IG) — same message, email-shaped if needed.
 5. Space the sends across the day; 10 in one burst looks like a bot.
 6. Log all 10 in `Outreach`: Date + Status = `Sent`.
-7. Evening sweep: update every status so the tab reflects reality — Avinaya's Day-11 follow-ups depend on these being accurate.
+7. Evening sweep: update every status so the tab reflects reality — the Day-11 follow-up round is planned straight from these statuses.
 
 **Deliverable:** 10 new DMs sent; `Outreach` shows 15 contacted with current statuses.
 **Done when:** 15 rows have a date + live status, and no reply is older than a few hours unanswered.
-**Depends on:** Avinaya · Day 8 · Task 1 + Gaurab · Day 8 · Task 1 (the remaining un-contacted creators).
+**Depends on:** —
 
 ## Task 2 · 🟡 Create the Instagram "Community" highlight + first repost (30–45 min)
 

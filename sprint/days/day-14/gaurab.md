@@ -21,16 +21,16 @@
 **Done when:** Every keyword swap has a real search term behind it, and the tracker shows old vs new for both stores.
 **Depends on:** —
 
-## Task 2 · 🟡 Verify both listings on real devices (40–50 min)
+## Task 2 · 🟡 Verify both listings from your own devices (40–50 min)
 
 **Why:** Same rule as Day 2: metadata edits sometimes truncate, garble, or render differently than the console preview. Two weeks of ASO work dies if the live listing reads broken.
-**Where:** Play Store on your Android device + App Store on an iPhone (grab Avinaya's).
-**Tools:** Both phones, screenshots, Growth Tracker.
+**Where:** Play Store on your Android device + the iOS listing in a web browser.
+**Tools:** Android phone, a browser, screenshots, Growth Tracker.
 
 **Steps:**
 1. Once the Play edits show live, open our listing on a real Android device: read the short description exactly as shown, check where the full description truncates ("Read more" fold), confirm no keyword-stuffed sentence reads robotic.
 2. Search "buzzend" plus 3 of the new SURPRISE terms on Play; screenshot our position for each (scroll max 50).
-3. On the iPhone, confirm the current iOS listing is unchanged and intact (the keyword string is staged, not live — nothing should have moved).
+3. Open the iOS listing in your browser via the App Store link from `sprint/config.js` (apps.apple.com renders the live listing) and confirm it's unchanged and intact (the keyword string is staged, not live — nothing should have moved). No iPhone needed — an on-device iOS pass happens async later, nothing waits on it.
 4. Screenshot both listings and file them in the tracker next to the Day-2 verification shots, dated — the before/after picture pair for the readout.
 5. Anything broken: fix in the console today and re-verify.
 

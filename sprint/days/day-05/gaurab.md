@@ -28,12 +28,13 @@
 **Tools:** Phone, your 20-contact list from Day 4, `Outreach` tab, `buzzend-marketing/12-community/how-to-join-squat-starter.md`.
 
 **Steps:**
-1. Pick 5 from your 20-contact list: start with Day-4 invitees who already installed (easiest yes), then the next warmest names you haven't messaged yet.
-2. Message each one individually, in your own words, opening with something real about them — never the same text twice. The ask: "join my 7-day squat challenge — 10 squats a day, the phone camera counts them."
-3. Attach the right steps for each person: full 5 steps + the store link from `sprint/config.js` if they don't have the app; just the in-app join steps if they do.
-4. Reply to questions immediately and personally. If the counter misbehaves for someone, get phone model + exercise details and log it in tracker Notes — that's product feedback, not a reason to argue.
-5. Log all 5 in `Outreach`: name · date · "invited to Squat Starter" · response · joined? (update this column tomorrow).
+1. Check the app: if **7-Day Squat Starter** is live, grab its join code and go. If it isn't live yet, don't wait — create it yourself in 10 minutes with the in-app create-challenge flow (squats, 10/day, 7 days, camera-verified), drop the join code in the shared drive **READY/** folder and team chat, and continue; Avinaya verifies async the same day.
+2. Pick 5 from your 20-contact list: start with Day-4 invitees who already installed (easiest yes), then the next warmest names you haven't messaged yet.
+3. Message each one individually, in your own words, opening with something real about them — never the same text twice. The ask: "join my 7-day squat challenge — 10 squats a day, the phone camera counts them."
+4. Attach the right steps for each person: full 5 steps from `buzzend-marketing/12-community/how-to-join-squat-starter.md` + the store link from `sprint/config.js` if they don't have the app; just the in-app join steps if they do.
+5. Reply to questions immediately and personally. If the counter misbehaves for someone, get phone model + exercise details and log it in tracker Notes — that's product feedback, not a reason to argue.
+6. Log all 5 in `Outreach`: name · date · "invited to Squat Starter" · response · joined? (update this column tomorrow).
 
 **Deliverable:** 5 personal invites sent + 5 new `Outreach` rows.
 **Done when:** All 5 are messaged and logged, and every reply received so far has a personal answer.
-**Depends on:** Avinaya · Day 5 · Task 1
+**Depends on:** —

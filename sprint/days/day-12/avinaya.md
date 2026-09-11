@@ -11,13 +11,13 @@
 
 **Steps:**
 1. Pick the winning Reel by store visits/installs correlation, not likes; pick the challenger hook from the bank.
-2. Brief Aditya: same Reel, only the first 2 seconds change (he delivers the re-cut — his Day-12 Task 1).
+2. Take the newest hook-variant from READY/. If there isn't one, do the 2-second hook swap yourself in CapCut (10 minutes) — or shift the experiment to tomorrow and log the slip in Experiments.
 3. Publish the variant as a new Reel at the same time slot the original went out.
 4. Log a complete `Experiments` row: hypothesis · variable (hook only) · metric (store visits/installs) · review date Day 15.
 
 **Deliverable:** Variant live + one complete Experiments row with a Day-15 review date.
 **Done when:** Anyone reading the row knows what's tested, against what, measured how, and when we'll know.
-**Depends on:** Aditya · Day 12 · Task 1 (the hook-variant re-cut).
+**Depends on:** —
 
 ## Task 2 · 🟡 Record the mid-sprint numbers row and write the 3-line trend note (35–45 min)
 

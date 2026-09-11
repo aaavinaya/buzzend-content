@@ -15,12 +15,12 @@
 3. Write the full, honest answer first — solve their actual problem even if Buzzend never comes up.
 4. Only where the sub's saved rules allow it AND the app truly answers the question, mention Buzzend once with full disclosure — "I helped build it" — and a link only if rules permit. If in doubt: no mention.
 5. Log each thread next to your Day-6 research notes: sub, thread link, mention yes/no, reaction (upvotes/replies) — check back tonight and update.
-6. TikTok mirror: take Avinaya's exported Reel #3 file, post it to TikTok with a TikTok-native caption (rewrite it — don't paste the IG caption; see the TikTok playbook in `buzzend-marketing/08-social-media/`). Reply to early comments for the first 30 min.
-7. Log the TikTok URL in the tracker `Social` tab.
+6. TikTok mirror: take the newest Reel #3 master from the shared drive **READY/** folder. If nothing is there, make a minimal version yourself in 10 minutes and continue: your strongest Day-3 b-roll clip with a caption adapted from `social-media/week1-content-calendar.md` (approved wording per `buzzend-marketing/00-strategy/what-is-buzzend.md`). Post it to TikTok with a TikTok-native caption (rewrite it — don't paste the IG caption; see the TikTok playbook in `buzzend-marketing/08-social-media/`). Reply to early comments for the first 30 min.
+7. Log the TikTok URL in the tracker `Social` tab and drop what you posted in **READY/** — Avinaya verifies async the same day; fixes go out as follow-ups, nothing ever waits.
 
 **Deliverable:** 3 genuine answers logged with reactions + Reel #3 live on TikTok.
 **Done when:** All 3 threads and the TikTok URL are logged, and any Buzzend mention carries the "I helped build it" disclosure.
-**Depends on:** Avinaya · Day 9 · Task 1 (the Reel export — do the Reddit half first, mirror when it lands).
+**Depends on:** —
 
 ## Task 2 · 🟡 Challenge health check + leaderboard capture (30 min)
 
@@ -33,7 +33,7 @@
 2. Nudge stallers in the friends group chat, friendly and human ("day 5 tonight? I'll do mine at 7") — never in-app spam.
 3. Screenshot the challenge leaderboard.
 4. In the group chat, ask everyone visible for an explicit OK to show their name in a post/story — note who says yes.
-5. Drop the screenshot + the cleared-names list into team chat: Riya's Day-10 carousel and story build on it, and you'll screen-record this same screen tomorrow.
+5. Drop the screenshot + the cleared-names list into team chat and the shared drive **READY/** folder: tomorrow's carousel and story build on it, and you'll screen-record this same screen tomorrow.
 6. Add a row to the tracker `Daily Numbers` notes: active participants, day-4+ count.
 
 **Deliverable:** Health list + permission-cleared leaderboard screenshot in team chat.

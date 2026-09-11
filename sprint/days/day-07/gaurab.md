@@ -10,7 +10,7 @@
 **Tools:** Phone, `Outreach` tab, store links from `sprint/config.js`.
 
 **Steps:**
-1. From `Outreach`, list everyone you and the team invited on Days 4–5, and keep only people who ACTUALLY use it — they installed and did at least one counted workout or challenge day. Confirm in the thread if unsure ("did the squat counter behave for you?").
+1. From the `Outreach` tab as it stands (your own invitees first — if teammates' rows are missing, work from yours alone, don't wait), list everyone invited on Days 4–5, and keep only people who ACTUALLY use it — they installed and did at least one counted workout or challenge day. Confirm in the thread if unsure ("did the squat counter behave for you?").
 2. Pick the 5 with the most real usage. If fewer than 5 qualify, ask fewer — never pad the list with someone who hasn't genuinely used the app.
 3. Message each one individually, in your own words: thank them for trying it, then ask for an **honest** review on the store they use — explicitly say "whatever you really think helps us". No incentives, no "5 stars would be great", no copy-paste text.
 4. Send each the right link from `sprint/config.js` (Play for Android friends, App Store for iOS) so it's one tap.
