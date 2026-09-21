@@ -1,0 +1,162 @@
+<!--
+  Buzzend · Play Store / YouTube portrait promo — 1080×1920, ~34s.
+  Timeline: 0-2.4 hook · 2.4-8.5 LIVE counter (JS counts 1→10) ·
+  8.5-13.5 challenges · 13.5-18.5 leaderboard · 18.5-23.5 streaks ·
+  23.5-28.5 home · 28.5-34 CTA. Record via tools/record.mjs (35s).
+-->
+<meta charset="utf-8">
+<title>Buzzend promo portrait</title>
+<style>
+  @font-face { font-family: "Inter"; src: url("../assets/fonts/Inter-latin.woff2") format("woff2"); font-weight: 100 900; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body { font-family: "Inter", -apple-system, sans-serif; color: #fff;
+    background: linear-gradient(150deg, #ff6b00 0%, #ff9f43 100%);
+    -webkit-font-smoothing: antialiased; position: relative; }
+  .glow { position: absolute; border-radius: 50%; filter: blur(110px); }
+  .g1 { width: 720px; height: 720px; right: -220px; top: -260px; background: rgba(255,255,255,.2); }
+  .g2 { width: 640px; height: 640px; left: -240px; top: 950px; background: rgba(178,60,0,.45); }
+
+  /* ── scene 0: hook ── */
+  .hook { position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+    z-index: 8; background: linear-gradient(150deg, #ff6b00 0%, #ff9f43 100%);
+    animation: hookout .6s ease 2.4s forwards; }
+  .hook h1 { font-size: 110px; font-weight: 900; line-height: 1.08; letter-spacing: -3px; padding: 0 90px;
+    opacity: 0; transform: scale(.85); animation: pop .65s cubic-bezier(.2,1.3,.35,1) .25s forwards; }
+  .hook h1 em { font-style: normal; color: #ffe3c9; }
+  @keyframes pop { to { opacity: 1; transform: scale(1); } }
+  @keyframes hookout { to { opacity: 0; visibility: hidden; } }
+
+  /* ── header (from scene 1 on) ── */
+  .head { position: absolute; top: 96px; left: 0; right: 0; text-align: center; z-index: 5;
+    opacity: 0; animation: rise .6s ease 2.6s forwards; }
+  .head img { width: 96px; height: 96px; border-radius: 24%; box-shadow: 0 14px 40px rgba(120,45,0,.4); }
+  .head .word { margin-top: 16px; font-size: 46px; font-weight: 900; }
+  @keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+
+  /* ── captions ── */
+  .cap { position: absolute; top: 330px; left: 60px; right: 60px; text-align: center;
+    font-size: 58px; font-weight: 900; letter-spacing: -1px; opacity: 0; z-index: 5; }
+  .cap b { color: #ffe3c9; }
+  @keyframes capshow { 0% {opacity:0; transform:scale(.92)} 10% {opacity:1; transform:scale(1)} 90% {opacity:1} 100% {opacity:0} }
+  .cap1 { animation: capshow 6.1s ease 2.4s forwards; }
+  .cap2 { animation: capshow 5s ease 8.5s forwards; }
+  .cap3 { animation: capshow 5s ease 13.5s forwards; }
+  .cap4 { animation: capshow 5s ease 18.5s forwards; }
+  .cap5 { animation: capshow 5s ease 23.5s forwards; }
+
+  /* ── phone ── */
+  .phone { position: absolute; left: 50%; top: 480px; width: 620px;
+    background: #101415; border-radius: 66px; padding: 18px;
+    box-shadow: 0 50px 110px rgba(0,0,0,.42);
+    transform: translateX(-50%) translateY(1600px);
+    animation: slideup .9s cubic-bezier(.2,1,.3,1) 2.5s forwards; z-index: 3; }
+  @keyframes slideup { to { transform: translateX(-50%) translateY(0); } }
+  .phone::after { content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+    width: 160px; height: 38px; background: #101415; border-radius: 0 0 20px 20px; z-index: 4; }
+  .screen { border-radius: 48px; overflow: hidden; background: #16130f; height: 1240px; position: relative; }
+  .screen img { position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: top; opacity: 0; }
+  .s2 { animation: shot 5s linear 8.5s forwards; }
+  .s3 { animation: shot 5s linear 13.5s forwards; }
+  .s4 { animation: shot 5s linear 18.5s forwards; }
+  .s5 { animation: shotHold 5s linear 23.5s forwards; }
+  @keyframes shot { 0% {opacity:0} 6% {opacity:1} 94% {opacity:1} 100% {opacity:0} }
+  @keyframes shotHold { 0% {opacity:0} 6% {opacity:1} 100% {opacity:1} }
+
+  /* ── live counter scene (inside the screen, 2.4–8.5s) ── */
+  .counter { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+    background: radial-gradient(120% 90% at 50% 30%, #3a2a20 0%, #241a12 45%, #12100e 100%);
+    animation: shot 6.4s linear 2.3s forwards; opacity: 0; }
+  .counter .tag { margin-top: 90px; background: rgba(255,255,255,.12); border-radius: 999px;
+    padding: 16px 30px; font-size: 26px; font-weight: 800; letter-spacing: 4px; display: flex; gap: 12px; align-items: center; }
+  .counter .dot { width: 14px; height: 14px; border-radius: 50%; background: #ff6b00; }
+  .counter .num { margin-top: 60px; font-size: 300px; font-weight: 900; line-height: 1;
+    text-shadow: 0 8px 50px rgba(0,0,0,.55); }
+  .counter .num.bump { animation: bump .28s ease; }
+  @keyframes bump { 40% { transform: scale(1.18); color: #ff9f43; } }
+  .counter .hint { margin-top: 20px; font-size: 24px; color: rgba(255,255,255,.55); font-weight: 600; }
+  .counter svg { margin-top: 40px; }
+  .counter .pill { margin-top: auto; margin-bottom: 90px; background: rgba(20,16,12,.78);
+    border-radius: 999px; padding: 20px 38px; font-size: 27px; font-weight: 700; }
+
+  /* ── CTA finale ── */
+  .shade { position: absolute; inset: 0; background: rgba(60,20,0,.45); opacity: 0;
+    animation: fadein .6s ease 28.5s forwards; z-index: 6; }
+  @keyframes fadein { to { opacity: 1; } }
+  .cta-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 34px; z-index: 7; opacity: 0; animation: fadein .5s ease 28.9s forwards; }
+  .cta-wrap img { width: 150px; height: 150px; border-radius: 24%; box-shadow: 0 18px 50px rgba(0,0,0,.4);
+    transform: scale(.6); animation: pop .6s cubic-bezier(.2,1.4,.35,1) 29s forwards; }
+  .cta-wrap h2 { font-size: 84px; font-weight: 900; letter-spacing: -2px; text-align: center; padding: 0 80px; line-height: 1.1; }
+  .cta-wrap .btn { background: #fff; color: #ff6b00; border-radius: 999px; padding: 32px 60px;
+    font-size: 42px; font-weight: 900; box-shadow: 0 20px 60px rgba(60,20,0,.45); }
+  .cta-wrap .stores { font-size: 30px; font-weight: 700; color: rgba(255,255,255,.92); }
+</style>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="hook"><h1>Your phone counts <em>your reps.</em></h1></div>
+
+<div class="head">
+  <img src="../assets/app-icon.png" alt="">
+  <div class="word">Buzzend</div>
+</div>
+
+<div class="cap cap1">⚡ Hands-free. <b>Camera-verified.</b></div>
+<div class="cap cap2">🏆 Challenge your <b>crew</b></div>
+<div class="cap cap3">🥇 Climb the <b>live leaderboard</b></div>
+<div class="cap cap4">🔥 Don't break the <b>chain</b></div>
+<div class="cap cap5">📈 Every rep, step & <b>streak</b></div>
+
+<div class="phone">
+  <div class="screen">
+    <div class="counter">
+      <div class="tag"><span class="dot"></span>SQUATS</div>
+      <div class="num" id="repnum">0</div>
+      <div class="hint">tap the number to fix a miss</div>
+      <svg width="300" height="330" viewBox="0 0 240 290" fill="none">
+        <g stroke="#ff6b00" stroke-width="9" stroke-linecap="round">
+          <line x1="120" y1="78" x2="112" y2="150"/><line x1="82" y1="92" x2="158" y2="92"/>
+          <line x1="82" y1="92" x2="52" y2="120"/><line x1="52" y1="120" x2="30" y2="96"/>
+          <line x1="158" y1="92" x2="188" y2="120"/><line x1="188" y1="120" x2="210" y2="96"/>
+          <line x1="86" y1="152" x2="138" y2="152"/><line x1="86" y1="152" x2="52" y2="196"/>
+          <line x1="138" y1="152" x2="176" y2="196"/><line x1="52" y1="196" x2="62" y2="258"/>
+          <line x1="176" y1="196" x2="166" y2="258"/>
+        </g>
+        <circle cx="122" cy="52" r="22" stroke="#ff6b00" stroke-width="9"/>
+        <g fill="#fff"><circle cx="82" cy="92" r="7"/><circle cx="158" cy="92" r="7"/>
+          <circle cx="52" cy="120" r="7"/><circle cx="188" cy="120" r="7"/><circle cx="30" cy="96" r="7"/>
+          <circle cx="210" cy="96" r="7"/><circle cx="86" cy="152" r="7"/><circle cx="138" cy="152" r="7"/>
+          <circle cx="52" cy="196" r="7"/><circle cx="176" cy="196" r="7"/><circle cx="62" cy="258" r="7"/>
+          <circle cx="166" cy="258" r="7"/></g>
+      </svg>
+      <div class="pill">Squats · counting</div>
+    </div>
+    <img class="s2" src="../assets/screens-clean/challenge.png" alt="">
+    <img class="s3" src="../assets/screens-clean/activity.png" alt="">
+    <img class="s4" src="../assets/screens-clean/streak.png" alt="">
+    <img class="s5" src="../assets/screens-clean/home.png" alt="">
+  </div>
+</div>
+
+<div class="shade"></div>
+<div class="cta-wrap">
+  <img src="../assets/app-icon.png" alt="">
+  <h2>Try your first AI workout.</h2>
+  <div class="btn">Download free</div>
+  <div class="stores">App Store · Google Play</div>
+</div>
+
+<script>
+  // live rep counting: 1→10 between ~3.2s and ~7.8s, popping each tick
+  const num = document.getElementById('repnum');
+  let n = 0;
+  setTimeout(function tick() {
+    n += 1;
+    num.textContent = n;
+    num.classList.remove('bump'); void num.offsetWidth; num.classList.add('bump');
+    if (n < 10) setTimeout(tick, 470);
+  }, 3200);
+</script>
