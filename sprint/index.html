@@ -24,10 +24,7 @@
 <div class="card">
   <h2>Days <span class="pill" id="todayPill" hidden></span></h2>
   <table class="days">
-    <thead><tr><th>Day</th>
-      <th><a href="person.html?p=avinaya">Avinaya</a></th>
-      <th><a href="person.html?p=gaurab">Gaurab</a></th>
-      <th><a href="person.html?p=riya">Riya</a></th></tr></thead>
+    <thead><tr id="dayHead"><th>Day</th></tr></thead>
     <tbody id="dayRows"></tbody>
   </table>
 </div>
@@ -64,6 +61,8 @@ const S = window.Sprint, cfg = S.cfg, GH = S.store;
 document.getElementById('title').textContent = cfg.sprintName;
 
 function renderAll() {
+  document.getElementById('dayHead').innerHTML = '<th>Day</th>' +
+    cfg.people.map(p => `<th><a href="person.html?p=${p.id}">${p.name}</a></th>`).join('');
   const overall = S.progress();
   document.getElementById('overallPct').textContent = overall.pct + '%';
   document.getElementById('overallBar').style.width = overall.pct + '%';
