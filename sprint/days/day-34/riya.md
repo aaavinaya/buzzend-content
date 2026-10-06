@@ -17,7 +17,7 @@
 
 **Deliverable:** Sprint2-Results complete + funnel table + bottleneck sentence.
 **Done when:** Every baseline metric has a sprint-2 value or an explicit gap note.
-**Depends on:** —
+**Depends on:** — (any App Store Connect / Play Console number or screen you can't reach yourself: ask Avinaya or Gaurab in chat to pull or export it — that is their standing duty)
 
 ## Task 2 · 🟡 Outreach closeout (30 min)
 

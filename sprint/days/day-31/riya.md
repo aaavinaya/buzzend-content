@@ -17,7 +17,7 @@
 
 **Deliverable:** Metadata submitted on both stores, logged with timestamps.
 **Done when:** ASC shows 'Waiting for Review' and Play shows the updated listing saved.
-**Depends on:** —
+**Depends on:** — (any App Store Connect / Play Console number or screen you can't reach yourself: ask Avinaya or Gaurab in chat to pull or export it — that is their standing duty)
 
 ## Task 2 · 🟡 Verification sweep — you own QA now (20 min)
 

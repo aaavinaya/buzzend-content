@@ -11,6 +11,13 @@ analytics; Gaurab runs Android/Play + community; Riya runs publishing
 support, outreach and engagement. Aditya joined after Days 1–2 were
 done — his day-01/day-02 files are a same-day onboarding catch-up.
 
+**Lane status (since 2026-10-06):** Avinaya and Gaurab are off sprint
+execution — zero open tasks, lanes show "—". Riya and Aditya run the
+catch-up week (days 31–35) and beyond. **Store-console rule:** any App
+Store Connect / Play Console number, export, or action that Riya/Aditya
+can't reach themselves is requested from Avinaya or Gaurab in team chat —
+responding to those requests is their one standing duty.
+
 **Solo-lane rule (since 2026-09-11): no cross-person dependencies.**
 Every task is executable alone, the same day. Handoffs go through the
 shared drive **READY/** folder: finish → self-check → drop it in READY/

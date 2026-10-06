@@ -22,21 +22,3 @@
 **Done when:** A newcomer could publish Monday's post correctly using only this doc and the files it links.
 **Depends on:** —
 
-## Task 2 · 🟡 Archive the sprint's working files (40–50 min)
-
-**Why:** Next sprint starts cleaner if superseded drafts aren't mixed in with living documents. The archive rule exists so nothing is deleted in anger — but nothing stale poses as current either.
-**Where:** `buzzend-marketing/17-archive/` + the folders holding sprint working files.
-**Tools:** Code editor, git, `buzzend-marketing/17-archive/README.md`.
-
-**Steps:**
-1. Sweep the sprint's working files and sort each into KEEP-LIVE or ARCHIVE:
-   - **Stays live:** the Growth Tracker (still the daily tool), `05-hooks/hook-bank.md`, `06-content-ideas/idea-backlog.md`, the calendar, the new SOP, everything in `14-weekly-reports/` (reports are append-only history — they never move).
-   - **Archive:** superseded drafts and one-off working notes — e.g. any post draft that's already published, old caption drafts replaced by published versions, the Day-1 asset shortlist now that it's spent.
-2. Archive from the current state of things — don't wait for anything to land: a draft not yet published stays live with a "still in flight as of Day 15" row in the README, and whoever ships it archives it as a follow-up.
-3. Move each archived file into `buzzend-marketing/17-archive/` and add a row to its README table: file, date, one-line reason ("superseded by published post, Day 15").
-4. Do NOT archive anything another doc still links to — check first, fix the link or leave the file.
-5. Commit with a message listing what moved, and drop a one-liner in team chat so nobody hunts for a moved file on Monday.
-
-**Deliverable:** Tidied folders + updated `17-archive/README.md` table (in-flight items flagged).
-**Done when:** Every file in the marketing folders is either current, in the archive with a reason, or flagged still-in-flight — nothing ambiguous.
-**Depends on:** —

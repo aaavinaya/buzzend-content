@@ -3,24 +3,6 @@
 **Objective:** Turn our first genuine users into honest store reviews — the right way — and find out whether Play lets us run listing experiments for Day 10.
 **Total time:** ~2h
 
-## Task 1 · 🔥 Ask 5 genuine early users for an honest store review (60–75 min)
-
-**Why:** Review count and recency lift store conversion, and this week created real users — friends who installed, joined the challenge, and had reps counted. They're the only people we ever ask: real users, individually, honestly. Strangers, incentives, and star-scripts are permanently off the table.
-**Where:** WhatsApp / Messenger — the same threads where you invited them.
-**Tools:** Phone, `Outreach` tab, store links from `sprint/config.js`.
-
-**Steps:**
-1. From the `Outreach` tab as it stands (your own invitees first — if teammates' rows are missing, work from yours alone, don't wait), list everyone invited on Days 4–5, and keep only people who ACTUALLY use it — they installed and did at least one counted workout or challenge day. Confirm in the thread if unsure ("did the squat counter behave for you?").
-2. Pick the 5 with the most real usage. If fewer than 5 qualify, ask fewer — never pad the list with someone who hasn't genuinely used the app.
-3. Message each one individually, in your own words: thank them for trying it, then ask for an **honest** review on the store they use — explicitly say "whatever you really think helps us". No incentives, no "5 stars would be great", no copy-paste text.
-4. Send each the right link from `sprint/config.js` (Play for Android friends, App Store for iOS) so it's one tap.
-5. If someone had a bad experience, do NOT push the review — get the details, log them in tracker Notes, and tell them you'll ping them when it's fixed. That thread is worth more than a review.
-6. Log all 5 asks in `Outreach`: name · date · "review ask" · store · response.
-
-**Deliverable:** Up to 5 personal review asks sent + `Outreach` rows for each.
-**Done when:** Every qualifying user is asked and logged, and nobody on the list is a stranger or non-user.
-**Depends on:** —
-
 ## Task 2 · 🟡 Check Play Console for Store listing experiments (30–40 min)
 
 **Why:** Day 10 is store-experiment day. Whether we can A/B test the listing properly — or must fall back to before/after comparison — changes how we prepare, so we find out now, not then.
