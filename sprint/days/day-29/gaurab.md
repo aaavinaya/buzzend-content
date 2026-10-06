@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Write the funnel analysis one-pager — clicks to challenge joins (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Avinaya reviews the sprint today from `Sprint2-Results`; this one-pager is the interpretation layer — five funnel steps, real percentages, and one named bottleneck. Next sprint's plan starts from whichever step this page circles.
 **Where:** The shared drive READY/ folder; Growth Tracker.
 **Tools:** Growth Tracker (`Sprint2-Results`, the Day-25 funnel table, `Daily Numbers`), `buzzend-marketing/13-analytics/metrics-for-beginners.md` (the funnel hierarchy — this page is its bottom half with real numbers).
@@ -22,6 +24,8 @@
 **Depends on:** Gaurab · Day 28 · Task 1 (the assembled results it interprets).
 
 ## Task 2 · 🟡 Communities thank-you round — zero asks (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** We end the sprint the way we behaved through it: as members. A thank-you with no ask attached is rare enough online that people remember it — and it's simply owed.
 **Where:** Every community we were active in this sprint (the logged threads from Days 19, 21, 23, 25).

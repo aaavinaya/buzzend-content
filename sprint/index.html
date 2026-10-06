@@ -84,7 +84,8 @@ function renderAll() {
   document.getElementById('dayRows').innerHTML = S.data.days.map(d => {
     const cells = cfg.people.map(p => {
       const pr = S.progress(p.id, d.n);
-      const cls = pr.total === 0 ? '' : pr.pct === 100 ? 'done' : pr.pct > 0 ? 'part' : '';
+      if (pr.total === 0) return `<td><span class="cell" style="opacity:.45">—</span></td>`;
+      const cls = pr.pct === 100 ? 'done' : pr.pct > 0 ? 'part' : '';
       const label = pr.pct === 100 ? '✓ 100%' : pr.pct + '%';
       return `<td><a class="cell ${cls}" href="day.html?d=${d.n}&p=${p.id}">${label}</a></td>`;
     }).join('');

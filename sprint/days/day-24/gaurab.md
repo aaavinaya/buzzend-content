@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Search-terms + conversion deep dive → "what search is telling us" one-pager (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** The Day-17 metadata round is a week old — old enough for the stores to react. This one-pager is what decides the Day-27 ASO iteration, so it has to say things plainly enough to act on.
 **Where:** play.google.com/console + App Store Connect; the shared drive READY/ folder.
 **Tools:** Play Console, ASC, Growth Tracker (`Sprint2-Baseline`, `Store-Android`, `Store-iOS`), `buzzend-marketing/13-analytics/metrics-for-beginners.md`.
@@ -22,6 +24,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Ask 5 more genuine users for honest reviews — different people (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Review velocity works as a steady drip, not a burst. Five more real users, five more honest asks — and Squad Squats has been running long enough to have its own engaged people now.
 **Where:** Buzzend app (both challenge leaderboards) + wherever we already talk to each person; `Outreach` tab.

@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Technical funnel check — clicks vs store visits vs installs (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** We track link clicks, store visits, and installs in three different places and have never lined them up. The step that loses the most people is where the cheapest win of the sprint is hiding.
 **Where:** Browser + play.google.com/console + App Store Connect + Growth Tracker.
 **Tools:** https://winjee-dev.firebaseio.com/sprint/links.json, Play Console, ASC, Growth Tracker (`Sprint2-Baseline`, `Daily Numbers`), `buzzend-marketing/13-analytics/metrics-for-beginners.md` (the funnel hierarchy).
@@ -22,6 +24,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Community participation round — help only (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Between announcement days, the account has to keep being a member, not a billboard. Rounds like this are why the announcement days work at all.
 **Where:** The top-ranked communities in `buzzend-marketing/12-community/where-were-welcome.md`.

@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Squad Squats health check + re-invite 5 lapsed participants (75–90 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Day 26 is roughly halfway through the 14-day challenge — the point where people quietly drop off. A challenge that visibly stays alive converts; one that goes quiet teaches everyone to ignore the next one. Warm, named nudges — never a blast.
 **Where:** Buzzend app on your Android phone; Growth Tracker; the shared drive READY/ folder.
 **Tools:** Android phone, screen recorder, Growth Tracker (`Outreach` tab + challenge log), `buzzend-marketing/12-community/community-playbook.md`.
@@ -22,6 +24,8 @@
 **Depends on:** Gaurab · Day 21 · Task 1 (the challenge being checked).
 
 ## Task 2 · 🟡 Data pull #3 — Days 22–25 + trend line to READY/ (30–40 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Third and last routine pull before the Day-28 full assembly — keeping the dailies current now is what makes Day 28 a two-hour job instead of a two-day one.
 **Where:** Play Console + App Store Connect + browser + Growth Tracker `Daily Numbers`.

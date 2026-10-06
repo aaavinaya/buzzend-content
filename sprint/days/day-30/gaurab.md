@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Update the publishing SOP with what Sprint 2 proved (75–90 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** The SOP written on Day 15 recorded what Sprint 1 did; Sprint 2 tested it at higher volume. A SOP that doesn't absorb what the last 15 days proved goes stale in one sprint — and this one is the team's operating manual.
 **Where:** `buzzend-marketing/15-team-workflow/publishing-sop.md`.
 **Tools:** Code editor, Growth Tracker (`Sprint2-Results`, `Experiments`, `Social`), the Day-29 funnel one-pager (copy in READY/), `buzzend-marketing/15-team-workflow/production-pipeline.md`.
@@ -23,6 +25,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Archive the Sprint-2 working files (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Same rule as Day 15: nothing deleted in anger, nothing stale posing as current. Whoever plans Sprint 3 should open folders that only contain living documents.
 **Where:** `buzzend-marketing/17-archive/` + the folders holding Sprint-2 working files.

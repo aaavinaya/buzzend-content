@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Send the gym collab pitch to 3 local gyms (75–90 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** A friendly inter-gym challenge ("which crew logs more camera-counted squats?") is a real collab that costs nothing and reaches people who already work out. The Day-8 research found the gyms and named the humans — today we finally send.
 **Where:** IG DM / Facebook page / email — whatever route each gym's `Outreach` row names.
 **Tools:** Phone, Growth Tracker `Outreach` tab (the Day-8 rows tagged `local`), the 3-line pitch from the shared drive READY/ folder, `buzzend-marketing/00-strategy/what-is-buzzend.md`.
@@ -22,6 +24,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Data pull #2 — Days 20–21 + trend line to READY/ (30–40 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Day 21 launched Squad Squats and its community posts — today's pull is the first look at whether any of it touched installs. Two days of data won't prove anything, but the habit of looking will.
 **Where:** Play Console + App Store Connect + browser + Growth Tracker `Daily Numbers`.

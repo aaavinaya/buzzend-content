@@ -20,7 +20,8 @@ for (const dir of dayDirs) {
   const day = { n, people: {} };
   for (const person of PEOPLE) {
     const file = path.join(DAYS_DIR, dir, `${person}.md`);
-    if (!existsSync(file)) { errors.push(`${dir}/${person}.md is missing`); continue; }
+    // missing file = lane paused that day (e.g. tasks transferred) — not an error
+    if (!existsSync(file)) continue;
     const src = readFileSync(file, 'utf8');
     const rel = `${dir}/${person}.md`;
 

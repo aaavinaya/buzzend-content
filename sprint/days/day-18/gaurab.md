@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Audit the challenge join-code and share flows on Android (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Users inviting users is the only free channel that scales itself, and right now nobody on the team can say from memory what a friend actually sees. Today we walk it as a stranger would and write it down — reference material, not product tickets.
 **Where:** Buzzend app on your Android phone; new file `buzzend-marketing/12-community/how-to-invite-friends.md`.
 **Tools:** Android phone, screenshots, code editor, `buzzend-marketing/12-community/how-to-join-squat-starter.md` (the format to mirror).
@@ -22,6 +24,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Fresh keyword rank check on both stores vs baseline (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Yesterday's metadata round only matters if positions move. Checking now, one day in, gives us the "before movement" marker the Day-24 deep dive will lean on.
 **Where:** Play Store on your Android device + the iOS App Store (an iPhone if you can borrow one).

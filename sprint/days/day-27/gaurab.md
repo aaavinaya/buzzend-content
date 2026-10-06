@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Run the ASO iteration from the Day-24 findings (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Day 24 wrote down exactly which phrases search confirmed and which died. Acting on it within the sprint — instead of "next time" — is the difference between a data pull and a growth loop.
 **Where:** play.google.com/console + App Store Connect; Growth Tracker.
 **Tools:** Play Console, ASC, the Day-24 one-pager (copy in READY/), Growth Tracker (`Store-Android`, `Store-iOS`), `buzzend-marketing/00-strategy/what-is-buzzend.md` (approved wording).
@@ -22,6 +24,8 @@
 **Depends on:** Gaurab · Day 24 · Task 1 (the findings this iteration acts on).
 
 ## Task 2 · 🟡 Gym-pilot follow-ups — one polite bump each (30–40 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Gym owners live in their DMs during dead hours, not when we message. One friendly bump 5 days later is normal business manners; a second one is pestering — so this is the only bump.
 **Where:** The same routes the Day-22 pitches went out on; `Outreach` tab.

@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Daily verification sweep (20–25 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** The team ships solo all day — this sweep is the only quality gate, done after the fact so nobody ever waits on you.
 **Where:** Shared drive READY/ folder + every post that went live today.
 **Tools:** Approval card (checklist #7 in `buzzend-marketing/16-templates/workflow-templates.md`), Growth Tracker.
@@ -20,6 +22,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Review challenge health + invite round (15–20 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Challenges are the retention engine — a stall here matters more than a slow post.
 **Where:** Shared drive READY/ + Growth Tracker.

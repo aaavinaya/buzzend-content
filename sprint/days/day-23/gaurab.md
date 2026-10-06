@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Reddit/Discord round 2 — 3 answers + share Squad Squats where welcome (75–90 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Community credit decays if you only show up to announce things. Round 2 keeps the ratio right: help first, and the challenge rides along only where the rules and the relationship allow it.
 **Where:** The top-ranked communities in `buzzend-marketing/12-community/where-were-welcome.md`.
 **Tools:** Reddit + Discord accounts, `where-were-welcome.md`, `buzzend-marketing/12-community/community-playbook.md`, Growth Tracker.
@@ -21,6 +23,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Record interim Play experiment results (30–40 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** The Day-17 experiment has had ~6 days. Play won't declare a winner this early at our volume, but writing down the interim numbers keeps us honest — and stops anyone from "remembering" the result differently later.
 **Where:** Play Console → Grow → Store presence → Store listing experiments; `Experiments` tab.

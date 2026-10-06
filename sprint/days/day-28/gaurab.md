@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Build the `Sprint2-Results` tab — every metric vs the Day-16 baseline (100–120 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Avinaya reviews the sprint tomorrow, async, from this tab alone. If a number is missing or fuzzy, the review is fuzzy — today's job is completeness and honesty, not interpretation.
 **Where:** play.google.com/console + App Store Connect + browser + Growth Tracker.
 **Tools:** Play Console, ASC, https://winjee-dev.firebaseio.com/sprint/links.json, Growth Tracker (`Sprint2-Baseline`, `Daily Numbers`, `Social`, `Experiments`), `buzzend-marketing/13-analytics/metrics-for-beginners.md`.
@@ -25,6 +27,8 @@
 **Depends on:** Gaurab · Day 16 · Task 1 (the baseline this tab is measured against).
 
 ## Task 2 · 🟡 Review-count delta + rating check on both stores (30 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** We made 15 honest review asks this sprint (Days 19 and 24). Today we find out what actually came in — and thank the people who showed up.
 **Where:** Both store listings + the consoles; `Outreach` + `Sprint2-Results`.

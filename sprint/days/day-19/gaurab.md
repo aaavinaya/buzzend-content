@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Community value round — 3 subreddit answers + 1 Discord answer (75–90 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Sprint 1 earned us standing in a handful of communities; Sprint 2 spends nothing it hasn't earned. Helpful answers are the deposit — mentions only where the rules allow, always disclosed.
 **Where:** The subreddits and Discord servers ranked in `buzzend-marketing/12-community/where-were-welcome.md`.
 **Tools:** Reddit + Discord accounts, `buzzend-marketing/12-community/where-were-welcome.md`, `buzzend-marketing/12-community/community-playbook.md`, Growth Tracker.
@@ -22,6 +24,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Ask 5 NEW engaged challenge participants for honest reviews (45–60 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Review velocity is a store ranking factor, and the only reviews worth having come from people genuinely working out with the app. Sprint 1 asked our first users; today we ask five people we haven't asked before.
 **Where:** Buzzend app (challenge leaderboards) + wherever we already talk to each person; Growth Tracker `Outreach` tab.

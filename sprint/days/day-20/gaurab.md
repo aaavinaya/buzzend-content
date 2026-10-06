@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Data pull #1 — Days 16–19 into the tracker + trend note to READY/ (60–75 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Sprint 2's whole promise is "scale acquisition" — the only way to know if it's happening is a daily line that gets read, not admired. This is the first of three pulls; small, regular, honest.
 **Where:** Play Console + App Store Connect + browser + Growth Tracker `Daily Numbers` tab.
 **Tools:** Play Console, ASC (access from Day 16), https://winjee-dev.firebaseio.com/sprint/links.json, Growth Tracker, `buzzend-marketing/13-analytics/metrics-for-beginners.md`.
@@ -21,6 +23,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Android QA pass on every published Sprint-2 post (45–60 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** Half our audience sees our content on Android screens, and Sprint 1 taught us that captions and playback break quietly. A 45-minute pass catches what analytics never will.
 **Where:** Instagram, TikTok, YouTube, Facebook apps on your Android phone (handles in `sprint/config.js`).

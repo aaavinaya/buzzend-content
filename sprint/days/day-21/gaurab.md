@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Set up the "Squad Squats" team challenge and seed it (90–110 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** The 7-Day Squat Starter was our best conversion tool in Sprint 1 — a second, bigger, public challenge is the most direct "scale what worked" move we have, and it costs nothing. Existing app features only; no product asks.
 **Where:** Buzzend app on your Android phone.
 **Tools:** Android phone, Buzzend app, screen recorder, Growth Tracker, the shared drive READY/ folder.
@@ -23,6 +25,8 @@
 **Depends on:** —
 
 ## Task 2 · 🟡 Post Squad Squats where self-promo is allowed (40–50 min)
+
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
 
 **Why:** A public challenge is only public if people hear about it. We announce it exactly where communities have told us promo is welcome — and nowhere else.
 **Where:** The communities whose `buzzend-marketing/12-community/where-were-welcome.md` rows allow self-promo.

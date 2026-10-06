@@ -5,6 +5,8 @@
 
 ## Task 1 · 🔥 Build the `Sprint2-Baseline` tab from the full Sprint-1 numbers (100–120 min)
 
+> ⚠️ **TRANSFERRED (2026-10-06):** this task moved to the Riya/Aditya catch-up plan (days 31–35). Leave unticked — do not work it.
+
 **Why:** Sprint 2 is about scaling acquisition from 4–5 installs/day, and "scaling" only means something against a frozen starting line. One tab, every number, dated today — on Day 28 we put the results right next to it.
 **Where:** play.google.com/console + App Store Connect + Growth Tracker.
 **Tools:** Play Console login, browser, Growth Tracker (`Daily Numbers`, `Social`, `Store-iOS`, `Store-Android` tabs), `buzzend-marketing/13-analytics/metrics-for-beginners.md` (the funnel dictionary).

@@ -1,7 +1,7 @@
 // Sprint configuration — the ONLY file with team/app specifics.
 // Fill the placeholders on Day 1 (Avinaya · Task 3), commit, push.
 window.SPRINT_CONFIG = {
-  sprintName: 'Buzzend — Growth Sprint HQ (Days 1–30)',
+  sprintName: 'Buzzend — Growth Sprint HQ (Days 1–35)',
   // First day of the sprint, YYYY-MM-DD. Drives "today" highlighting.
   startDate: '2026-09-07', // set so Sprint-2 Day 16 = 2026-09-22 (sprint 1 ran on its own pace)
   appStoreUrl: 'https://apps.apple.com/app/buzzend/id1658683882',
