@@ -51,8 +51,10 @@ for rel, title in GALLERIES.items():
     d = os.path.join(ROOT, rel)
     if not os.path.isdir(d):
         print("skip (missing):", rel); continue
-    imgs = sorted(f for f in os.listdir(d)
-                  if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")))
+    imgs = sorted(
+        os.path.relpath(os.path.join(r, f), d)
+        for r, _, fs in os.walk(d) for f in fs
+        if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")))
     depth = rel.count("/") + 1
     home = "../" * depth + "index.html"
     cells = "\n".join(CELL.format(f=html.escape(f)) for f in imgs)
