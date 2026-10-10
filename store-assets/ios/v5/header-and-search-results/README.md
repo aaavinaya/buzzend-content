@@ -5,7 +5,7 @@ results** and at the **top of the product page**. Upload these files in
 numbered order — position 01 is what someone searching "rep counter" or
 "squat counter" sees first.
 
-- `iphone-1320x2868/` → the iPhone slot (6.9-inch class; ASC scales down)
+- `iphone-1206x2622/` → the iPhone slot (6.1/6.3-inch class — the size this app's ASC upload flow accepts: 1206×2622)
   - 01 — "AI-POWERED. CAMERA-VERIFIED" · the PROOF shot, leads everything
   - 02 — "MOVE. AI COUNTS" · dual-exercise demo
   - 03 — "AI COUNTS YOUR REPS" · live-count close
